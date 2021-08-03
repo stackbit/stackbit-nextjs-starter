@@ -1,3 +1,8 @@
+const _ = require('lodash');
+const util = require('util');
+
+const isDev = process.env.NODE_ENV === 'development';
+
 module.exports = {
   plugins: [
     {
@@ -6,22 +11,24 @@ module.exports = {
         watch: isDev,
       },
     },
-    {
-      module: require('sourcebit-target-next'),
-      options: {
-        liveUpdate: isDev,
-        flattenAssetUrls: true,
-        pages: [
-          { path: '/{__metadata.urlPath}', predicate: _.matchesProperty('__metadata.modelName', 'advanced') },
-          { path: '/{__metadata.urlPath}', predicate: _.matchesProperty('__metadata.modelName', 'page') },
-          { path: '/{__metadata.urlPath}', predicate: _.matchesProperty('__metadata.modelName', 'post') },
-        ],
-        commonProps: {
-          pages: { predicate: _.matchesProperty('__metadata.modelType', 'page') },
-          posts: { predicate: _.matchesProperty('__metadata.modelName', 'post') },
-          data: { single: true, predicate: _.matchesProperty('__metadata.id', 'sourcebit-source-filesystem:data') },
+    (res) => {
+      console.log(
+        util.inspect(res, {
+          showHidden: true,
+          depth: 5,
+        })
+      );
+      return {
+        module: require('sourcebit-target-next'),
+        options: {
+          liveUpdate: isDev,
+          flattenAssetUrls: true,
+          pages: [{ path: '/{__metadata.urlPath}', predicate: _.matchesProperty('__metadata.modelName', 'advanced') }],
+          commonProps: {
+            pages: { predicate: _.matchesProperty('__metadata.modelType', 'page') },
+          },
         },
-      },
+      };
     },
   ],
 };

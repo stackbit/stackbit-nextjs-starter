@@ -55,8 +55,7 @@ const loadComponentData = async (component) => {
     fieldKeys.forEach((fieldKey) => {
       transformKeys.forEach((transformKey) => {
         if (fieldKey === transformKey) {
-          output.fields[component.dataSource.transform[fieldKey]] =
-            output.fields[fieldKey];
+          output.fields[component.dataSource.transform[fieldKey]] = output.fields[fieldKey];
           delete output.fields[fieldKey];
         }
       });
@@ -67,9 +66,7 @@ const loadComponentData = async (component) => {
 };
 
 const loadSectionData = async (section) => {
-  const components = await Promise.all(
-    section.components.map((component) => loadComponentData(component))
-  );
+  const components = await Promise.all(section.components.map((component) => loadComponentData(component)));
   return {
     ...section,
     components,
@@ -77,9 +74,7 @@ const loadSectionData = async (section) => {
 };
 
 const loadSections = async (arrangement) => {
-  const sections = await Promise.all(
-    arrangement.sections.map((section) => loadSectionData(section))
-  );
+  const sections = await Promise.all(arrangement.sections.map((section) => loadSectionData(section)));
   return {
     ...arrangement,
     sections,
@@ -125,9 +120,7 @@ export const sourcePage = async (id) => {
 export const sourcePaths = async (route) => {
   let paths = [];
   contentPagesFilenames.forEach((filename) => {
-    let data = JSON.parse(
-      fs.readFileSync(path.join(contentPagesDir, filename))
-    );
+    let data = JSON.parse(fs.readFileSync(path.join(contentPagesDir, filename)));
     if (data.url === '/') {
       paths.push({
         params: {

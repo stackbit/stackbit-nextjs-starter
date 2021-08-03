@@ -1,0 +1,28 @@
+stackbitVersion: ~0.3.0
+ssgName: nextjs
+nodeVersion: '12'
+cmsName: git
+buildCommand: npm run build
+publishDir: out
+assets:
+  referenceType: static
+  staticDir: public
+  uploadDir: images
+  publicPath: /
+dataDir: content/data
+pagesDir: content/pages
+pageLayoutKey: layout
+pageData:
+  - pagePath: /
+models:
+  advanced:
+    type: page
+    label: Advanced Page
+    layout: advanced
+    hideContent: true
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the page
+        required: true
