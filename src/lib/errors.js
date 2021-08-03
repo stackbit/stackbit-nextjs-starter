@@ -1,11 +1,9 @@
 import { pascalCase } from 'change-case';
 
-export const componentLoadError = (id, meta) => {
+export const componentLoadError = (type, variant, meta) => {
   throw new Error(
-    `No component found. Trying to load the component "${id}" from ${
-      meta.filename
-    }. Tried to find the component ${pascalCase(
-      id
-    )} in "src/components/library/index.js`
+    `No component found. Trying to load the component "${type}" from ${
+      meta.relProjectPath
+    }. Tried to find the component ${pascalCase(type)} in the Stackbit Components library`
   );
 };

@@ -20,10 +20,4 @@ sections:
         title: Head chef at Parks
         imageUrl: images/isabelle-parks.jpg
         imageAltText: Isabelle Parks
-  - type: posts_section
-    variant: variant-a
-    posts:
-      - content/pages/blog/sustainability-at-its-purest.md
-      - content/pages/blog/as-fresh-as-it-gets.md
-      - content/pages/blog/bi-weekly-subscription.md
 ---

@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# stackbit
+.sourcebit-nextjs-cache.json
+
 # testing
 /coverage
 

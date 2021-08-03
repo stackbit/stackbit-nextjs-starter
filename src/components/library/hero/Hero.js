@@ -10,7 +10,7 @@ const variants = {
   Hero1,
   Hero2,
   Hero3,
-  Hero7
+  Hero7,
 };
 
 const defaultFields = {

@@ -15,6 +15,244 @@ pageLayoutKey: layout
 pageData:
   - pagePath: /
 models:
+  config:
+    type: data
+    label: Site Configuration
+    fields:
+      - type: string
+        name: path_prefix
+        label: Base URL
+        description: >-
+          The base URL of this site. Useful for sites hosted under specific
+          path, e.g.: https://www.example.com/my-site/
+        required: true
+        hidden: true
+      - type: string
+        name: domain
+        label: Domain
+        description: >-
+          The domain of your site, including the protocol, e.g.
+          https://www.example.com/
+      - type: image
+        name: favicon
+        label: Favicon
+        description: A square icon that represents your website
+      - type: model
+        name: navbar
+        label: Navbar Configuration
+        models: [navbar]
+      - type: model
+        name: footer
+        label: Footer Configuration
+        models: [footer]
+    file: config.json
+  navbar:
+    type: object
+    label: Navbar Configuration
+    fields:
+      - type: enum
+        name: desktopNavVariant
+        label: Desktop nav variant
+        options:
+          - label: Variant A
+            value: variant-a
+          - label: Variant B
+            value: variant-b
+          - label: Variant C
+            value: variant-c
+          - label: Variant D
+            value: variant-d
+        default: variant-a
+        description: The variation of the navbar layout
+      - type: enum
+        name: mobileNavVariant
+        label: Mobile nav variant
+        options:
+          - label: Variant A
+            value: variant-a
+          - label: Variant B
+            value: variant-b
+        default: variant-a
+        description: The variation of the mobile navbar layout
+      - type: enum
+        name: primaryColors
+        label: Primary colors
+        options:
+          - label: Dark text on light background
+            value: colors-a
+          - label: Light text on dark background
+            value: colors-b
+          - label: Primary text on dark background
+            value: colors-c
+          - label: Dark text on primary background
+            value: colors-d
+          - label: Dark text on secondary background
+            value: colors-e
+        default: colors-a
+        description: The colors of the navbar
+      - type: enum
+        name: secondaryColors
+        label: Secondary colors
+        options:
+          - label: Dark text on light background
+            value: colors-a
+          - label: Light text on dark background
+            value: colors-b
+          - label: Primary text on dark background
+            value: colors-c
+          - label: Dark text on primary background
+            value: colors-d
+          - label: Dark text on secondary background
+            value: colors-e
+        default: colors-a
+        description: The colors of the mobile navbar
+      - type: enum
+        name: width
+        label: Width
+        options:
+          - label: Narrow
+            value: narrow
+          - label: Wide
+            value: wide
+          - label: Full
+            value: full
+        default: wide
+        description: The width of the navbar
+      - type: string
+        name: title
+        label: Title
+        description: The title displayed in the navbar
+      - type: boolean
+        name: isTitleVisible
+        label: Display title?
+        default: false
+      - type: image
+        name: logoUrl
+        label: Logo
+        description: The logo image displayed in the navbar
+      - type: string
+        name: logoAltText
+        label: Logo Alt Text
+        description: The alt text of the logo image
+      - type: list
+        name: primaryLinks
+        label: Primary menu links
+        description: List of primary links
+        items:
+          type: model
+          models: [action]
+      - type: list
+        name: secondaryLinks
+        label: Secondary menu links
+        description: List of secondary links
+        items:
+          type: model
+          models: [action]
+  footer:
+    type: object
+    label: Footer Configuration
+    labelField: content
+    fields:
+      - type: enum
+        name: colors
+        label: Colors
+        options:
+          - label: Dark text on light background
+            value: colors-a
+          - label: Light text on dark background
+            value: colors-b
+          - label: Primary text on dark background
+            value: colors-c
+          - label: Dark text on primary background
+            value: colors-d
+          - label: Dark text on secondary background
+            value: colors-e
+        default: colors-a
+        description: The colors of the footer
+      - type: enum
+        name: width
+        label: Width
+        options:
+          - label: Narrow
+            value: narrow
+          - label: Wide
+            value: wide
+          - label: Full
+            value: full
+        default: wide
+        description: The width of the footer
+      - type: string
+        name: title
+        label: Title
+        description: The title displayed in the footer
+      - type: boolean
+        name: isTitleVisible
+        label: Display title?
+        default: false
+      - type: image
+        name: logoUrl
+        label: Logo
+        description: The logo image displayed in the footer
+      - type: string
+        name: logoAltText
+        label: Logo Alt Text
+        description: The alt text of the logo image
+      - type: markdown
+        name: info
+        label: Info
+        description: The text displayed in the footer
+      - type: list
+        name: primaryLinks
+        label: Primary menu links
+        description: List of primary links
+        items:
+          type: model
+          models: [action]
+      - type: list
+        name: socialLinks
+        label: Social links
+        description: List of social links
+        items:
+          type: model
+          models: [action]
+      - type: list
+        name: legalLinks
+        label: Legal links
+        description: List of legal links
+        items:
+          type: model
+          models: [action]
+      - type: model
+        name: contact
+        label: Contact
+        description: Contact details
+        models: [contact_details]
+      - type: string
+        name: copyrightText
+        label: Copyright text
+        description: The copyright text displayed in the footer
+  contact_details:
+    type: object
+    label: Contact details
+    fields:
+      - type: string
+        name: phoneAlt
+        label: Phone alt text
+      - type: string
+        name: phoneNumber
+        label: Phone number
+      - type: string
+        name: emailAlt
+        label: Email alt text
+      - type: string
+        name: email
+        label: Email
+      - type: string
+        name: addressAlt
+        label: Address alt text
+      - type: string
+        name: address
+        label: Address
   advanced:
     type: page
     label: Advanced Page
@@ -26,3 +264,546 @@ models:
         label: Title
         description: The title of the page
         required: true
+      - type: list
+        name: sections
+        label: Sections
+        description: Page sections
+        items:
+          type: model
+          models:
+            - contact_section
+            - cta_section
+            - hero_section
+            - posts_section
+            - testimonials_section
+      - type: model
+        name: seo
+        models:
+          - stackbit_page_meta
+  page:
+    type: page
+    label: Page
+    layout: page
+    exclude: blog/**/*
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the page
+        required: true
+      - type: model
+        name: seo
+        models:
+          - stackbit_page_meta
+  post:
+    type: page
+    urlPath: '/blog/{slug}'
+    label: Post
+    layout: post
+    folder: blog
+    exclude: index.md
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the post
+        required: true
+      - type: date
+        name: date
+        label: Date
+        description: The publish date of the post
+        required: true
+      - type: string
+        name: excerpt
+        label: Excerpt
+        description: The excerpt of the post displayed in the blog feed
+      - type: image
+        name: thumbImageUrl
+        label: Thumbnail
+        description: The image displayed in the blog feed
+      - type: string
+        name: thumbImageAlt
+        label: Thumbnail alt text
+        description: The alt text of the blog feed image
+      - type: model
+        name: seo
+        models:
+          - stackbit_page_meta
+  section:
+    type: object
+    label: Section
+    fields:
+      - type: enum
+        name: colors
+        label: Colors
+        options:
+          - label: Dark text on light background
+            value: colors-a
+          - label: Light text on dark background
+            value: colors-b
+          - label: Primary text on dark background
+            value: colors-c
+          - label: Dark text on primary background
+            value: colors-d
+          - label: Dark text on secondary background
+            value: colors-e
+        default: colors-a
+        description: Pre-set styles for the section
+      - type: enum
+        name: width
+        label: Width
+        options:
+          - label: Narrow
+            value: narrow
+          - label: Wide
+            value: wide
+          - label: Full
+            value: full
+        default: wide
+        description: The width of the section
+      - type: enum
+        name: height
+        label: Height
+        options:
+          - label: Auto
+            value: auto
+          - label: Viewport
+            value: viewport
+        default: auto
+        description: The height of the section
+  contact_section:
+    type: object
+    label: Contact section
+    extends:
+      - section
+    fields:
+      - type: enum
+        name: variant
+        label: Arrangement
+        options:
+          - label: Contact form with image on the left
+            value: variant-a
+          - label: Contact form with image on the right
+            value: variant-b
+        default: variant-a
+        description: The arrangement of the section elements
+      - type: enum
+        name: alignHoriz
+        label: Horizontal alignment
+        options:
+          - left
+          - center
+        default: left
+        description: The horizontal alignment of the section text content
+      - type: string
+        name: badge
+        label: Badge
+        description: The small text above the title of the section
+      - type: string
+        name: title
+        label: Title
+        description: The title of the section
+      - type: markdown
+        name: text
+        label: Text
+        description: The text of the section
+      - type: image
+        name: imageUrl
+        label: Image URL
+        description: The URL of the image
+      - type: string
+        name: imageAltText
+        label: Alt text
+        description: The alt text of the image
+      - type: string
+        name: imageCaption
+        label: Caption
+        description: The caption of the image
+      - type: string
+        name: formId
+        label: Form ID
+        description: A unique identifier of the form. Must not contain whitespace
+      - type: string
+        name: formAction
+        label: Form action
+        description: >-
+          The path of your custom "success" page, if you want to replace the
+          default success message.
+      - type: list
+        name: formFields
+        label: Form fields
+        items:
+          type: model
+          models: [form_field]
+      - type: string
+        name: submitLabel
+        label: Submit button label
+        description: The text content of the submit button
+  form_field:
+    type: object
+    label: Form field
+    labelField: name
+    fields:
+      - type: enum
+        name: inputType
+        label: Type
+        options:
+          - text
+          - email
+          - tel
+          - number
+          - checkbox
+          - select
+          - textarea
+        description: Type of the form field
+        required: true
+      - type: string
+        name: name
+        label: Name
+        description: 'The name of the field, submitted with the form'
+        required: true
+      - type: string
+        name: label
+        label: Label
+        description: 'The caption of the field, shown above the field input'
+      - type: string
+        name: defaultValue
+        label: Placeholder text or default value
+        description: >-
+          The placeholder for textual field types or default option for select
+          field
+      - type: list
+        name: options
+        description: 'The list of options, used only when the field type is "select"'
+      - type: boolean
+        name: isRequired
+        label: Is the field required?
+        default: false
+      - type: enum
+        name: width
+        label: Width
+        options:
+          - label: Full
+            value: full
+          - label: '1/2'
+            value: '1/2'
+          - label: '1/3'
+            value: '1/3'
+          - label: '2/3'
+            value: '2/3'
+        default: full
+        description: The width of the form field
+  cta_section:
+    type: object
+    label: CTA section
+    extends:
+      - section
+    fields:
+      - type: enum
+        name: variant
+        label: Arrangement
+        options:
+          - label: CTA with buttons at the bottom
+            value: variant-a
+          - label: CTA with buttons on the right
+            value: variant-b
+        default: variant-a
+        description: The arrangement of the section elements
+      - type: enum
+        name: alignHoriz
+        label: Horizontal alignment
+        options:
+          - left
+          - center
+        default: left
+        description: The horizontal alignment of the section text content
+      - type: string
+        name: badge
+        label: Badge
+        description: The small text above the title of the section
+      - type: string
+        name: title
+        label: Title
+        description: The title of the section
+      - type: markdown
+        name: text
+        label: Text
+        description: The text of the section
+      - type: list
+        name: actions
+        label: Action buttons
+        items:
+          type: model
+          models: [action]
+  hero_section:
+    type: object
+    label: Hero section
+    extends:
+      - section
+    fields:
+      - type: enum
+        name: variant
+        label: Arrangement
+        options:
+          - label: Hero with feature on the right
+            value: variant-a
+          - label: Hero with feature on the left
+            value: variant-b
+          - label: Hero with feature at the top
+            value: variant-c
+          - label: Hero with feature at the bottom
+            value: variant-d
+          - label: Hero with text only
+            value: variant-e
+        default: variant-a
+        description: The arrangement of the section elements
+      - type: enum
+        name: alignHoriz
+        label: Horizontal alignment
+        options:
+          - left
+          - center
+        default: left
+        description: The horizontal alignment of the section text content
+      - type: string
+        name: badge
+        label: Badge
+        description: The small text above the title of the section
+      - type: string
+        name: title
+        label: Title
+        description: The title of the section
+      - type: markdown
+        name: text
+        label: Text
+        description: The text of the section
+      - type: list
+        name: actions
+        label: Action buttons
+        items:
+          type: model
+          models: [action]
+      - type: model
+        name: feature
+        label: Feature
+        models: [image, video]
+  image:
+    type: object
+    label: Image
+    fields:
+      - type: image
+        name: imageUrl
+        label: Image URL
+        description: The URL of the image
+      - type: string
+        name: imageAltText
+        label: Alt text
+        description: The alt text of the image
+      - type: string
+        name: imageCaption
+        label: Caption
+        description: The caption of the image
+  video:
+    type: object
+    label: Video
+    fields:
+      - type: string
+        name: videoUrl
+        label: Video URL (.mp4)
+        description: The URL of the video
+      - type: image
+        name: posterUrl
+        label: Poster URL
+        description: The URL of the poster image
+      - type: boolean
+        name: autoplay
+        label: Autoplay
+        default: false
+      - type: boolean
+        name: loop
+        label: Lopp
+        default: false
+      - type: boolean
+        name: muted
+        label: Muted
+        default: false
+      - type: boolean
+        name: controls
+        label: Controls
+        default: false
+  posts_section:
+    type: object
+    label: Posts section
+    extends:
+      - section
+    fields:
+      - type: enum
+        name: variant
+        label: Variant
+        options:
+          - label: Posts with image at the top
+            value: variant-a
+          - label: Posts with image on the left
+            value: variant-b
+        default: variant-a
+        description: The variation of the section layout and style
+      - type: enum
+        name: alignHoriz
+        label: Horizontal alignment
+        options:
+          - left
+          - center
+        default: left
+        description: The horizontal alignment of the section text content
+      - type: string
+        name: badge
+        label: Badge
+        description: The small text above the title of the section
+      - type: string
+        name: title
+        label: Title
+        description: The title of the section
+      - type: string
+        name: subtitle
+        label: Subtitle
+        description: The subtitle of the section
+      - type: list
+        name: posts
+        label: Posts
+        description: The list posts to show
+        items:
+          type: reference
+          models: [post]
+  testimonials_section:
+    type: object
+    label: Testimonials section
+    extends:
+      - section
+    fields:
+      - type: enum
+        name: variant
+        label: Variant
+        options:
+          - label: Testimonial with company logo and author image at the bottom
+            value: variant-a
+          - label: Testimonial with author image on the left
+            value: variant-b
+        default: variant-a
+        description: The arrangement of the section layout
+      - type: list
+        name: testimonials
+        label: Testimonials
+        items:
+          type: model
+          models: [testimonial]
+  testimonial:
+    type: object
+    label: Testimonial
+    labelField: author_name
+    fields:
+      - type: markdown
+        name: quote
+        label: Quote
+      - type: string
+        name: name
+        label: Author name
+      - type: string
+        name: title
+        label: Author title
+      - type: image
+        name: imageUrl
+        label: Author image
+      - type: string
+        name: imageAltText
+        label: Author image alt text
+      - type: image
+        name: logoUrl
+        label: Company logo
+      - type: string
+        name: logoAltText
+        label: Company logo alt text
+  action:
+    type: object
+    label: Action
+    labelField: label
+    fields:
+      - type: string
+        name: label
+        label: Label
+        required: true
+      - type: string
+        name: url
+        label: URL
+        required: true
+        default: '#'
+      - type: enum
+        name: style
+        label: Style
+        options:
+          - label: Link
+            value: link
+          - label: Button
+            value: button
+        default: link
+        required: true
+      - type: enum
+        name: icon
+        label: Icon
+        options:
+          - arrowRight
+          - cart
+          - facebook
+          - github
+          - instagram
+          - linkedin
+          - twitter
+  stackbit_page_meta:
+    type: object
+    label: Page meta data
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The page title that goes into the <title> tag
+        default: ''
+      - type: string
+        name: description
+        label: Description
+        description: The page description that goes into the <meta name="description"> tag
+        default: ''
+      - type: list
+        name: robots
+        label: Robots
+        description: The items that go into the <meta name="robots"> tag
+        items:
+          type: enum
+          options:
+            - all
+            - index
+            - follow
+            - noindex
+            - nofollow
+            - noimageindex
+            - notranslate
+            - none
+      - type: list
+        name: extra
+        label: Extra
+        description: >-
+          Additional definition for specific meta tags such as open-graph,
+          twitter, etc.
+        items:
+          type: object
+          labelField: name
+          fields:
+            - type: string
+              name: name
+              default: ''
+            - type: string
+              name: value
+              default: ''
+            - type: string
+              name: keyName
+              default: name
+            - type: boolean
+              name: relativeUrl
