@@ -1,0 +1,40 @@
+{
+  "name": "nextjs-stackbit-v2",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "export": "next export",
+    "lint": "next lint --fix"
+  },
+  "dependencies": {
+    "change-case": "^4.1.2",
+    "classnames": "^2.3.1",
+    "contentful": "^8.4.2",
+    "error": "^10.4.0",
+    "gray-matter": "^4.0.3",
+    "next": "^11.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "sourcebit": "^0.11.0",
+    "sourcebit-source-filesystem": "^0.1.3",
+    "sourcebit-target-next": "^0.6.2",
+    "tailwindcss": "^2.2.4"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.28.1",
+    "autoprefixer": "^10.2.6",
+    "eslint": "^7.29.0",
+    "eslint-config-next": "^11.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "postcss": "^8.3.5",
+    "prettier": "^2.3.2"
+  },
+  "description": "A Nextjs page builder, component library and data source mapper all in one.",
+  "main": "next.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
