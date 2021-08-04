@@ -4,16 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start",
     "fetch": "sourcebit fetch",
     "export": "next export",
     "lint": "next lint --fix"
   },
   "dependencies": {
-    "change-case": "^4.1.2",
-    "classnames": "^2.2.6",
-    "error": "^10.4.0",
+    "@stackbit/components": "^0.1.0",
     "lodash": "^4.17.20",
     "next": "^11.0.1",
     "react": "17.0.2",

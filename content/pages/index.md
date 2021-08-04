@@ -10,7 +10,7 @@ sections:
     actions:
       - label: Get Started
         url: https://www.stackbit.com/
-        style: button
+        type: primary-button
   - type: testimonials_section
     variant: variant-a
     testimonials:
@@ -18,6 +18,6 @@ sections:
           “It’s great to see someone taking action while still maintaining a sustainable fish supply to home cooks.”
         name: Isabelle Parks
         title: Head chef at Parks
-        imageUrl: images/isabelle-parks.jpg
+        imageUrl: images/tyson.jpg
         imageAltText: Isabelle Parks
 ---
