@@ -2,7 +2,7 @@ import React from 'react';
 import { sourcebitDataClient } from 'sourcebit-target-next';
 import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-updates';
 
-import { BaseLayout, dynamicLayouts } from '@stackbit/components/dist/layouts';
+import { dynamicLayouts } from '@stackbit/components/dist/layouts';
 
 class Page extends React.Component {
   render() {
@@ -17,9 +17,7 @@ class Page extends React.Component {
       throw new Error(`no page layout matching the layout: ${layout}`);
     }
     return (
-      <BaseLayout page={page} config={siteConfig}>
-        <PageLayout {...this.props} />
-      </BaseLayout>
+      <PageLayout {...this.props} />
     );
   }
 }

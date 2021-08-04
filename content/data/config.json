@@ -3,6 +3,7 @@
   "mobileNavVariant": "variant-a",
   "primaryColors": "colors-d",
   "secondaryColors": "colors-a",
+  "colors": "colors-d",
   "width": "wide",
   "title": "Fish_of_the_day",
   "isTitleVisible": true,
