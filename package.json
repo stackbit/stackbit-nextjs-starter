@@ -27,7 +27,8 @@
     "eslint-config-next": "^11.0.1",
     "eslint-config-prettier": "^8.3.0",
     "postcss": "^8.3.5",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "webpack-bundle-analyzer": "^4.4.2"
   },
   "description": "A Nextjs page builder, component library and data source mapper all in one.",
   "main": "next.config.js",
