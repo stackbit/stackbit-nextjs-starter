@@ -1,9 +1,10 @@
 const sourcebit = require('sourcebit');
 const sourcebitConfig = require('./sourcebit.js');
+const withStackbitComponents = require('@stackbit/components/with-stackbit-components');
 
 sourcebit.fetch(sourcebitConfig);
 
-module.exports = {
+module.exports = withStackbitComponents({
   trailingSlash: true,
   devIndicators: {
     autoPrerender: false
@@ -33,4 +34,4 @@ module.exports = {
 
     return config;
   }
-};
+});

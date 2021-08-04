@@ -11,7 +11,7 @@
     "lint": "next lint --fix"
   },
   "dependencies": {
-    "@stackbit/components": "^0.1.1",
+    "@stackbit/components": "^0.1.2",
     "lodash": "^4.17.20",
     "next": "^11.0.1",
     "react": "17.0.2",
