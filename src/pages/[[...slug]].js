@@ -2,17 +2,15 @@ import React from 'react';
 import { sourcebitDataClient } from 'sourcebit-target-next';
 import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-updates';
 
-import { dynamicLayouts } from '@stackbit/components/dist/layouts';
+import { Advanced }  from '@stackbit/components/layouts';
 
 class Page extends React.Component {
   render() {
-    const siteConfig = this.props?.siteConfig;
-    const page = this.props?.page;
     const layout = this.props?.page?.layout;
     if (!layout) {
       throw new Error(`page has no layout, page '${this.props.path}'`);
     }
-    const PageLayout = dynamicLayouts[layout];
+    const PageLayout = Advanced;//dynamicLayouts[layout];
     if (!PageLayout) {
       throw new Error(`no page layout matching the layout: ${layout}`);
     }
