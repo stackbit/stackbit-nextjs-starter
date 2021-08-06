@@ -1,5 +1,3 @@
-const _ = require('lodash');
-const util = require('util');
 const path = require('path');
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -12,8 +10,8 @@ module.exports = {
         watch: isDev,
         sources: [
           { name: 'pages', path: path.join(__dirname, 'content/pages') },
-          { name: 'data', path: path.join(__dirname, 'content/data') }
-        ]
+          { name: 'data', path: path.join(__dirname, 'content/data') },
+        ],
       },
     },
     {
@@ -22,21 +20,28 @@ module.exports = {
         liveUpdate: isDev,
         flattenAssetUrls: true,
         pages: (data) => {
-          const pages = _.filter(data, _.matchesProperty('frontmatter.layout', 'advanced'));
-          const config = _.find(data, _.matchesProperty('__metadata.id', 'content/data/config.json'))
-          return _.map(pages, (page) => {
-            return {
+          console.log(data);
+          const pages = data.filter((page) => page.__metadata.sourceName === 'pages');
+          const config = data.find((page) => page.__metadata.id === 'content/data/config.json');
+          const pagesResult = [];
+          pages.forEach((page) => {
+            const fileParse = path.parse(page.__metadata.relSourcePath);
+            const name = fileParse.name === 'index' ? '/' : fileParse.name;
+            const url = path.join(fileParse.dir, name);
+            const result = {
               // TODO: infer path from file name
-              path: page.__metadata.relSourcePath === 'index.md' ? '/' : '/test',
+              path: url,
               siteConfig: config,
               page: {
                 __metadata: page.__metadata,
                 ...(page.frontmatter ?? {}),
                 markdown: page.markdown || null,
-              }
-            }
+              },
+            };
+            pagesResult.push(result);
           });
-        }
+          return pagesResult;
+        },
       },
     },
   ],
