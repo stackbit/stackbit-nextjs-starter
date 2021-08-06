@@ -2,28 +2,35 @@ import React from 'react';
 import { pascalCase } from 'pascal-case';
 import { sourcebitDataClient } from 'sourcebit-target-next';
 import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-updates';
-import * as stackbitLayouts from '../layouts';
+import * as stackbitLayouts from '@stackbit/components/layouts';
+import * as stackbitComponents from '@stackbit/components/components';
+import * as myLayouts from '../layouts';
+import * as myComponents from '../components';
 import { BaseLayout } from '../layouts';
-import * as stackbitComponents from '../components';
 
-const layouts = {
+// console.log(layouts);
+// console.log(components);
+
+const mergedLayouts = {
   ...stackbitLayouts,
+  ...myLayouts,
 };
 
-const components = {
+const mergedComponents = {
   ...stackbitComponents,
+  ...myComponents,
 };
 
 function Page(props) {
-  console.log(layouts);
-  console.log(components);
+  console.log('mergedLayouts', mergedLayouts);
+  console.log('mergedComponents', mergedComponents);
 
   const layout = props.page?.layout;
   if (!layout) {
     throw new Error(`page has no layout, page '${props.path}'`);
   }
   const layoutComponent = pascalCase(layout);
-  const PageLayout = layouts[layoutComponent];
+  const PageLayout = mergedLayouts[layoutComponent];
   if (!PageLayout) {
     throw new Error(`no page layout matching the layout: ${layout}`);
   }
@@ -33,11 +40,13 @@ function Page(props) {
         {props.page.sections.map((section, index) => {
           const sectionType = section?.type;
           const sectionComponent = pascalCase(sectionType);
+          console.log(sectionComponent);
 
           if (!sectionType) {
             throw new Error(`page section does not have the 'type' property, page: ${pageUrl}`);
           }
-          const Component = components[sectionComponent];
+          const Component = mergedComponents[sectionComponent];
+          console.log(Component);
           if (!Component) {
             throw new Error(`no component matching the page section's type: ${sectionType}`);
           }

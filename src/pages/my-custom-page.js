@@ -24,7 +24,6 @@ function Page(props) {
 }
 export async function getStaticProps({ params }) {
   const props = await sourcebitDataClient.getStaticPropsForPageAtPath('/my-custom-page');
-  console.log(props);
   return { props };
 }
 
