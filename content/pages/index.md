@@ -2,6 +2,8 @@
 title: Home
 layout: advanced
 sections:
+  - type: new_section
+    title: New Custom Section
   - type: hero_section
     variant: variant-b
     colors: colors-d

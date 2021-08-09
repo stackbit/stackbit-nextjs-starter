@@ -5,6 +5,7 @@ const withStackbitComponents = require('@stackbit/components/with-stackbit-compo
 sourcebit.fetch(sourcebitConfig);
 
 module.exports = withStackbitComponents({
+  stackbitComponentsMapPath: 'src/stackbit-components.json',
   trailingSlash: true,
   devIndicators: {
     autoPrerender: false
