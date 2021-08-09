@@ -6,7 +6,6 @@ sourcebit.fetch(sourcebitConfig);
 
 module.exports = withStackbitComponents({
   componentsMapPath: '.stackbit/components-map.json',
-  dynamicComponentsPath: '.stackbit/dynamic-components.js',
   trailingSlash: true,
   devIndicators: {
     autoPrerender: false
