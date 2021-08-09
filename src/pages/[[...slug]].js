@@ -3,24 +3,23 @@ import Head from 'next/head';
 import { pascalCase } from 'pascal-case';
 import { sourcebitDataClient } from 'sourcebit-target-next';
 import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-updates';
+
 import * as stackbitLayouts from '@stackbit/components/layouts';
 import * as stackbitComponents from '@stackbit/components/components';
-import * as myLayouts from '../layouts';
-import * as myComponents from '../components';
-import { BaseLayout } from '../layouts';
-import { Hero as ZeroHero } from '../components/zerostatic/hero/Hero';
+import HeroSection from '../components/stackbit/hero-section';
+import { Hero as NewHero } from '../components/zerostatic/hero/Hero';
+
 // console.log(layouts);
 // console.log(components);
 
 const mergedLayouts = {
   ...stackbitLayouts,
-  ...myLayouts,
 };
 
 const mergedComponents = {
-  ...myComponents,
   ...stackbitComponents,
-  ZeroHero,
+  HeroSection, // will override the `@stackbit/components` HeroSection component
+  NewHero, // a new component added by the user, unrelated to stackbit library
 };
 
 function Page(props) {

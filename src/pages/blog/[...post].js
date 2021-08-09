@@ -2,7 +2,7 @@ import React from 'react';
 import Markdown from 'markdown-to-jsx';
 import { sourcebitDataClient } from 'sourcebit-target-next';
 import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-updates';
-import { HeroSection } from '../../components';
+import HeroSection from '@stackbit/components/components';
 
 function Post(props) {
   const { page } = props;

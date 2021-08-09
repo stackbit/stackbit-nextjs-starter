@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import Link from 'next/link';
-import ArrowRight from '../../svgs/arrow-right';
-import Cart from '../../svgs/cart';
+import ArrowRight from '../../../svgs/arrow-right';
+import Cart from '../../../svgs/cart';
 
 export default function Button({ label, url, icon, alt, type, className }) {
   const iconMap = {
