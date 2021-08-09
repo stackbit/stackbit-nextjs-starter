@@ -20,7 +20,6 @@ module.exports = {
         liveUpdate: isDev,
         flattenAssetUrls: true,
         pages: (data) => {
-          console.log(data);
           const pages = data.filter((page) => page.__metadata.sourceName === 'pages');
           const config = data.find((page) => page.__metadata.id === 'content/data/config.json');
           const pagesResult = [];

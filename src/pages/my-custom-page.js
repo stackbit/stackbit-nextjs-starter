@@ -1,8 +1,6 @@
 import React from 'react';
 import { sourcebitDataClient } from 'sourcebit-target-next';
 import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-updates';
-import { BaseLayout, Advanced } from '../layouts';
-import { HeroSection } from '../components';
 
 const heroData = {
   type: 'hero_section',
@@ -12,14 +10,9 @@ const heroData = {
 };
 function Page(props) {
   return (
-    <BaseLayout {...props}>
-      <Advanced {...props}>
-        <div>
-          <h1>My Custom Page!</h1>
-          <HeroSection {...heroData} />
-        </div>
-      </Advanced>
-    </BaseLayout>
+    <div>
+      <h1>My Custom Page!</h1>
+    </div>
   );
 }
 export async function getStaticProps({ params }) {

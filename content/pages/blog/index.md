@@ -1,6 +1,6 @@
 ---
 title: Blog
-layout: blog
+layout: advanced
 sections:
   - type: hero_section
     variant: variant-b
