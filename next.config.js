@@ -7,7 +7,8 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 sourcebit.fetch(sourcebitConfig);
 
-module.exports = withBundleAnalyzer({
+module.exports = withStackbitComponents({
+  componentsMapPath: '.stackbit/components-map.json',
   trailingSlash: true,
   devIndicators: {
     autoPrerender: false,
@@ -32,20 +33,20 @@ module.exports = withBundleAnalyzer({
     // whole page
     config.plugins.push(new webpack.WatchIgnorePlugin({ paths: [/\/content\//] }));
 
-    // if (process.env.ANALYZE === 'true') {
-    //   const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-    //   config.plugins.push(
-    //     new BundleAnalyzerPlugin({
-    //       openAnalyzer: true,
-    //       analyzerMode: 'server',
-    //       analyzerPort: isServer ? 8888 : 8889,
-    //       // analyzerMode: 'static',
-    //       // reportFilename: isServer
-    //       //     ? '../analyze/server.html'
-    //       //     : './analyze/client.html'
-    //     })
-    //   );
-    // }
+    if (process.env.ANALYZE === 'true') {
+      const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+      config.plugins.push(
+        new BundleAnalyzerPlugin({
+          openAnalyzer: true,
+          analyzerMode: 'server',
+          analyzerPort: isServer ? 8888 : 8889,
+          // analyzerMode: 'static',
+          // reportFilename: isServer
+          //     ? '../analyze/server.html'
+          //     : './analyze/client.html'
+        })
+      );
+    }
 
     return config;
   },

@@ -11,6 +11,8 @@ sections:
       - label: Get Started
         url: https://www.stackbit.com/
         type: primary-button
+  - type: new_section
+    title: New Custom Section
   - type: hero_section
     variant: Hero1
     colors: colors-d
