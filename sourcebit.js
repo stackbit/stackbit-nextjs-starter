@@ -28,7 +28,6 @@ module.exports = {
             const name = fileParse.name === 'index' ? '/' : fileParse.name;
             const url = path.join(fileParse.dir, name);
             const result = {
-              // TODO: infer path from file name
               path: url,
               siteConfig: config,
               page: {

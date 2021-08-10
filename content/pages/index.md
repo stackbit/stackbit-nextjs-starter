@@ -2,19 +2,10 @@
 title: Home
 layout: advanced
 sections:
-  - type: NewHero
-    variant: Hero1
-    title: A big hero title
-    text: |-
-      A group of local fisherman, working to deliver sustainable fish to your table. Each fish you buy, helps support fishing regulations and laws, to help sustain a better future for our waters, our food, and our globe.
-    actions:
-      - label: Get Started
-        url: https://www.stackbit.com/
-        type: primary-button
   - type: new_section
     title: New Custom Section
   - type: hero_section
-    variant: Hero1
+    variant: variant-a
     colors: colors-d
     title: A different kind of fish market
     text: |-

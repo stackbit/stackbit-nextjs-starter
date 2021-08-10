@@ -1,9 +1,7 @@
 const path = require('path');
 const sourcebit = require('sourcebit');
 const sourcebitConfig = require('./sourcebit.js');
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-});
+const withStackbitComponents = require('@stackbit/components/with-stackbit-components');
 
 sourcebit.fetch(sourcebitConfig);
 
@@ -14,13 +12,8 @@ module.exports = withStackbitComponents({
     autoPrerender: false,
   },
   eslint: {
-    // Warning: Dangerously allow production builds to successfully complete even if
-    // your project has ESLint errors.
+    // Allow production builds to successfully complete even if your project has ESLint errors.
     ignoreDuringBuilds: true,
-  },
-  externals: {
-    bufferutil: 'bufferutil',
-    'utf-8-validate': 'utf-8-validate',
   },
   webpack: (config, { webpack, isServer }) => {
     config.resolve.alias['react'] = path.resolve('./node_modules/react');

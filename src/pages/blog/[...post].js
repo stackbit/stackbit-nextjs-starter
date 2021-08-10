@@ -2,7 +2,7 @@ import React from 'react';
 import Markdown from 'markdown-to-jsx';
 import { sourcebitDataClient } from 'sourcebit-target-next';
 import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-updates';
-import HeroSection from '@stackbit/components/components';
+import HeroSection from '@stackbit/components/components/hero-section';
 
 function Post(props) {
   const { page } = props;
@@ -32,7 +32,7 @@ export async function getStaticPaths() {
   const posts = pages.filter((page) => page.page.layout === 'post');
   const paths = posts.map((page) => {
     let path = page.path;
-    // @TODO the returned paths should be relative to /src/pages/blog/[...post].js which is annoying
+    // @TODO the returned paths need to be relative to /src/pages/blog/[...post].js which is annoying
     if (path.startsWith('/blog/')) {
       path = path.substring(6);
     }
@@ -42,14 +42,12 @@ export async function getStaticPaths() {
       },
     };
   });
-  // console.log(JSON.stringify(paths, null, 2));
   return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
-  console.log(params);
+  // @TODO the provided paths must be the full path
   const props = await sourcebitDataClient.getStaticPropsForPageAtPath('/blog/' + params.post);
-  console.log(props);
   return { props };
 }
 

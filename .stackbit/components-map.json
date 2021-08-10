@@ -27,6 +27,7 @@
         "posts_section": "@stackbit/components/components/posts-section",
         "video_block": "@stackbit/components/components/video-block",
         "image_block": "@stackbit/components/components/image-block",
-        "new_section": "../src/components/NewSection"
+        "new_section": "../src/components/NewSection",
+        "zerostatic_hero": "../src/components/zerostatic/hero/Hero"
     }
 }
