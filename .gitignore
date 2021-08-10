@@ -7,6 +7,7 @@
 
 # stackbit
 .sourcebit-nextjs-cache.json
+src/components/_dynamic_components.js
 
 # testing
 /coverage
@@ -37,4 +38,4 @@ yarn-error.log*
 
 # IDE
 *.code-workspace
-
+.idea
