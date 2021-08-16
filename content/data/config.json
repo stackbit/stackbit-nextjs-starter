@@ -1,34 +1,30 @@
 {
+  "baseLayout": "NormalBase",
   "desktopNavVariant": "variant-a",
   "mobileNavVariant": "variant-a",
-  "primaryColors": "colors-d",
+  "primaryColors": "colors-a",
   "secondaryColors": "colors-a",
   "colors": "colors-d",
   "width": "wide",
-  "title": "Fish_of_the_day",
+  "title": "Eco Fish",
   "isTitleVisible": true,
-  "logoUrl": "/images/logo.svg",
+  "logoUrl": "/images/fish-logo.svg",
   "logoAltText": "Logo",
   "primaryLinks": [
     {
-      "label": "About us",
-      "url": "/about",
-      "alt": "About us"
+      "label": "Home",
+      "url": "/",
+      "alt": ""
     },
     {
-      "label": "Product",
-      "url": "/",
-      "alt": "Product"
+      "label": "Blank Base",
+      "url": "/blank-base",
+      "alt": ""
     },
     {
-      "label": "Features",
-      "url": "/",
-      "alt": "Features"
-    },
-    {
-      "label": "Pricing",
-      "url": "/",
-      "alt": "Pricing"
+      "label": "My Custom Page",
+      "url": "/my-custom-page",
+      "alt": ""
     }
   ],
   "secondaryLinks": [

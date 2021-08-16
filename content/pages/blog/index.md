@@ -1,9 +1,9 @@
 ---
-title: Home
-layout: AdvancedLayout
+title: Blog
+layout: advanced
 sections:
-  - type: HeroSection
-    variant: variant-a
+  - type: hero_section
+    variant: variant-b
     colors: colors-d
     title: A different kind of fish market
     text: |-
@@ -12,7 +12,7 @@ sections:
       - label: Get Started
         url: https://www.stackbit.com/
         type: primary-button
-  - type: TestimonialsSection
+  - type: testimonials_section
     variant: variant-a
     colors: colors-b
     testimonials:

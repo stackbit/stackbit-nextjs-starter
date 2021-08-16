@@ -4,7 +4,8 @@ import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-up
 import { getDynamicComponent } from '@stackbit/components/components-registry';
 
 function Page(props) {
-  const layout = props.page?.layout;
+  const { page, siteConfig } = props;
+  const { layout } = page;
   if (!layout) {
     throw new Error(`page has no layout, page '${props.path}'`);
   }
@@ -12,18 +13,20 @@ function Page(props) {
   if (!PageLayout) {
     throw new Error(`no page layout matching the layout: ${layout}`);
   }
-  return <PageLayout {...props} />;
+  return <PageLayout page={page} siteConfig={siteConfig} />;
 }
 
 export async function getStaticPaths() {
-  const paths = await sourcebitDataClient.getStaticPaths();
+  // @TODO error - Conflicting paths returned from getStaticPaths, paths must unique per page.
+  // See more info here: https://nextjs.org/docs/messages/conflicting-ssg-paths
+  let data = await sourcebitDataClient.getData();
+  // const paths = pages.filter((page) => page.page.layout === 'advanced').map((page) => page.path);
+  const paths = data.pages.map((page) => page.path);
   return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
-  console.log('Page [...slug].js getStaticProps, params: ', params);
-  const pagePath = '/' + (params.slug ? params.slug.join('/') : '');
-  const props = await sourcebitDataClient.getStaticPropsForPageAtPath(pagePath);
+  const props = await sourcebitDataClient.getStaticPropsForPageAtPath(params.slug);
   return { props };
 }
 

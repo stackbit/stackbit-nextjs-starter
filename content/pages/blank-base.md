@@ -1,18 +1,21 @@
 ---
 title: Home
-layout: advanced
+baseLayout: BlankBase
+layout: AdvancedLayout
 sections:
-  - type: hero_section
-    variant: variant-b
+  - type: HeroSection
+    variant: variant-a
+    colors: colors-d
     title: A different kind of fish market
     text: |-
       A group of local fisherman, working to deliver sustainable fish to your table. Each fish you buy, helps support fishing regulations and laws, to help sustain a better future for our waters, our food, and our globe.
     actions:
       - label: Get Started
         url: https://www.stackbit.com/
-        type: secondary-button
-  - type: testimonials_section
+        type: primary-button
+  - type: TestimonialsSection
     variant: variant-a
+    colors: colors-b
     testimonials:
       - quote: |-
           “It’s great to see someone taking action while still maintaining a sustainable fish supply to home cooks.”

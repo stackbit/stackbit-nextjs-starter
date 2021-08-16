@@ -1,3 +1,4 @@
+const path = require('path');
 const sourcebit = require('sourcebit');
 const sourcebitConfig = require('./sourcebit.js');
 const withStackbitComponents = require('@stackbit/components/with-stackbit-components');
@@ -8,9 +9,17 @@ module.exports = withStackbitComponents({
   componentsMapPath: '.stackbit/components-map.json',
   trailingSlash: true,
   devIndicators: {
-    autoPrerender: false
+    autoPrerender: false,
+  },
+  eslint: {
+    // Allow production builds to successfully complete even if your project has ESLint errors.
+    ignoreDuringBuilds: true,
   },
   webpack: (config, { webpack, isServer }) => {
+    config.resolve.alias['react'] = path.resolve('./node_modules/react');
+    config.resolve.alias['react-dom'] = path.resolve('./node_modules/react');
+    config.resolve.alias['next'] = path.resolve('./node_modules/next');
+
     // Tell webpack to ignore watching content files in the content folder.
     // Otherwise webpack receompiles the app and refreshes the whole page.
     // Instead, the src/pages/[...slug].js uses the "withRemoteDataUpdates"
@@ -34,5 +43,5 @@ module.exports = withStackbitComponents({
     }
 
     return config;
-  }
+  },
 });
