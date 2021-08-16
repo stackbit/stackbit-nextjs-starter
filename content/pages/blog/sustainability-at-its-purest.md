@@ -3,8 +3,9 @@ title: Sustainability at it’s purest
 date: '2021-07-01'
 excerpt: |-
   We’re local, seasonal fisherman, supporting fishing restrictions. We fish what the sea has to offer, nothing more, and no cheating.
-thumbImageUrl: images/fisherman.jpg
+thumbImageUrl: https://source.unsplash.com/VWcPlbHglYc/640x480
 thumbImageAlt: Fisherman
+imageUrl: https://source.unsplash.com/VWcPlbHglYc
 layout: post
 ---
 

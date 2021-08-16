@@ -20,6 +20,13 @@ sections:
           “It’s great to see someone taking action while still maintaining a sustainable fish supply to home cooks.”
         name: Isabelle Parks
         title: Head chef at Parks
-        imageUrl: images/tyson.jpg
+        imageUrl: https://source.unsplash.com/GNIJ-a3B2J4
         imageAltText: Isabelle Parks
+  - type: PostsSection
+    title: Post Section
+    subtitle: Post Section Subtitle
+    posts:
+      - content/pages/blog/as-fresh-as-it-gets.md
+      - content/pages/blog/bi-weekly-subscription.md
+      - content/pages/blog/sustainability-at-its-purest.md
 ---

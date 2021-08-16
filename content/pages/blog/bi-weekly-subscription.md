@@ -3,9 +3,9 @@ title: Bi-weekly subscription
 date: '2021-06-28'
 excerpt: |-
   This feature is the thing you were missing in your workflow, thank god we have it for you to use.
-thumbImageUrl: images/fish-lemon.jpg
+thumbImageUrl: https://source.unsplash.com/pRQCTeQTDwE/640x480
 thumbImageAlt: Raw fish, spices, lemon
-imageUrl: https://unsplash.com/photos/pRQCTeQTDwE
+imageUrl: https://source.unsplash.com/pRQCTeQTDwE
 layout: post
 ---
 

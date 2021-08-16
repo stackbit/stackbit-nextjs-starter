@@ -3,9 +3,9 @@ title: As fresh as it gets
 date: '2021-07-01'
 excerpt: |-
   Same day delivery, cleaned, on ice, ready to be eaten.
-thumbImageUrl: images/mackerels.jpg
+thumbImageUrl: https://source.unsplash.com/ExM4EPGT_s4/640x480
 thumbImageAlt: Mackerels
-imageUrl: images/mackerels.jpg
+imageUrl: https://source.unsplash.com/ExM4EPGT_s4
 layout: post
 ---
 
