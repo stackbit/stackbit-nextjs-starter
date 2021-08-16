@@ -10,9 +10,9 @@ module.exports = {
         watch: isDev,
         sources: [
           { name: 'pages', path: path.join(__dirname, 'content/pages') },
-          { name: 'data', path: path.join(__dirname, 'content/data') },
-        ],
-      },
+          { name: 'data', path: path.join(__dirname, 'content/data') }
+        ]
+      }
     },
     {
       module: require('sourcebit-target-next'),
@@ -22,25 +22,22 @@ module.exports = {
         pages: (data) => {
           const pages = data.filter((page) => page.__metadata.sourceName === 'pages');
           const config = data.find((page) => page.__metadata.id === 'content/data/config.json');
-          const pagesResult = [];
-          pages.forEach((page) => {
+          return pages.map((page) => {
             const fileParse = path.parse(page.__metadata.relSourcePath);
             const name = fileParse.name === 'index' ? '/' : fileParse.name;
             const url = path.join(fileParse.dir, name);
-            const result = {
+            return {
               path: url,
               siteConfig: config,
               page: {
                 __metadata: page.__metadata,
                 ...(page.frontmatter ?? {}),
-                markdown: page.markdown || null,
-              },
+                markdown: page.markdown || null
+              }
             };
-            pagesResult.push(result);
           });
-          return pagesResult;
-        },
-      },
-    },
-  ],
+        }
+      }
+    }
+  ]
 };

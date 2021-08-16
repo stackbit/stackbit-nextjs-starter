@@ -4,7 +4,6 @@ import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-up
 import { getDynamicComponent } from '@stackbit/components/components-registry';
 
 function Page(props) {
-  console.log(props);
   const { page, siteConfig } = props;
   const { layout } = page;
   if (!layout) {
