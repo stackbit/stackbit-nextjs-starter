@@ -1,5 +1,6 @@
 ---
 title: Home
+baseLayout: BlankBase
 layout: AdvancedLayout
 sections:
   - type: HeroSection

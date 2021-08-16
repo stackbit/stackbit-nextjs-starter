@@ -1,9 +1,9 @@
 ---
 title: My Custom Page
-layout: advanced
+layout: AdvancedLayout
 url: '/my-custom-page'
 sections:
-  - type: hero_section
+  - type: HeroSection
     variant: variant-b
     title: A different kind of fish market
     text: |-
@@ -12,7 +12,7 @@ sections:
       - label: Get Started
         url: https://www.stackbit.com/
         type: secondary-button
-  - type: testimonials_section
+  - type: TestimonialsSection
     variant: variant-a
     testimonials:
       - quote: |-

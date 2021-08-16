@@ -1,33 +1,33 @@
 {
     "README": "Components set to 'null' will be loaded from @stackbit/components library. To override a component, set it to relative paths of your component",
-    "layouts": {
-        "advanced": null
-    },
     "components": {
-        "badge": null,
-        "button": "../src/components/Button",
-        "contact-section": null,
-        "cta-section": null,
-        "footer": null,
-        "hero-section": null,
-        "image-block": null,
-        "inline-markdown": null,
-        "link": null,
-        "navbar": null,
-        "posts-section": null,
-        "testimonials-section": null,
-        "video-block": null
+        "Badge": null,
+        "Button": null,
+        "ContactSection": null,
+        "CtaSection": null,
+        "Footer": null,
+        "HeroSection": null,
+        "ImageBlock": null,
+        "InlineMarkdown": null,
+        "Link": null,
+        "NavBar": null,
+        "PostsSection": null,
+        "TestimonialsSection": null,
+        "VideoBlock": null,
+        "AdvancedLayout": null,
+        "NormalBase": null
     },
     "dynamic": {
-        "advanced": "@stackbit/components/layouts/advanced",
-        "contact_section": "@stackbit/components/components/contact-section",
-        "cta_section": "@stackbit/components/components/cta-section",
-        "hero_section": "@stackbit/components/components/hero-section",
-        "testimonials_section": "@stackbit/components/components/testimonials-section",
-        "posts_section": "@stackbit/components/components/posts-section",
-        "video_block": "@stackbit/components/components/video-block",
-        "image_block": "@stackbit/components/components/image-block",
-        "new_section": "../src/components/NewSection",
-        "zerostatic_hero": "../src/components/zerostatic/hero/Hero"
+        "ContactSection": "@stackbit/components/components/ContactSection",
+        "CtaSection": "@stackbit/components/components/CtaSection",
+        "HeroSection": "@stackbit/components/components/HeroSection",
+        "ImageBlock": "@stackbit/components/components/ImageBlock",
+        "PostsSection": "@stackbit/components/components/PostsSection",
+        "TestimonialsSection": "@stackbit/components/components/TestimonialsSection",
+        "VideoBlock": "@stackbit/components/components/VideoBlock",
+        "AdvancedLayout": "@stackbit/components/layouts/AdvancedLayout/AdvancedLayout",
+        "NormalBase": "@stackbit/components/base/NormalBase/NormalBase",
+        "advanced": "@stackbit/components/layouts/AdvancedLayout/AdvancedLayout",
+        "normal": "@stackbit/components/base/NormalBase/NormalBase"
     }
 }
