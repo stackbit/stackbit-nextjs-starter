@@ -15,7 +15,7 @@ module.exports = {
       }
     },
     flattenMarkdownData(),
-    // resolveReferenceFields(),
+    resolveReferenceFields(),
     {
       module: require('sourcebit-target-next'),
       options: {

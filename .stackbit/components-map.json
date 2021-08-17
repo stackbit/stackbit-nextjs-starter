@@ -14,7 +14,8 @@
         "PostsSection": null,
         "TestimonialsSection": null,
         "VideoBlock": null,
-        "AdvancedLayout": null
+        "AdvancedLayout": null,
+        "PostLayout": null
     },
     "dynamic": {
         "ContactSection": "@stackbit/components/components/ContactSection",
@@ -24,6 +25,7 @@
         "PostsSection": "@stackbit/components/components/PostsSection",
         "TestimonialsSection": "@stackbit/components/components/TestimonialsSection",
         "VideoBlock": "@stackbit/components/components/VideoBlock",
-        "AdvancedLayout": "@stackbit/components/layouts/AdvancedLayout"
+        "AdvancedLayout": "@stackbit/components/layouts/AdvancedLayout",
+        "PostLayout": "@stackbit/components/layouts/PostLayout"
     }
 }

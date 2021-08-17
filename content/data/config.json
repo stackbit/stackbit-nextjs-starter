@@ -4,11 +4,11 @@
   "mobileNavVariant": "variant-a",
   "primaryColors": "colors-a",
   "secondaryColors": "colors-a",
-  "colors": "colors-d",
+  "colors": "colors-a",
   "width": "wide",
   "title": "Eco Fish",
-  "isTitleVisible": true,
-  "logoUrl": "/images/fish-logo.svg",
+  "isTitleVisible": false,
+  "logoUrl": "/images/logo.svg",
   "logoAltText": "Logo",
   "primaryLinks": [
     {

@@ -1,26 +1,40 @@
 ---
-title: Home
+title: "15% Off Fresh Fish"
 baseLayout: BlankBaseLayout
 layout: AdvancedLayout
 sections:
   - type: HeroSection
-    variant: variant-a
-    colors: colors-d
-    title: A different kind of fish market
+    variant: variant-d
+    colors: colors-a
+    width: "full"
+    height": "auto"
+    alignHoriz: "center"
+    badge: "Code: 'salty'"
+    title: "**15% Off** Fresh Fish"
     text: |-
-      A group of local fisherman, working to deliver sustainable fish to your table. Each fish you buy, helps support fishing regulations and laws, to help sustain a better future for our waters, our food, and our globe.
+      Use the promo code **salty** when you checkout from our online store to receieve 15% off your first order of fresh fish. We have the freshest stock of tuna, salmon and yellowfin offloaded at the docks every morning.
+    feature:
+      type: "ImageBlock"
+      imageUrl: "https://source.unsplash.com/e9bho1OWGa0/640x360"
+      imageAltText: "Image alt text"
+      imageCaption: "Image caption"
+  - type: CtaSection
+    variant: variant-a
+    colors: colors-a
+    width: "full"
+    height": "auto"
+    alignHoriz: "center"
+    title: "Browse our online store"
     actions:
-      - label: Get Started
+      - label: Shop Online
         url: https://www.stackbit.com/
         type: primary-button
-  - type: TestimonialsSection
-    variant: variant-a
-    colors: colors-b
-    testimonials:
-      - quote: |-
-          “It’s great to see someone taking action while still maintaining a sustainable fish supply to home cooks.”
-        name: Isabelle Parks
-        title: Head chef at Parks
-        imageUrl: images/tyson.jpg
-        imageAltText: Isabelle Parks
 ---
+
+  - type: PostsSection
+    title: Post Section
+    subtitle: Post Section Subtitle
+    posts:
+      - content/pages/blog/as-fresh-as-it-gets.md
+      - content/pages/blog/bi-weekly-subscription.md
+      - content/pages/blog/sustainability-at-its-purest.md
