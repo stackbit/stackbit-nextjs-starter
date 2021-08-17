@@ -1,5 +1,5 @@
 {
-  "baseLayout": "NormalBase",
+  "baseLayout": "DefaultBaseLayout",
   "desktopNavVariant": "variant-a",
   "mobileNavVariant": "variant-a",
   "primaryColors": "colors-a",
@@ -17,13 +17,8 @@
       "alt": ""
     },
     {
-      "label": "Blank Base",
+      "label": "Blank Base Layout",
       "url": "/blank-base",
-      "alt": ""
-    },
-    {
-      "label": "My Custom Page",
-      "url": "/my-custom-page",
       "alt": ""
     }
   ],

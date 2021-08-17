@@ -9,11 +9,11 @@ module.exports = withStackbitComponents({
   componentsMapPath: '.stackbit/components-map.json',
   trailingSlash: true,
   devIndicators: {
-    autoPrerender: false,
+    autoPrerender: false
   },
   eslint: {
     // Allow production builds to successfully complete even if your project has ESLint errors.
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: true
   },
   webpack: (config, { webpack, isServer }) => {
     config.resolve.alias['react'] = path.resolve('./node_modules/react');
@@ -33,7 +33,7 @@ module.exports = withStackbitComponents({
         new BundleAnalyzerPlugin({
           openAnalyzer: true,
           analyzerMode: 'server',
-          analyzerPort: isServer ? 8888 : 8889,
+          analyzerPort: isServer ? 8888 : 8889
           // analyzerMode: 'static',
           // reportFilename: isServer
           //     ? '../analyze/server.html'
@@ -43,5 +43,5 @@ module.exports = withStackbitComponents({
     }
 
     return config;
-  },
+  }
 });

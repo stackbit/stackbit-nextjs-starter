@@ -22,6 +22,8 @@ sections:
         title: Head chef at Parks
         imageUrl: https://source.unsplash.com/GNIJ-a3B2J4
         imageAltText: Isabelle Parks
+---
+
   - type: PostsSection
     title: Post Section
     subtitle: Post Section Subtitle
@@ -29,4 +31,3 @@ sections:
       - content/pages/blog/as-fresh-as-it-gets.md
       - content/pages/blog/bi-weekly-subscription.md
       - content/pages/blog/sustainability-at-its-purest.md
----

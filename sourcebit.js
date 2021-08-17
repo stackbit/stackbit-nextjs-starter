@@ -15,7 +15,7 @@ module.exports = {
       }
     },
     flattenMarkdownData(),
-    resolveReferenceFields(),
+    // resolveReferenceFields(),
     {
       module: require('sourcebit-target-next'),
       options: {
@@ -42,13 +42,13 @@ module.exports = {
 
 function flattenMarkdownData() {
   return ({ data }) => {
-    const objects = data.objects.map(object => {
+    const objects = data.objects.map((object) => {
       if ('frontmatter' in object) {
         return {
           __metadata: object.__metadata,
           ...object.frontmatter,
           markdown_content: object.markdown || null
-        }
+        };
       }
       return object;
     });

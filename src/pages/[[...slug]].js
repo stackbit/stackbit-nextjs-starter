@@ -6,6 +6,7 @@ import { getDynamicComponent } from '@stackbit/components/components-registry';
 function Page(props) {
   const { page, siteConfig } = props;
   const { layout } = page;
+
   if (!layout) {
     throw new Error(`page has no layout, page '${props.path}'`);
   }
@@ -17,10 +18,7 @@ function Page(props) {
 }
 
 export async function getStaticPaths() {
-  // @TODO error - Conflicting paths returned from getStaticPaths, paths must unique per page.
-  // See more info here: https://nextjs.org/docs/messages/conflicting-ssg-paths
   let data = await sourcebitDataClient.getData();
-  // const paths = pages.filter((page) => page.page.layout === 'advanced').map((page) => page.path);
   const paths = data.pages.map((page) => page.path);
   return { paths, fallback: false };
 }
