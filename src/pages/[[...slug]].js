@@ -4,7 +4,8 @@ import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-up
 import { getDynamicComponent } from '@stackbit/components/components-registry';
 
 function Page(props) {
-  const { page, siteConfig } = props;
+  console.log(props);
+  const { page, site } = props;
   const { layout } = page;
 
   if (!layout) {
@@ -14,7 +15,7 @@ function Page(props) {
   if (!PageLayout) {
     throw new Error(`no page layout matching the layout: ${layout}`);
   }
-  return <PageLayout page={page} siteConfig={siteConfig} />;
+  return <PageLayout page={page} site={site} />;
 }
 
 export async function getStaticPaths() {

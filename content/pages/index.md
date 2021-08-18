@@ -2,6 +2,7 @@
 title: Home
 layout: AdvancedLayout
 sections:
+  - type: FeatureSection
   - type: HeroSection
     variant: variant-a
     colors: colors-e

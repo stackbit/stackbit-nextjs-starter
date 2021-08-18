@@ -23,13 +23,17 @@ module.exports = {
         flattenAssetUrls: true,
         pages: (data) => {
           const pages = data.filter((page) => page.__metadata.sourceName === 'pages');
-          const config = data.find((page) => page.__metadata.id === 'content/data/config.json');
+          const site = data.find((page) => page.__metadata.id === 'content/data/config.json');
           return pages.map((page) => {
-            const url = urlFromFilepath(page.__metadata.relSourcePath);
+            const path = urlFromFilepath(page.__metadata.relSourcePath);
+            const meta = page.__metadata;
+            delete page.__metadata;
+            delete site.__metadata;
             return {
-              path: url,
-              siteConfig: config,
-              page: page
+              path,
+              site,
+              meta,
+              page
             };
           });
         }
