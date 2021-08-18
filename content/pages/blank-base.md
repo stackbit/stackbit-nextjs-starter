@@ -30,11 +30,3 @@ sections:
         url: https://www.stackbit.com/
         type: primary-button
 ---
-
-  - type: PostsSection
-    title: Post Section
-    subtitle: Post Section Subtitle
-    posts:
-      - content/pages/blog/as-fresh-as-it-gets.md
-      - content/pages/blog/bi-weekly-subscription.md
-      - content/pages/blog/sustainability-at-its-purest.md

@@ -25,9 +25,7 @@ module.exports = {
           const pages = data.filter((page) => page.__metadata.sourceName === 'pages');
           const config = data.find((page) => page.__metadata.id === 'content/data/config.json');
           return pages.map((page) => {
-            const fileParse = path.parse(page.__metadata.relSourcePath);
-            const name = fileParse.name === 'index' ? '/' : fileParse.name;
-            const url = path.join(fileParse.dir, name);
+            const url = urlFromFilepath(page.__metadata.relSourcePath);
             return {
               path: url,
               siteConfig: config,
@@ -39,6 +37,13 @@ module.exports = {
     }
   ]
 };
+
+function urlFromFilepath(filepath) {
+  const fileParse = path.parse(filepath);
+  const name = fileParse.name === 'index' ? '/' : fileParse.name;
+  const url = path.join(fileParse.dir, name);
+  return url;
+}
 
 function flattenMarkdownData() {
   return ({ data }) => {
@@ -103,9 +108,14 @@ function resolveReferenceFields({ fieldNames = [], maxDepth = 2 } = {}) {
         if (refKeyPathStack.length > maxDepth) {
           return value;
         }
+        if (keyPath.includes('__metadata')) {
+          return value;
+        }
         if (value in objectsByFilePath) {
           refKeyPathStack.push(keyPath.join('.'));
-          return objectsByFilePath[value];
+          const reference = objectsByFilePath[value];
+          reference.url = urlFromFilepath(reference.__metadata.relSourcePath);
+          return reference;
         }
         return value;
       });
