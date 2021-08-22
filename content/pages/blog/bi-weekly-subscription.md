@@ -6,6 +6,21 @@ excerpt: |-
   This feature is the thing you were missing in your workflow, thank god we have it for you to use.
 thumbImageUrl: https://source.unsplash.com/pRQCTeQTDwE/640x480
 thumbImageAltText: Raw fish, spices, lemon
+bottomSections:
+  - type: CtaSection
+    variant: variant-b
+    colors: colors-e
+    width: wide
+    height: auto
+    alignHoriz: left
+    title: Let's do this
+    text: |-
+      The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen.
+    actions:
+      - type: Button
+        label: Get Started
+        url: "https://www.stackbit.com/"
+        style: primary
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ante lorem, tincidunt ac leo efficitur, feugiat tempor odio. Curabitur at auctor sapien. Etiam at cursus enim. Suspendisse sed augue tortor. Nunc eu magna vitae lorem pellentesque fermentum. Sed in facilisis dui. Nulla molestie risus in mi dapibus, eget porta lorem semper. Donec sed facilisis nibh. Curabitur eget dui in libero euismod commodo nec sit amet est. Etiam id ipsum aliquam, vehicula erat sit amet, consequat tortor.
