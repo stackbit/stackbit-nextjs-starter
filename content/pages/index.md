@@ -6,7 +6,7 @@ sections:
     variant: variant-a
     colors: colors-e
     width: "full"
-    height": "auto"
+    height: "auto"
     alignHoriz: "left"
     badge: "New Website"
     title: "The quick, brown fox jumps over **a lazy dog**"
@@ -27,11 +27,11 @@ sections:
       imageAltText: "Image alt text"
       imageCaption: "Image caption"
   - type: TestimonialsSection
-    variant: variant-a
     colors: colors-e
     width: "wide"
-    height": "auto"
+    height: "auto"
     alignHoriz: "left"
+    testimonialVariant: variant-a
     testimonials:
       - quote: |-
           “It’s great to see someone taking action while still maintaining a sustainable fish supply to home cooks.”
@@ -43,7 +43,7 @@ sections:
     variant: variant-a
     colors: colors-d
     width: "wide"
-    height": "auto"
+    height: "auto"
     alignHoriz: "center"
     title: "let's do this"
     text: "Contact us to learn more about fish"

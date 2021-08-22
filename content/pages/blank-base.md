@@ -7,7 +7,7 @@ sections:
     variant: variant-d
     colors: colors-a
     width: "full"
-    height": "auto"
+    height: "auto"
     alignHoriz: "center"
     badge: "Code: 'salty'"
     title: "**15% Off** Fresh Fish"
@@ -22,7 +22,7 @@ sections:
     variant: variant-a
     colors: colors-a
     width: "full"
-    height": "auto"
+    height: "auto"
     alignHoriz: "center"
     title: "Browse our online store"
     actions:

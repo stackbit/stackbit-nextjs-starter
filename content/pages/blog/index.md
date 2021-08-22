@@ -14,8 +14,8 @@ sections:
         url: https://www.stackbit.com/
         style: primary
   - type: TestimonialsSection
-    variant: variant-a
     colors: colors-b
+    testimonialVariant: variant-a
     testimonials:
       - quote: |-
           “It’s great to see someone taking action while still maintaining a sustainable fish supply to home cooks.”
