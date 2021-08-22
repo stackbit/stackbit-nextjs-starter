@@ -2,7 +2,6 @@
 title: Home
 layout: AdvancedLayout
 sections:
-  - type: FeatureSection
   - type: HeroSection
     variant: variant-a
     colors: colors-e
@@ -14,12 +13,14 @@ sections:
     text: |-
       A group of local fisherman, working to deliver sustainable fish to your table. Each fish you buy, helps support fishing regulations and laws, to help sustain a better future for our waters, our food, and our globe.
     actions:
-      - label: Get Started
+      - type: Button
+        label: Get Started
         url: https://www.stackbit.com/
-        type: primary-button
-      - label: Learn More
+        style: primary
+      - type: Button
+        label: Learn More
         url: https://www.stackbit.com/
-        type: secondary-button
+        style: secondary
     feature:
       type: "ImageBlock"
       imageUrl: "https://source.unsplash.com/wPJygs79jMA/640x360"
@@ -47,10 +48,11 @@ sections:
     title: "let's do this"
     text: "Contact us to learn more about fish"
     actions:
-      - label: Contact Us
+      - type: Button
+        label: Contact Us
         url: https://www.stackbit.com/
-        type: primary-button
-  - type: PostsSection
+        style: primary
+  - type: FeaturedPostsSection
     title: Post Section
     subtitle: Post Section Subtitle
     posts:

@@ -12,28 +12,32 @@
   "logoAltText": "Logo",
   "primaryLinks": [
     {
+      "type": "Link",
       "label": "Home",
       "url": "/",
-      "alt": ""
+      "altText": ""
     },
     {
+      "type": "Link",
       "label": "Blank Base Layout",
       "url": "/blank-base",
-      "alt": ""
+      "altText": ""
     }
   ],
   "secondaryLinks": [
     {
+      "type": "Link",
       "label": "Sign in",
       "url": "/",
-      "alt": "Sign in",
-      "type": "link"
+      "altText": "Sign in",
+      "style": "link"
     },
     {
+      "type": "Button",
       "label": "Sign up",
       "url": "/",
-      "alt": "Sign up",
-      "type": "secondary-button"
+      "altText": "Sign up",
+      "style": "secondary"
     }
   ]
 }

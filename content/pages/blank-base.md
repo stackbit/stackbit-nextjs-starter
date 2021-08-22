@@ -26,7 +26,8 @@ sections:
     alignHoriz: "center"
     title: "Browse our online store"
     actions:
-      - label: Shop Online
+      - type: Button
+        label: Shop Online
         url: https://www.stackbit.com/
-        type: primary-button
+        style: primary
 ---
