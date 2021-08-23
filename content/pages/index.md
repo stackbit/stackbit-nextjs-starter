@@ -2,7 +2,6 @@
 title: Home
 layout: AdvancedLayout
 sections:
-  - type: FeatureSection
   - type: HeroSection
     variant: variant-a
     colors: colors-e
@@ -50,7 +49,7 @@ sections:
       - label: Contact Us
         url: https://www.stackbit.com/
         type: primary-button
-  - type: PostsSection
+  - type: FeaturedPostsSection
     title: Post Section
     subtitle: Post Section Subtitle
     posts:
