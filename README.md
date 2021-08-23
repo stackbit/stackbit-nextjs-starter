@@ -1,7 +1,8 @@
 # Stackbit Nextjs V2
-## Quickstart
 
 A Nextjs page builder, component library and data fetcher.
+
+## Quickstart
 
 ```
 npm install
@@ -14,8 +15,6 @@ npm run dev
 
 # How It Works
 ## Content
-
-### Fetching Content
 
 Content is sourced from the filesystem using [Sourcebit](https://github.com/stackbit/sourcebit). It loads markdown and json files stored in `content/pages` and `content/data` and tranforms them into page objects which are used by `getStaticProps()`. 
 
@@ -53,11 +52,7 @@ export async function getStaticProps({ params }) {
 
 This theme uses the [Stackbit component library](https://github.com/stackbit/stackbit-components) 
 
-```
-npm install @stackbit/components
-```
-
-Wrap your nextjs config with `withStackbitComponents()`
+* This theme comes pre-configured to use `withStackbitComponents()` in the `next.config.js`
 
 ```js
 // next.config.js
@@ -69,6 +64,30 @@ module.exports = withStackbitComponents({
   ...
 })
 ```
+
+`withStackbitComponents` generates a dynamic import map for the Stackbit component library. This provides a framework to override existing Stackbit components and add your own new components. This approach reduces the bundle size by only importing components that are used.
+
+* Generates `.stackbit/components-map.json` - Edit this file to override or add new components
+* Generates `.stackbit/dynamic-components.js` - This file is dynamically generated from `components-map.json` and should not be edited or committed to git.
+
+You can now use `getDynamicComponent(ComponentName)` in a Nextjs page. 
+
+```
+// src/pages/[[...slug]].js 
+import { getDynamicComponent } from '@stackbit/components/components-registry';
+
+function Page(props) {
+  console.log(props);
+  const { page, site } = props;
+  const { layout } = page;
+
+  const PageLayout = getDynamicComponent(layout);
+
+  return <PageLayout page={page} site={site} />;
+}
+```
+
+
 ## Tailwind
 
 You can edit the tailwind config in `tailwind.config.js`
