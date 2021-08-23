@@ -18,8 +18,8 @@
       },
       {
         "type": "Link",
-        "label": "Blank Base Layout",
-        "url": "/blank-base",
+        "label": "Sample Page",
+        "url": "/sample-page",
         "altText": ""
       }
     ],
@@ -66,8 +66,8 @@
       },
       {
         "type": "Link",
-        "label": "Blank Base Layout",
-        "url": "/blank-base",
+        "label": "Sample Page",
+        "url": "/sample-page",
         "altText": ""
       }
     ],

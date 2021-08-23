@@ -27,22 +27,22 @@ sections:
       imageAltText: Image alt text
       imageCaption: Image caption
   - type: TestimonialsSection
+    variant: variant-a
     colors: colors-e
     width: "wide"
     height: "auto"
     alignHoriz: "left"
-    variant: variant-a
     testimonials:
       - quote: |-
           “It’s great to see someone taking action while still maintaining a sustainable fish supply to home cooks.”
         name: Isabelle Parks
         title: Head chef at Parks
-        imageUrl: https://source.unsplash.com/FMh5o5m5N9E
+        imageUrl: /images/isabelle-parks.jpg
         imageAltText: Isabelle Parks
   - type: FeaturedPostsSection
+    variant: variant-a
     colors: colors-d
     width: wide
-    variant: variant-a
     posts:
       - content/pages/blog/as-fresh-as-it-gets.md
       - content/pages/blog/bi-weekly-subscription.md

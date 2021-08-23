@@ -470,6 +470,15 @@ models:
     label: Featured posts section
     fields:
       - type: enum
+        name: variant
+        label: Arrangement
+        options:
+          - label: Vertical post card with image at the top
+            value: variant-a
+          - label: Horizontal post card with image on the left
+            value: variant-b
+        default: variant-a
+      - type: enum
         name: colors
         label: Colors
         options:
@@ -521,15 +530,6 @@ models:
       - type: string
         name: subtitle
         label: Subtitle
-      - type: enum
-        name: postVariant
-        label: Post arrangement
-        options:
-          - label: Vertical post card with image at the top
-            value: variant-a
-          - label: Horizontal post card with image on the left
-            value: variant-b
-        default: variant-a
       - type: list
         name: posts
         label: Posts
@@ -627,6 +627,15 @@ models:
     label: Testimonials section
     fields:
       - type: enum
+        name: variant
+        label: Arrangement
+        options:
+          - label: Testimonial with company logo and author image at the bottom
+            value: variant-a
+          - label: Testimonial with author image on the left
+            value: variant-b
+        default: variant-a
+      - type: enum
         name: colors
         label: Colors
         options:
@@ -678,15 +687,6 @@ models:
       - type: string
         name: subtitle
         label: Subtitle
-      - type: enum
-        name: testimonialVariant
-        label: Testimonial arrangement
-        options:
-          - label: Testimonial with company logo and author image at the bottom
-            value: variant-a
-          - label: Testimonial with author image on the left
-            value: variant-b
-        default: variant-a
       - type: list
         name: testimonials
         label: Testimonials
