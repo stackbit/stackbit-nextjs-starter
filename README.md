@@ -1,4 +1,5 @@
 # Stackbit Nextjs V2
+## Quickstart
 
 A Nextjs page builder, component library and data fetcher.
 
@@ -11,21 +12,15 @@ npm run dev
 ```
 
 
-# Docs
+# How It Works
 ## Content
 
 ### Fetching Content
 
 Content is sourced from the filesystem using [Sourcebit](https://github.com/stackbit/sourcebit). It loads markdown and json files stored in `content/pages` and `content/data` and tranforms them into page objects which are used by `getStaticProps()`. 
 
-This theme comes with a pre-configured sourcebit config in `sourcebit.js`
-
-Require `sourcebit` in your `next.config.js` and execute the `sourcebit.fetch(sourcebitConfig)` method.
-
-This theme comes pre-configured to use `sourcebit.fetch()`
-
-
-> You can also use the sourcebit cli to fetch content: `npx sourcebit fetch`
+* This theme comes with a pre-configured sourcebit config `sourcebit.js`
+* This theme comes pre-configured to use `sourcebit.fetch()` in the `next.config.js`
 
 
 ```js
@@ -41,11 +36,9 @@ module.exports = {
 }
 ```
 
-After sourcebit fetches the data it outputs the `.sourcebit-nextjs-cache.json` file which contains and array of page objects. 
+Whenever you run `npm run dev` or `npm run build` Sourcebit fetches content and outputs the `.sourcebit-nextjs-cache.json` file which contains an array of page objects. 
 
-### Loading content
-
-Inside nextjs page routes ie `src/pages/[[...slug]].js`, you can load page data by it's path using `sourcebitDataClient.getStaticPropsForPageAtPath(path)` inside of `getStaticProps`
+Inside a Nextjs page route like `src/pages/[[...slug]].js` you can load page data by it's path using the `sourcebitDataClient.getStaticPropsForPageAtPath(path)` function inside of `getStaticProps`
 
 ```js
 // src/pages/[[...slug]].js
