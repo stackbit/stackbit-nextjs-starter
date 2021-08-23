@@ -3,7 +3,6 @@
   "mobileNavVariant": "variant-a",
   "primaryColors": "colors-a",
   "secondaryColors": "colors-a",
-  "colors": "colors-a",
   "width": "wide",
   "title": "Eco Fish",
   "isTitleVisible": false,
@@ -13,26 +12,24 @@
     {
       "label": "Home",
       "url": "/",
-      "alt": ""
+      "type": "Link"
     },
     {
       "label": "Blank Base Layout",
       "url": "/blank-base",
-      "alt": ""
+      "type": "Link"
     }
   ],
   "secondaryLinks": [
     {
       "label": "Sign in",
       "url": "/",
-      "alt": "Sign in",
-      "type": "link"
+      "type": "Link"
     },
     {
       "label": "Sign up",
       "url": "/",
-      "alt": "Sign up",
-      "type": "secondary-button"
+      "type": "Button"
     }
   ]
 }
