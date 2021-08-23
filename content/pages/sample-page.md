@@ -1,6 +1,5 @@
 ---
 title: "15% Off Fresh Fish"
-baseLayout: BlankBaseLayout
 layout: AdvancedLayout
 sections:
   - type: HeroSection
