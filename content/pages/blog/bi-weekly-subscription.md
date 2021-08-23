@@ -1,13 +1,11 @@
 ---
 layout: PostLayout
-variant: "variant-a"
 title: Bi-weekly subscription
 date: '2021-06-28'
 excerpt: |-
   This feature is the thing you were missing in your workflow, thank god we have it for you to use.
 thumbImageUrl: https://source.unsplash.com/pRQCTeQTDwE/640x480
-thumbImageAlt: Raw fish, spices, lemon
-imageUrl: https://source.unsplash.com/pRQCTeQTDwE
+thumbImageAltText: Raw fish, spices, lemon
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ante lorem, tincidunt ac leo efficitur, feugiat tempor odio. Curabitur at auctor sapien. Etiam at cursus enim. Suspendisse sed augue tortor. Nunc eu magna vitae lorem pellentesque fermentum. Sed in facilisis dui. Nulla molestie risus in mi dapibus, eget porta lorem semper. Donec sed facilisis nibh. Curabitur eget dui in libero euismod commodo nec sit amet est. Etiam id ipsum aliquam, vehicula erat sit amet, consequat tortor.

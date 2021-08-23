@@ -6,7 +6,7 @@ sections:
     variant: variant-a
     colors: colors-e
     width: "full"
-    height": "auto"
+    height: "auto"
     alignHoriz: "left"
     badge: "New Website"
     title: "The quick, brown fox jumps over **a lazy dog**"
@@ -15,10 +15,12 @@ sections:
     actions:
       - label: Get Started
         url: https://www.stackbit.com/
-        type: primary-button
+        type: Button
+        style: "primary"
       - label: Learn More
         url: https://www.stackbit.com/
-        type: secondary-button
+        type: Button
+        style: "secondary"
     feature:
       type: "ImageBlock"
       imageUrl: "https://source.unsplash.com/wPJygs79jMA/640x360"
@@ -28,7 +30,7 @@ sections:
     variant: variant-a
     colors: colors-e
     width: "wide"
-    height": "auto"
+    height: "auto"
     alignHoriz: "left"
     testimonials:
       - quote: |-
@@ -41,14 +43,15 @@ sections:
     variant: variant-a
     colors: colors-d
     width: "wide"
-    height": "auto"
+    height: "auto"
     alignHoriz: "center"
     title: "let's do this"
     text: "Contact us to learn more about fish"
     actions:
       - label: Contact Us
         url: https://www.stackbit.com/
-        type: primary-button
+        type: Button
+        style: "primary"
   - type: FeaturedPostsSection
     title: Post Section
     subtitle: Post Section Subtitle
