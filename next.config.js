@@ -16,9 +16,11 @@ module.exports = withStackbitComponents({
     ignoreDuringBuilds: true
   },
   webpack: (config, { webpack, isServer }) => {
-    config.resolve.alias['react'] = path.resolve('./node_modules/react');
-    config.resolve.alias['react-dom'] = path.resolve('./node_modules/react');
-    config.resolve.alias['next'] = path.resolve('./node_modules/next');
+
+    // temporary: for local dev with @stackbit/components
+    // config.resolve.alias['react'] = path.resolve('./node_modules/react');
+    // config.resolve.alias['react-dom'] = path.resolve('./node_modules/react');
+    // config.resolve.alias['next'] = path.resolve('./node_modules/next');
 
     // Tell webpack to ignore watching content files in the content folder.
     // Otherwise webpack receompiles the app and refreshes the whole page.
