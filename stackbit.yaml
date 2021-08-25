@@ -1,6 +1,6 @@
 stackbitVersion: ~0.3.0
 ssgName: nextjs
-nodeVersion: '12'
+nodeVersion: '14'
 cmsName: git
 assets:
   referenceType: static
