@@ -25,14 +25,9 @@ module.exports = {
           const pages = data.filter((page) => page.__metadata.sourceName === 'pages');
           const site = data.find((page) => page.__metadata.id === 'content/data/config.json');
           return pages.map((page) => {
-            const path = urlFromFilepath(page.__metadata.relSourcePath);
-            const meta = page.__metadata;
-            delete page.__metadata;
-            delete site.__metadata;
             return {
-              path,
+              path: urlPathFromFilePath(page.__metadata.relSourcePath),
               site,
-              meta,
               page
             };
           });
@@ -42,11 +37,14 @@ module.exports = {
   ]
 };
 
-function urlFromFilepath(filepath) {
-  const fileParse = path.parse(filepath);
-  const name = fileParse.name === 'index' ? '/' : fileParse.name;
-  const url = path.join(fileParse.dir, name);
-  return url;
+function urlPathFromFilePath(filePath) {
+  const pathObject = path.parse(filePath);
+  const parts = pathObject.dir.split(path.sep).filter(Boolean);
+  if (pathObject.name !== 'index') {
+    parts.push(pathObject.name);
+  }
+  const urlPath = parts.join('/').toLowerCase();
+  return  '/' + urlPath;
 }
 
 function flattenMarkdownData() {
@@ -96,6 +94,9 @@ function resolveReferenceFields({ fieldNames = [], maxDepth = 2 } = {}) {
     const objects = data.objects.map((object) => {
       let refKeyPathStack = [];
       return mapDeep(object, (value, keyPath) => {
+        if (keyPath.includes('__metadata')) {
+          return value;
+        }
         if (fieldNames.length !== 0 && !fieldNames.includes(keyPath[keyPath.length - 1])) {
           return value;
         }
@@ -112,14 +113,9 @@ function resolveReferenceFields({ fieldNames = [], maxDepth = 2 } = {}) {
         if (refKeyPathStack.length > maxDepth) {
           return value;
         }
-        if (keyPath.includes('__metadata')) {
-          return value;
-        }
         if (value in objectsByFilePath) {
           refKeyPathStack.push(keyPath.join('.'));
-          const reference = objectsByFilePath[value];
-          reference.url = urlFromFilepath(reference.__metadata.relSourcePath);
-          return reference;
+          return objectsByFilePath[value];
         }
         return value;
       });
