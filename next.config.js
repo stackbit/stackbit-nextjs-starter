@@ -16,10 +16,8 @@ module.exports = withStackbitComponents({
     ignoreDuringBuilds: true
   },
   webpack: (config, { webpack, isServer }) => {
-
-    // temporary: for local dev with @stackbit/components
+    // temporary: for local development -  edit package.json "@stackbit/components": "file:../stackbit-components/dist" and uncomment the alias below.
     // config.resolve.alias['react'] = path.resolve('./node_modules/react');
-    // config.resolve.alias['react-dom'] = path.resolve('./node_modules/react');
     // config.resolve.alias['next'] = path.resolve('./node_modules/next');
 
     // Tell webpack to ignore watching content files in the content folder.
