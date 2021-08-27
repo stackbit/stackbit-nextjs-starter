@@ -2,7 +2,7 @@
 
 The NextJs core starter for Stackbit. 
 
-## Quickstart
+# Quickstart
 
 ```
 npm install
@@ -43,11 +43,11 @@ sections:
 ---
 ```
 
-Visit http://localhost:3000/new-page/ to see the new page. 
+Visit http://localhost:3000/new-page/ to see the new page. Try editing the `text` field and save the file. You should see the text update in the browser automatically using hot reloading.
 
 > **Note:** The page url will match the filepath so `content/pages/my-new-page.md` will resolve to _/my-new-page_. A nested folder like `content/pages/blog/index.md` will resolve to _/blog/_
 
-Try editing the `text` field and save the file. You should see the text update in the browser automatically using hot reloading.
+
 
 ### Add a menu item
 
@@ -58,9 +58,7 @@ Menu items are configured in `content/data/config.json` - add a new menu item to
 
 {
   "navBar": {
-    ...
     "primaryLinks": [
-      ...
       {
         "type": "Link",
         "label": "My New Page",
@@ -68,6 +66,8 @@ Menu items are configured in `content/data/config.json` - add a new menu item to
         "altText": ""
       }
     ],
+  }
+}
 ```
 
 # Layouts, Components & Models
@@ -236,13 +236,19 @@ function Page(props) {
 
 You can edit the tailwind config in `tailwind.config.js`
 
-The Stackbit component library includes a number of preset Tailwind themes which you can use.
+The Stackbit component library includes a number of Tailwind preset configurations which will dramatically change the themes look and feel. 
+
+* [@stackbit/components/themes/tailwind.bold.config.js](https://github.com/stackbit/stackbit-components/blob/main/themes/tailwind.bold.config.js)
+* [@stackbit/components/themes/tailwind.eco.config.js](https://github.com/stackbit/stackbit-components/blob/main/themes/tailwind.eco.config.js)
+* [@stackbit/components/themes/tailwind.modern.config.js](https://github.com/stackbit/stackbit-components/blob/main/themes/tailwind.modern.config.js)
+* [@stackbit/components/themes/tailwind.retro.config.js](https://github.com/stackbit/stackbit-components/blob/main/themes/tailwind.retro.config.js)
+
+Use the `presets` option to change the configuration.
 
 ```js
 // tailwind.config.js
-
 module.exports = {
   presets: [require('@stackbit/components/themes/tailwind.bold.config')],
-  mode: 'jit',
+  // ...
 }
 ```
