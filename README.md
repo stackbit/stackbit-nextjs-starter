@@ -14,7 +14,7 @@ npm run dev
 
 ### Add a new page
 
-Add a new markdown file to `content/pages/new-page.md` with the following frontmatter.
+Create a new markdown file `content/pages/new-page.md` with the following frontmatter.
 
 ```yaml
 ---
@@ -51,14 +51,15 @@ Visit http://localhost:3000/new-page/ to see the new page. Try editing the `text
 
 ### Add a menu item
 
-Menu items are configured in `content/data/config.json` - add a new menu item to the `primaryLinks` array.
+Menu items are configured in `content/data/config.json` - Let's add our new page to the header menu. Edit the config file and add a new menu object to the `primaryLinks` array.
 
-```json
+```js
 // content/data/config.json
-
 {
   "navBar": {
+    // ...
     "primaryLinks": [
+      // ...
       {
         "type": "Link",
         "label": "My New Page",
@@ -66,9 +67,65 @@ Menu items are configured in `content/data/config.json` - add a new menu item to
         "altText": ""
       }
     ],
+    // ...
   }
 }
 ```
+
+### Adding more sections to the page
+
+Returning to our new page `content/pages/my-new-page.md` let's add some more sections. Sections use Components from the Stackbit Components Library. Each Component can have different fields.
+
+Use the [Stackbit Components Storybook](https://develop--stackbit-components.netlify.app/?path=/story/layouts-advancedlayout--primary) to browse components and understand the fields and props they require.
+
+![](public/images/components-cta-screenshot.png)
+**Above:** Storybook showing the CtaSection Component and it's available fields.
+
+
+To use the CtaSection component in the page add the fields to the `sections` array in the frontmatter.
+
+
+```yaml
+# content/pages/my-new-page.md
+---
+title: "New Page"
+layout: "AdvancedLayout"
+sections:
+  - type: "HeroSection"
+    variant: "variant-a"
+    colors: "colors-d"
+    width: "wide"
+    height: "auto"
+    alignHoriz: "left"
+    badge: "Brand New"
+    title: "New heading"
+    text: "a new example description"
+    actions:
+      - type: "Button"
+        url: "/"
+        label: "Go Home"
+        style: "primary"
+    feature:
+      type: "ImageBlock"
+      imageUrl: "/images/hero.png"
+      imageAltText: "Image alt text"
+      imageCaption: "Image caption"
+  - type: "CtaSection"
+    variant: "variant-a"
+    colors: "colors-b"
+    width: "wide"
+    height: "auto"
+    alignHoriz: "center"
+    title: "Let's do this"
+    text: "The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen."
+    actions:
+      - type: "Button"
+        url: "#"
+        label: "Get Started"
+        style: "primary"
+---
+```
+
 
 # Layouts, Components & Models
 
