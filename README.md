@@ -1,6 +1,6 @@
 # Stackbit Nextjs V2
 
-A Nextjs page builder, component library and data fetcher.
+The NextJs core starter for Stackbit. 
 
 ## Quickstart
 
@@ -12,8 +12,152 @@ npm install
 npm run dev
 ```
 
+### Add a new page
 
-# How It Works
+Add a new markdown file to `content/pages/new-page.md` with the following frontmatter.
+
+```yaml
+---
+title: "New Page"
+layout: "AdvancedLayout"
+sections:
+  - type: "HeroSection"
+    variant: "variant-a"
+    colors: "colors-d"
+    width: "wide"
+    height: "auto"
+    alignHoriz: "left"
+    badge: "Brand New"
+    title: "New heading"
+    text: "a new example description"
+    actions:
+      - type: "Button"
+        url: "/"
+        label: "Go Home"
+        style: "primary"
+    feature:
+      type: "ImageBlock"
+      imageUrl: "/images/hero.png"
+      imageAltText: "Image alt text"
+      imageCaption: "Image caption"
+---
+```
+
+Visit http://localhost:3000/new-page/ to see the new page. 
+
+> **Note:** The page url will match the filepath so `content/pages/my-new-page.md` will resolve to _/my-new-page_. A nested folder like `content/pages/blog/index.md` will resolve to _/blog/_
+
+Try editing the `text` field and save the file. You should see the text update in the browser automatically using hot reloading.
+
+### Add a menu item
+
+Menu items are configured in `content/data/config.json` - add a new menu item to the `primaryLinks` array.
+
+```json
+// content/data/config.json
+
+{
+  "navBar": {
+    ...
+    "primaryLinks": [
+      ...
+      {
+        "type": "Link",
+        "label": "My New Page",
+        "url": "/my-new-page",
+        "altText": ""
+      }
+    ],
+```
+
+# Layouts, Components & Models
+
+Every page must have a `layout` field which in turn will determine the other available fields. Here are some example layouts:
+
+* `layout: "AdvancedLayout"`
+* `layout: "BlogLayout"`
+
+You can find more layouts in the [Stackbit Components Storybook](https://develop--stackbit-components.netlify.app/?path=/story/layouts-advancedlayout--primary) or in the [@stackbit/components Github repo](https://github.com/stackbit/stackbit-components/blob/main/src/layouts/index.js). 
+
+
+The layout will determine what frontmatter fields are available based on it's stackbit.yaml model. The AdvancedLayout uses the [AdvancedLayout.yaml model](https://github.com/stackbit/stackbit-components/blob/main/models/AdvancedLayout.yaml) shown below:
+
+```yaml
+type: page
+name: AdvancedLayout
+label: Advanced page
+layout: AdvancedLayout
+hideContent: true
+fields:
+  - type: string
+    name: title
+    label: Title
+  - type: list
+    name: sections
+    label: Sections
+    items:
+      type: model
+      models:
+        - ContactSection
+        - ContentSection
+        - CtaSection
+        - FeaturedPostsSection
+        - HeroSection
+        - TestimonialsSection
+```
+
+The AdvancedLayout is a **page model** with a `title` and `sections` field. The `sections` field is a list (an array of objects) with each object being it's own **object model**. The AdvancedLayout can use the following components from the Stackbit Components Library:
+
+- ContactSection
+- ContentSection
+- CtaSection
+- FeaturedPostsSection
+- HeroSection
+- TestimonialsSection
+
+Let's try adding another component to the page. It already has a `HeroSection` component. Let's add a `CtaSection`.
+
+```yaml
+---
+title: "New Page"
+layout: "AdvancedLayout"
+sections:
+  - type: "HeroSection"
+    variant: "variant-a"
+    colors: "colors-d"
+    width: "wide"
+    height: "auto"
+    alignHoriz: "left"
+    badge: "Brand New"
+    title: "New example heading"
+    text: "my updated text"
+    actions:
+      - type: "Button"
+        url: "/"
+        label: "Go Home"
+        style: "primary"
+    feature:
+      type: "ImageBlock"
+      imageUrl: "/images/hero.png"
+      imageAltText: "Image alt text"
+      imageCaption: "Image caption"
+  - type: "CtaSection"
+    variant: "variant-a"
+    colors: "colors-b"
+    width: "wide"
+    height: "auto"
+    alignHoriz: "center"
+    title: "Let's do this"
+    text: "The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen."
+    actions:
+      - type: "Button"
+        url: "#"
+        label: "Get Started"
+        style: "primary"
+---
+```
+
+# Advanced
 ## Content
 
 Content is sourced from the filesystem using [Sourcebit](https://github.com/stackbit/sourcebit). It loads markdown and json files stored in `content/pages` and `content/data` and tranforms them into page objects which are used by `getStaticProps()`. 
