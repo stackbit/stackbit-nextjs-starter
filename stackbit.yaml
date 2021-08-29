@@ -16,6 +16,19 @@ models:
     label: Site configuration
     file: 'config.json'
     fields:
+      - type: enum
+        name: backgroundColor
+        label: Background color
+        options:
+          - label: White
+            value: bg-white
+          - label: Primary
+            value: bg-primary
+          - label: Secondary
+            value: bg-secondary
+          - label: Neutral
+            value: bg-neutral
+        default: bg-white
       - type: model
         name: navBar
         label: Navbar configuration
@@ -97,12 +110,10 @@ models:
       - type: boolean
         name: isTitleVisible
         label: Display title
-      - type: image
-        name: logoUrl
-        label: Logo URL
-      - type: string
-        name: logoAltText
-        label: Logo alt text
+      - type: model
+        name: logo
+        label: Logo
+        models: [ImageBlock]
       - type: list
         name: primaryLinks
         label: Primary navigation links
@@ -155,12 +166,10 @@ models:
       - type: boolean
         name: isTitleVisible
         label: Display title
-      - type: image
-        name: logoUrl
-        label: Logo URL
-      - type: string
-        name: logoAltText
-        label: Logo alt text
+      - type: model
+        name: logo
+        label: Logo
+        models: [ImageBlock]
       - type: markdown
         name: text
         label: Text
@@ -230,12 +239,10 @@ models:
       - type: string
         name: excerpt
         label: Excerpt
-      - type: image
-        name: thumbImageUrl
+      - type: model
+        name: thumbImage
         label: Thumbnail image
-      - type: string
-        name: thumbImageAltText
-        label: Thumbnail image alt text
+        models: [ImageBlock]
       - type: list
         name: topSections
         label: Top sections
@@ -819,15 +826,15 @@ models:
     label: Image
     fields:
       - type: image
-        name: imageUrl
-        label: Image URL
+        name: url
+        label: URL
         description: The URL of the image
       - type: string
-        name: imageAltText
+        name: altText
         label: Alt text
         description: The alt text of the image
       - type: string
-        name: imageCaption
+        name: caption
         label: Caption
         description: The caption of the image
   VideoBlock:
@@ -869,18 +876,14 @@ models:
       - type: string
         name: title
         label: Author title
-      - type: image
-        name: imageUrl
+      - type: model
+        name: image
         label: Author image
-      - type: string
-        name: imageAltText
-        label: Author image alt text
-      - type: image
-        name: logoUrl
+        models: [ImageBlock]
+      - type: model
+        name: logo
         label: Company logo
-      - type: string
-        name: logoAltText
-        label: Company logo alt text
+        models: [ImageBlock]
   CheckboxFormControl:
     type: object
     label: Checkbox

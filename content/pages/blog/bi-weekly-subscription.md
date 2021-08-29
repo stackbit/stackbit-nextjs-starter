@@ -4,8 +4,10 @@ title: Bi-weekly subscription
 date: '2021-06-28'
 excerpt: |-
   This feature is the thing you were missing in your workflow, thank god we have it for you to use.
-thumbImageUrl: https://source.unsplash.com/pRQCTeQTDwE/640x480
-thumbImageAltText: Raw fish, spices, lemon
+thumbImage:
+  type: ImageBlock
+  url: https://source.unsplash.com/pRQCTeQTDwE/640x480
+  altText: Raw fish, spices, lemon
 bottomSections:
   - type: CtaSection
     variant: variant-b
