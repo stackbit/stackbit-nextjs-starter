@@ -18,22 +18,21 @@ Create a new markdown file `content/pages/new-page.md` with the following frontm
 
 ```yaml
 ---
-title: "New Page"
+title: "New Example Page"
 layout: "AdvancedLayout"
 sections:
   - type: "HeroSection"
     variant: "variant-a"
-    colors: "colors-d"
     width: "wide"
     height: "auto"
     alignHoriz: "left"
     badge: "Brand New"
-    title: "New heading"
-    text: "a new example description"
+    title: "My Heading"
+    text: "a long description"
     actions:
       - type: "Button"
         url: "/"
-        label: "Go Home"
+        label: "Home"
         style: "primary"
     feature:
       type: "ImageBlock"
@@ -43,15 +42,13 @@ sections:
 ---
 ```
 
-Visit http://localhost:3000/new-page/ to see the new page. Try editing the `text` field and save the file. You should see the text update in the browser automatically using hot reloading.
+Visit http://localhost:3000/new-page/ to see the new page. 
 
-> **Note:** The page url will match the filepath so `content/pages/my-new-page.md` will resolve to _/my-new-page_. A nested folder like `content/pages/blog/index.md` will resolve to _/blog/_
-
-
+> **Note:** The pages url will match the file path - `content/pages/new-page.md` will resolve to _/new-page_. A nested folder like `content/pages/blog/index.md` will resolve to _/blog/_
 
 ### Add a menu item
 
-Menu items are configured in `content/data/config.json` - Let's add our new page to the header menu. Edit the config file and add a new menu object to the `primaryLinks` array.
+Menu items are configured in `content/data/config.json`. Edit the config file and add a new menu object to the `primaryLinks` array.
 
 ```js
 // content/data/config.json
@@ -63,7 +60,7 @@ Menu items are configured in `content/data/config.json` - Let's add our new page
       {
         "type": "Link",
         "label": "My New Page",
-        "url": "/my-new-page",
+        "url": "/new-page",
         "altText": ""
       }
     ],
@@ -74,45 +71,18 @@ Menu items are configured in `content/data/config.json` - Let's add our new page
 
 ### Adding more sections to the page
 
-Returning to our new page `content/pages/my-new-page.md` let's add some more sections. Sections use Components from the Stackbit Components Library. Each Component can have different fields.
-
-Use the [Stackbit Components Storybook](https://develop--stackbit-components.netlify.app/?path=/story/layouts-advancedlayout--primary) to browse components and understand the fields and props they require.
-
-![](public/images/components-cta-screenshot.png)
-**Above:** Storybook showing the CtaSection Component and it's available fields.
-
-
-To use the CtaSection component in the page add the fields to the `sections` array in the frontmatter.
-
+Add a [🧩 CtaSection](https://components.stackbit.com/?path=/docs/components-contactsection--primary) to the page by adding the component to the the sections array.
 
 ```yaml
-# content/pages/my-new-page.md
+# content/pages/new-page.md
 ---
-title: "New Page"
+title: "New Example Page"
 layout: "AdvancedLayout"
-sections:
+sections: # sections array
   - type: "HeroSection"
-    variant: "variant-a"
-    colors: "colors-d"
-    width: "wide"
-    height: "auto"
-    alignHoriz: "left"
-    badge: "Brand New"
-    title: "New heading"
-    text: "a new example description"
-    actions:
-      - type: "Button"
-        url: "/"
-        label: "Go Home"
-        style: "primary"
-    feature:
-      type: "ImageBlock"
-      imageUrl: "/images/hero.png"
-      imageAltText: "Image alt text"
-      imageCaption: "Image caption"
+    # ...
   - type: "CtaSection"
     variant: "variant-a"
-    colors: "colors-b"
     width: "wide"
     height: "auto"
     alignHoriz: "center"
@@ -120,11 +90,25 @@ sections:
     text: "The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen."
     actions:
       - type: "Button"
-        url: "#"
+        url: "/contact"
         label: "Get Started"
         style: "primary"
 ---
 ```
+
+ **Other components**
+
+  - [🧩 CtaSection](https://components.stackbit.com/?path=/docs/components-contactsection--primary)
+  - [🧩 ContactSection](https://components.stackbit.com/?path=/docs/components-contentsection--primary)
+  - [🧩 FeaturedPeopleSection](https://components.stackbit.com/?path=/docs/components-featuredpeoplesection--primary)
+  - [🧩 FeaturedPostsSection](https://components.stackbit.com/?path=/docs/components-featuredpostssection--primary)
+
+
+> **Component Library:** The [Stackbit Component Library](https://develop--stackbit-components.netlify.app/?path=/story/layouts-advancedlayout--primary) has full documentation on each component including the available props and frontmatter.
+
+![](public/images/components-cta-screenshot.png)
+**Above:** Storybook showing the CtaSection Component and it's available fields.
+
 
 
 # Layouts, Components & Models
