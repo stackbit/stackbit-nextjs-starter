@@ -2,7 +2,7 @@
 
 The NextJs core starter for Stackbit. 
 
-# Quickstart
+## Quickstart
 
 ```
 npm install
@@ -96,32 +96,40 @@ sections: # sections array
 ---
 ```
 
- **Other components**
+
+**Component Library:** The [Stackbit Component Library](https://develop--stackbit-components.netlify.app/?path=/story/layouts-advancedlayout--primary) has full documentation on each component including the available props and frontmatter.
+
+
+ **Component Examples**
 
   - [🧩 CtaSection](https://components.stackbit.com/?path=/docs/components-contactsection--primary)
   - [🧩 ContactSection](https://components.stackbit.com/?path=/docs/components-contentsection--primary)
   - [🧩 FeaturedPeopleSection](https://components.stackbit.com/?path=/docs/components-featuredpeoplesection--primary)
   - [🧩 FeaturedPostsSection](https://components.stackbit.com/?path=/docs/components-featuredpostssection--primary)
 
+### Understanding Layouts
 
-> **Component Library:** The [Stackbit Component Library](https://develop--stackbit-components.netlify.app/?path=/story/layouts-advancedlayout--primary) has full documentation on each component including the available props and frontmatter.
+Explain how layouts work.
 
-![](public/images/components-cta-screenshot.png)
-**Above:** Storybook showing the CtaSection Component and it's available fields.
+* How does the `layout` field work?
+* How does the `layout` field effect which frontmatter fields can be used?
+* The layout is dependant on a stackbit.yaml model. The model defines which components can be used in the sections array. Explain how the layout and model are used.
 
+### Adding your own components
 
+Explain how to add your own component
 
-# Layouts, Components & Models
+### Extending a Stackbit component
 
-Every page must have a `layout` field which in turn will determine the other available fields. Here are some example layouts:
-
-* `layout: "AdvancedLayout"`
-* `layout: "BlogLayout"`
-
-You can find more layouts in the [Stackbit Components Storybook](https://develop--stackbit-components.netlify.app/?path=/story/layouts-advancedlayout--primary) or in the [@stackbit/components Github repo](https://github.com/stackbit/stackbit-components/blob/main/src/layouts/index.js). 
+Explain how to extend an existing Stackbit component.
 
 
-The layout will determine what frontmatter fields are available based on it's stackbit.yaml model. The AdvancedLayout uses the [AdvancedLayout.yaml model](https://github.com/stackbit/stackbit-components/blob/main/models/AdvancedLayout.yaml) shown below:
+## Advanced Guide
+### Layouts
+
+Every page in `content/pages` must have a `layout` field. The layout is both a component and a content model.
+
+The layout will determine what frontmatter fields can be used in the page  based on it's stackbit.yaml model. The AdvancedLayout uses the [AdvancedLayout.yaml model](https://github.com/stackbit/stackbit-components/blob/main/models/AdvancedLayout.yaml) shown below:
 
 ```yaml
 type: page
@@ -156,50 +164,7 @@ The AdvancedLayout is a **page model** with a `title` and `sections` field. The 
 - HeroSection
 - TestimonialsSection
 
-Let's try adding another component to the page. It already has a `HeroSection` component. Let's add a `CtaSection`.
-
-```yaml
----
-title: "New Page"
-layout: "AdvancedLayout"
-sections:
-  - type: "HeroSection"
-    variant: "variant-a"
-    colors: "colors-d"
-    width: "wide"
-    height: "auto"
-    alignHoriz: "left"
-    badge: "Brand New"
-    title: "New example heading"
-    text: "my updated text"
-    actions:
-      - type: "Button"
-        url: "/"
-        label: "Go Home"
-        style: "primary"
-    feature:
-      type: "ImageBlock"
-      imageUrl: "/images/hero.png"
-      imageAltText: "Image alt text"
-      imageCaption: "Image caption"
-  - type: "CtaSection"
-    variant: "variant-a"
-    colors: "colors-b"
-    width: "wide"
-    height: "auto"
-    alignHoriz: "center"
-    title: "Let's do this"
-    text: "The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen."
-    actions:
-      - type: "Button"
-        url: "#"
-        label: "Get Started"
-        style: "primary"
----
-```
-
-# Advanced
-## Content
+### Content
 
 Content is sourced from the filesystem using [Sourcebit](https://github.com/stackbit/sourcebit). It loads markdown and json files stored in `content/pages` and `content/data` and tranforms them into page objects which are used by `getStaticProps()`. 
 
