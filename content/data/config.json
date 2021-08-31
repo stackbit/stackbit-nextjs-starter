@@ -1,4 +1,5 @@
 {
+  "type": "Config",
   "navBar": {
     "desktopNavVariant": "variant-a",
     "mobileNavVariant": "variant-a",
