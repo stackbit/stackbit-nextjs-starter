@@ -1,5 +1,6 @@
 {
   "type": "Config",
+  "backgroundColor": "bg-white",
   "navBar": {
     "desktopNavVariant": "variant-a",
     "mobileNavVariant": "variant-a",
@@ -8,8 +9,11 @@
     "width": "wide",
     "title": "Eco Fish",
     "isTitleVisible": false,
-    "logoUrl": "/images/logo.svg",
-    "logoAltText": "Logo",
+    "logo": {
+      "type": "ImageBlock",
+      "url": "/images/logo.svg",
+      "altText": "Logo"
+    },
     "primaryLinks": [
       {
         "type": "Link",
@@ -46,8 +50,11 @@
     "width": "wide",
     "title": "Eco Fish",
     "isTitleVisible": true,
-    "logoUrl": "/images/logo.svg",
-    "logoAltText": "Logo",
+    "logo": {
+      "type": "ImageBlock",
+      "url": "/images/logo.svg",
+      "altText": "Logo"
+    },
     "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.  \nEaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
     "contacts": {
       "phoneNumber": "850-123-5021",

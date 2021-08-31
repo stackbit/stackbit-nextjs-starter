@@ -23,9 +23,9 @@ sections:
         style: "secondary"
     feature:
       type: ImageBlock
-      imageUrl: "https://source.unsplash.com/wPJygs79jMA/640x360"
-      imageAltText: Image alt text
-      imageCaption: Image caption
+      url: "https://source.unsplash.com/wPJygs79jMA/640x360"
+      altText: Image alt text
+      caption: Image caption
   - type: TestimonialsSection
     variant: variant-a
     colors: colors-e
@@ -37,8 +37,10 @@ sections:
           “It’s great to see someone taking action while still maintaining a sustainable fish supply to home cooks.”
         name: Isabelle Parks
         title: Head chef at Parks
-        imageUrl: /images/isabelle-parks.jpg
-        imageAltText: Isabelle Parks
+        image:
+          type: ImageBlock
+          url: /images/isabelle-parks.jpg
+          altText: Isabelle Parks
   - type: FeaturedPostsSection
     variant: variant-a
     colors: colors-d
@@ -82,8 +84,8 @@ sections:
       We will notify you every time a shipment is heading to your neighborhood, and you could immediatly let us know if you want in or not.
     image:
       type: ImageBlock
-      imageUrl: "/images/lobster.jpg"
-      imageAltText: Fisherman holding lobster
+      url: "/images/lobster.jpg"
+      altText: Fisherman holding lobster
     form:
       type: FormBlock
       idAttr: contact-form

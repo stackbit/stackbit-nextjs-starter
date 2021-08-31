@@ -14,9 +14,9 @@ sections:
       Use the promo code **salty** when you checkout from our online store to receieve 15% off your first order of fresh fish. We have the freshest stock of tuna, salmon and yellowfin offloaded at the docks every morning.
     feature:
       type: "ImageBlock"
-      imageUrl: "https://source.unsplash.com/e9bho1OWGa0/640x360"
-      imageAltText: "Image alt text"
-      imageCaption: "Image caption"
+      url: "https://source.unsplash.com/e9bho1OWGa0/640x360"
+      altText: "Image alt text"
+      caption: "Image caption"
   - type: CtaSection
     variant: variant-a
     colors: colors-a
