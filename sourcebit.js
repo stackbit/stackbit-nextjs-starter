@@ -1,8 +1,10 @@
 const path = require('path');
-const { resolveReferenceFields,
+const { 
+  resolveReferenceFields,
   flattenMarkdownData,
   urlPathFromFilePath,
-  postProcessContactFormEmails } = require('./src/utils/process-data');
+  postProcessContactFormEmails 
+} = require('./src/utils/process-data');
 
 const isDev = process.env.NODE_ENV === 'development';
 
