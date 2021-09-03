@@ -90,7 +90,7 @@ sections:
       type: FormBlock
       idAttr: contact-form
       destination: test@stackbit.com
-      action: /.netlify/functions/submit-form
+      action: /.netlify/functions/submission-created
       fields:
         - type: TextFormControl
           name: name
