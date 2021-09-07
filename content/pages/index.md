@@ -5,7 +5,7 @@ sections:
   - type: HeroSection
     variant: variant-c
     colors: colors-c
-    width: wide
+    width: full
     height: tall
     alignHoriz: left
     topGap: none
@@ -18,15 +18,15 @@ sections:
       - type: Button
         label: Get Started
         url: https://www.stackbit.com/
-        style: "primary"
+        style: primary
     backgroundImage:
       type: ImageBlock
-      url: /images/hero-bc.jpg
+      url: /images/hero-bg.jpg
       opacity: 70
   - type: TestimonialsSection
     variant: variant-a
     colors: colors-f
-    width: wide
+    width: full
     topGap: none
     height: short
     alignHoriz: left
@@ -35,44 +35,18 @@ sections:
           “It’s great to see someone taking action while still maintaining a sustainable fish supply to home cooks.”
         name: Isabelle Parks
         title: Head chef at Parks
-  - type: FeaturedPeopleSection
-    variant: variant-c
-    colors: colors-a
-    width: wide
-    alignHoriz: center
-    title: Our Team
-    topGap: large
-    bottomGap: large
-    people:
-      - content/data/team/dianne-ameter.json
-      - content/data/team/hilary-ouse.json
-      - content/data/team/gustav-purpleson.json
-      - content/data/team/hugh-saturation.json
   - type: FeaturedPostsSection
     variant: variant-a
     colors: colors-a
-    width: wide
+    width: full
     alignHoriz: center
-    title: Day adventures
-    topGap: large
+    title: Our Classes
+    topGap: small
     bottomGap: large
     posts:
       - content/pages/blog/as-fresh-as-it-gets.md
       - content/pages/blog/kayak-fishing-5-advantages-and-benefits.md
       - content/pages/blog/sustainability-at-its-purest.md
-  - type: QuoteSection
-    colors: colors-f
-    width: wide
-    height: short
-    topGap: large
-    bottomGap: large
-    alignHoriz: left
-    quote: “In every species of fish I’ve angled for, it is the ones that have got away that thrill me the most, the ones that keep fresh in my memory. So I say it is good to lose fish. If we didn’t, much of the thrill of angling would be gone.”
-    name: Ray Bergman
-    backgroundImage:
-      type: ImageBlock
-      url: "/images/quote.jpg"
-      opacity: 20
   - type: ContactSection
     variant: variant-b
     colors: colors-f
@@ -116,12 +90,12 @@ sections:
           width: full
       submitLabel: Send Message
   - type: CtaSection
-    variant: variant-a
-    colors: colors-h
-    width: wide
+    variant: variant-b
+    colors: colors-c
+    width: full
     height: short
     topGap: large
-    bottomGap: large
+    bottomGap: none
     alignHoriz: left
     title: Let's go kayak fishing!
     text: |-
@@ -134,5 +108,5 @@ sections:
       - type: Button
         label: Get Started
         url: "https://www.stackbit.com/"
-        style: primary
+        style: secondary
 ---

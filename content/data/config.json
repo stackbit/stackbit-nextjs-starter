@@ -1,12 +1,12 @@
 {
   "type": "Config",
-  "backgroundColor": "bg-base",
+  "backgroundColor": "bg-white",
   "navBar": {
     "desktopNavVariant": "variant-c",
     "mobileNavVariant": "variant-a",
     "primaryColors": "colors-a",
     "secondaryColors": "colors-a",
-    "width": "wide",
+    "width": "full",
     "title": "River Catch",
     "isTitleVisible": true,
     "primaryLinks": [
