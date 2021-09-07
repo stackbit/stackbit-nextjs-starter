@@ -1,19 +1,14 @@
 {
   "type": "Config",
-  "backgroundColor": "bg-white",
+  "backgroundColor": "bg-base",
   "navBar": {
-    "desktopNavVariant": "variant-a",
+    "desktopNavVariant": "variant-c",
     "mobileNavVariant": "variant-a",
     "primaryColors": "colors-a",
     "secondaryColors": "colors-a",
     "width": "wide",
-    "title": "Eco Fish",
-    "isTitleVisible": false,
-    "logo": {
-      "type": "ImageBlock",
-      "url": "/images/logo.svg",
-      "altText": "Logo"
-    },
+    "title": "River Catch",
+    "isTitleVisible": true,
     "primaryLinks": [
       {
         "type": "Link",
@@ -23,22 +18,21 @@
       },
       {
         "type": "Link",
-        "label": "Sample Page",
-        "url": "/sample-page",
+        "label": "About",
+        "url": "/about",
+        "altText": ""
+      },
+      {
+        "type": "Link",
+        "label": "Adventures",
+        "url": "/adventures",
         "altText": ""
       }
     ],
     "secondaryLinks": [
       {
-        "type": "Link",
-        "label": "Sign in",
-        "url": "/",
-        "altText": "Sign in",
-        "style": "link"
-      },
-      {
         "type": "Button",
-        "label": "Sign up",
+        "label": "Contact Us",
         "url": "/",
         "altText": "Sign up",
         "style": "secondary"
@@ -46,16 +40,10 @@
     ]
   },
   "footer": {
-    "colors": "colors-d",
-    "width": "wide",
-    "title": "Eco Fish",
+    "colors": "colors-c",
+    "width": "full",
+    "title": "River Catch",
     "isTitleVisible": true,
-    "logo": {
-      "type": "ImageBlock",
-      "url": "/images/logo.svg",
-      "altText": "Logo"
-    },
-    "text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.  \nEaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
     "contacts": {
       "phoneNumber": "850-123-5021",
       "phoneAltText": "Our phone",
@@ -64,7 +52,7 @@
       "address": "312 Lovely Street, NY",
       "addressAltText": "Our address"
     },
-    "copyrightText": "💖 powered by Stackbit",
+    "copyrightText": "Powered by Stackbit",
     "primaryLinks": [
       {
         "type": "Link",
@@ -74,8 +62,14 @@
       },
       {
         "type": "Link",
-        "label": "Sample Page",
-        "url": "/sample-page",
+        "label": "About",
+        "url": "/about",
+        "altText": ""
+      },
+      {
+        "type": "Link",
+        "label": "Adventures",
+        "url": "/adventures",
         "altText": ""
       }
     ],

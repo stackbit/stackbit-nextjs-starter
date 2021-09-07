@@ -1,20 +1,21 @@
 ---
 layout: PostLayout
-title: Bi-weekly subscription
+title: Kayak Fishing - Advantages And Benefits
 date: '2021-06-28'
 excerpt: |-
-  This feature is the thing you were missing in your workflow, thank god we have it for you to use.
+  Kayak angling is a fun and affordable way to get out on the water. You can take the plunge of purchasing a kayak or opt for a rental. Renting is a great option for first timers, as it is a good way to try different kinds of kayaks.
 thumbImage:
   type: ImageBlock
-  url: https://source.unsplash.com/pRQCTeQTDwE/640x480
+  url: "/images/post-2.jpg"
   altText: Raw fish, spices, lemon
 bottomSections:
   - type: CtaSection
     variant: variant-b
-    colors: colors-e
-    width: wide
-    height: auto
+    colors: colors-f
+    width: full
+    height: short
     alignHoriz: left
+    bottomGap: none
     title: Let's do this
     text: |-
       The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen.

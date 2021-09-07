@@ -1,0 +1,13 @@
+{
+    "type": "Person",
+    "id": "gustav-purpleson",
+    "firstName": "Gustav",
+    "lastName": "Purpleson",
+    "role": "CEO",
+    "bio": "text",
+    "image": {
+        "type": "ImageBlock",
+        "url": "/images/isabelle-parks.jpg",
+        "altText": "Person photo"
+      }
+}

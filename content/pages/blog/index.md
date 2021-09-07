@@ -6,7 +6,7 @@ sections:
     variant: variant-a
     colors: colors-e
     width: full
-    height: auto
+    height: short
     alignHoriz: left
     badge: "New Website"
     title: "The quick, brown fox jumps over **a lazy dog**"

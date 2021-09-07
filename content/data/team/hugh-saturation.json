@@ -1,0 +1,13 @@
+{
+    "type": "Person",
+    "id": "dianne-ameter",
+    "firstName": "Dianne",
+    "lastName": "Ameter",
+    "role": "CEO",
+    "bio": "text",
+    "image": {
+        "type": "ImageBlock",
+        "url": "/images/isabelle-parks.jpg",
+        "altText": "Person photo"
+      }
+}

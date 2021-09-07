@@ -6,15 +6,16 @@ excerpt: |-
   We’re local, seasonal fisherman, supporting fishing restrictions. We fish what the sea has to offer, nothing more, and no cheating.
 thumbImage:
   type: ImageBlock
-  url: https://source.unsplash.com/VWcPlbHglYc/640x480
+  url: "/images/post-3.jpg"
   altText: Fisherman
 bottomSections:
   - type: CtaSection
     variant: variant-b
-    colors: colors-e
-    width: wide
-    height: auto
+    colors: colors-f
+    width: full
+    height: short
     alignHoriz: left
+    bottomGap: none
     title: Let's do this
     text: |-
       The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen.

@@ -1,0 +1,13 @@
+{
+    "type": "Person",
+    "id": "hilary-ouse",
+    "firstName": "Hilary",
+    "lastName": "Ouse",
+    "role": "CEO",
+    "bio": "text",
+    "image": {
+        "type": "ImageBlock",
+        "url": "/images/isabelle-parks.jpg",
+        "altText": "Person photo"
+      }
+}
