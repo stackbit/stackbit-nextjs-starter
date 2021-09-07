@@ -7,7 +7,7 @@
     "bio": "text",
     "image": {
         "type": "ImageBlock",
-        "url": "/images/isabelle-parks.jpg",
+        "url": "/images/team-4.jpg",
         "altText": "Person photo"
       }
 }
