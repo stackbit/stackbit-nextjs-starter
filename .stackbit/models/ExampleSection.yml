@@ -1,0 +1,15 @@
+type: object
+name: ExampleSection
+label: Example Section
+fields:
+  - type: string
+    name: title
+  - type: list
+    name: logos
+    items:
+      type: object
+      fields:
+        - type: string
+          name: name
+        - type: image
+          name: image

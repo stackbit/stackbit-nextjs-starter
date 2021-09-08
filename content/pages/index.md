@@ -43,7 +43,7 @@ sections:
           altText: Isabelle Parks
   - type: FeaturedPostsSection
     variant: variant-a
-    colors: colors-d
+    colors: colors-e
     width: wide
     posts:
       - content/pages/blog/as-fresh-as-it-gets.md
@@ -51,7 +51,7 @@ sections:
       - content/pages/blog/sustainability-at-its-purest.md
   - type: CtaSection
     variant: variant-a
-    colors: colors-b
+    colors: colors-e
     width: wide
     height: auto
     alignHoriz: center
@@ -75,7 +75,7 @@ sections:
       Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis undeomnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
   - type: ContactSection
     variant: variant-b
-    colors: colors-d
+    colors: colors-e
     width: wide
     height: auto
     alignHoriz: left
@@ -113,4 +113,13 @@ sections:
           label: Sign me up to receive updates
           width: full
       submitLabel: Send Message
+  - type: ExampleSection
+    title: "Our Partners"
+    logos:
+      - name: 'Stackbit'
+        image: '/images/stackbit.svg'
+      - name: 'NextJs'
+        image: '/images/nextdotjs.svg'
+      - name: 'Tailwind'
+        image: '/images/tailwindcss.svg'
 ---
