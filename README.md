@@ -174,7 +174,7 @@ fields:
           name: image
 ```
 
-Extend the `AdvancedLayout` model. Create a new model file at `.stackbit/models/AdvancedLayout.yml`
+Extend the [🧩 AdvancedLayout](https://components.stackbit.com/?path=/docs/layouts-advancedlayout--primary) model. Create a new model file at `.stackbit/models/AdvancedLayout.yml`
 
 ```yml
 type: page
@@ -199,7 +199,7 @@ fields:
 
 Add the component to the homepage content. Edit `content/pages/index.md`
 
-```
+```yml
 ---
 title: Home
 layout: AdvancedLayout
