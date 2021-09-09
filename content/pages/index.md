@@ -28,7 +28,7 @@ sections:
       caption: Image caption
   - type: TestimonialsSection
     variant: variant-a
-    colors: colors-e
+    colors: colors-c
     width: "wide"
     height: "auto"
     alignHoriz: "left"

@@ -230,123 +230,9 @@ Explain how layouts work.
 
 * How does the `layout` field work?
 * How does the `layout` field effect which frontmatter fields can be used?
-* The layout is dependant on a stackbit.yaml model. The model defines which components can be used in the sections array. Explain how the layout and model are used.
+* The layout is both a component and a model. Explain this concept.
 
-## Advanced Guide
-### Layouts
-
-Every page in `content/pages` must have a `layout` field. The layout is both a component and a content model.
-
-The layout will determine what frontmatter fields can be used in the page  based on it's stackbit.yaml model. The AdvancedLayout uses the [AdvancedLayout.yaml model](https://github.com/stackbit/stackbit-components/blob/main/models/AdvancedLayout.yaml) shown below:
-
-```yaml
-type: page
-name: AdvancedLayout
-label: Advanced page
-layout: AdvancedLayout
-hideContent: true
-fields:
-  - type: string
-    name: title
-    label: Title
-  - type: list
-    name: sections
-    label: Sections
-    items:
-      type: model
-      models:
-        - ContactSection
-        - ContentSection
-        - CtaSection
-        - FeaturedPostsSection
-        - HeroSection
-        - TestimonialsSection
-```
-
-The AdvancedLayout is a **page model** with a `title` and `sections` field. The `sections` field is a list (an array of objects) with each object being it's own **object model**. The AdvancedLayout can use the following components from the Stackbit Components Library:
-
-- ContactSection
-- ContentSection
-- CtaSection
-- FeaturedPostsSection
-- HeroSection
-- TestimonialsSection
-
-### Content
-
-Content is sourced from the filesystem using [Sourcebit](https://github.com/stackbit/sourcebit). It loads markdown and json files stored in `content/pages` and `content/data` and tranforms them into page objects which are used by `getStaticProps()`. 
-
-* This theme comes with a pre-configured sourcebit config `sourcebit.js`
-* This theme comes pre-configured to use `sourcebit.fetch()` in the `next.config.js`
-
-
-```js
-// next.config.js
-
-const sourcebit = require('sourcebit');
-const sourcebitConfig = require('./sourcebit.js');
-
-sourcebit.fetch(sourcebitConfig);
-
-module.exports = {
-  ...
-}
-```
-
-Whenever you run `npm run dev` or `npm run build` Sourcebit fetches content and outputs the `.sourcebit-nextjs-cache.json` file which contains an array of page objects. 
-
-Inside a Nextjs page route like `src/pages/[[...slug]].js` you can load page data by it's path using the `sourcebitDataClient.getStaticPropsForPageAtPath(path)` function inside of `getStaticProps`
-
-```js
-// src/pages/[[...slug]].js
-
-export async function getStaticProps({ params }) {
-  const props = await sourcebitDataClient.getStaticPropsForPageAtPath(params.slug);
-  return { props };
-}
-```
-
-## Components
-
-This theme uses the [Stackbit component library](https://github.com/stackbit/stackbit-components) 
-
-* This theme comes pre-configured to use `withStackbitComponents()` in the `next.config.js`
-
-```js
-// next.config.js
-
-const withStackbitComponents = require('@stackbit/components/with-stackbit-components');
-
-module.exports = withStackbitComponents({
-  componentsMapPath: '.stackbit/components-map.json',
-  ...
-})
-```
-
-`withStackbitComponents` generates a dynamic import map for the Stackbit component library. This provides a framework to override existing Stackbit components and add your own new components. This approach reduces the bundle size by only importing components that are used.
-
-* Generates `.stackbit/components-map.json` - Edit this file to override or add new components
-* Generates `.stackbit/dynamic-components.js` - This file is dynamically generated from `components-map.json` and should not be edited or committed to git.
-
-You can now use `getDynamicComponent(ComponentName)` in a Nextjs page. 
-
-```
-// src/pages/[[...slug]].js 
-import { getDynamicComponent } from '@stackbit/components/components-registry';
-
-function Page(props) {
-  console.log(props);
-  const { page, site } = props;
-  const { layout } = page;
-
-  const PageLayout = getDynamicComponent(layout);
-
-  return <PageLayout page={page} site={site} />;
-}
-```
-
-
-## Tailwind
+### Editing the CSS
 
 You can edit the tailwind config in `tailwind.config.js`
 
@@ -366,3 +252,58 @@ module.exports = {
   // ...
 }
 ```
+
+#### Changing the primary color
+
+```js
+module.exports = {
+  ...
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {
+      colors: {
+        primary: '#207bea',
+        secondary: '#FFF7E3',
+        base: '#262626',
+        'complimentary-1': '#e8f3ee',
+        'complimentary-2': '#e2e4ff',
+        info: '#EA5234'
+      }
+    }
+  },
+  ...
+};
+```
+
+#### Changing a color palette 
+
+```js
+module.exports = {
+  ...
+  plugins: [
+    plugin(function ({ addBase, addComponents, theme }) {
+      addComponents({
+        '.colors-e': {
+          '@apply bg-red-500 text-base': {},
+          '.sb-input,.sb-select,.sb-textarea': {
+            '@apply border-base placeholder-base': {}
+          },
+          '.sb-btn-primary': {
+            '@apply bg-base border-base text-white hover:bg-opacity-70 hover:border-opacity-70': {}
+          },
+          '.sb-btn-secondary': {
+            '@apply border-base text-base hover:border-opacity-60 hover:text-base': {}
+          },
+          '.sb-divider': {
+            '@apply before:bg-base': {}
+          },
+          '.sb-card': {
+            '@apply bg-secondary': {}
+          }
+        }
+      });
+    })
+  ]
+};
+```
+
