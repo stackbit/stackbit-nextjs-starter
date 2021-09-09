@@ -197,8 +197,9 @@ fields:
         - LogoSection
 ```
 
-Add the component to the homepage. Edit `content/pages/index.md`
+Add the component to the homepage content. Edit `content/pages/index.md`
 
+```
 ---
 title: Home
 layout: AdvancedLayout
@@ -213,6 +214,7 @@ sections:
       - name: 'NextJs'
         image: '/images/nextdotjs.svg'
 ---
+```
 
 Download the images and place them in the `/public/images/` folder.
 * https://simpleicons.org/icons/stackbit.svg
