@@ -1,5 +1,5 @@
 const path = require('path');
-
+const { cssClassesFromFilePath, urlPathFromFilePath } = require('./src/utils/path');
 const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
@@ -25,10 +25,18 @@ module.exports = {
           const pages = data.filter((page) => page.__metadata.sourceName === 'pages');
           const site = data.find((page) => page.__metadata.id === 'content/data/config.json');
           return pages.map((page) => {
+            const path = urlPathFromFilePath(page.__metadata.relSourcePath);
+            const pageCssClasses = cssClassesFromFilePath(page.__metadata.relSourcePath);
             return {
-              path: urlPathFromFilePath(page.__metadata.relSourcePath),
+              path,
               site,
-              page
+              page: {
+                ...page,
+                __metadata: {
+                  ...page.__metadata,
+                  pageCssClasses
+                }
+              }
             };
           });
         }
@@ -36,16 +44,6 @@ module.exports = {
     }
   ]
 };
-
-function urlPathFromFilePath(filePath) {
-  const pathObject = path.parse(filePath);
-  const parts = pathObject.dir.split(path.sep).filter(Boolean);
-  if (pathObject.name !== 'index') {
-    parts.push(pathObject.name);
-  }
-  const urlPath = parts.join('/').toLowerCase();
-  return  '/' + urlPath;
-}
 
 function flattenMarkdownData() {
   return ({ data }) => {
