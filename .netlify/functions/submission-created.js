@@ -1,34 +1,34 @@
 'use strict';
 
-const axios = require("axios");
+const axios = require('axios');
 
 // Handle the lambda invocation
-exports.handler = async function(event, context, callback) {
+exports.handler = async function (event, context, callback) {
   try {
     const url = process.env.STACKBIT_API_URL;
     const projectId = process.env.STACKBIT_PROJECT_ID;
 
     if (!url) {
-      throw new Error('No Stackbit URL specified')
+      throw new Error('No Stackbit URL specified');
     }
     if (!url) {
-      throw new Error('No Stackbit project id specified')
+      throw new Error('No Stackbit project id specified');
     }
 
     const response = await axios({
-        method: 'post',
-        url,
-        data: {
-          projectId,
-          ...JSON.parse(event.body)
-        }
+      method: 'post',
+      url,
+      data: {
+        projectId,
+        ...JSON.parse(event.body)
+      }
     });
 
     callback(null, {
       statusCode: 200,
       body: response.data.status
     });
-  } catch(e) {
+  } catch (e) {
     callback(null, {
       statusCode: e?.response?.status ?? 500,
       body: e?.response?.statusText ?? e.message
