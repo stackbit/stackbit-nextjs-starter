@@ -5,7 +5,7 @@ const crypto = require('crypto');
 
 async function postProcessContactFormEmail(contactEmail) {
   if (!process.env.STACKBIT_CONTACT_FORM_SECRET) {
-    console.log('No STACKBIT_CONTACT_FORM_SECRET provided. Continue without it...');
+    console.error(`No STACKBIT_CONTACT_FORM_SECRET provided. It will not work properly for production build.`);
     return contactEmail;
   }
   const secretKey = crypto.createHash('sha256').update(process.env.STACKBIT_CONTACT_FORM_SECRET).digest();
