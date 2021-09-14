@@ -26,6 +26,12 @@
         "label": "Blog",
         "url": "/blog",
         "altText": ""
+      },
+      {
+        "type": "Link",
+        "label": "Example",
+        "url": "/example",
+        "altText": ""
       }
     ],
     "secondaryLinks": [

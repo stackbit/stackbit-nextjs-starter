@@ -36,6 +36,7 @@
     "eslint-config-prettier": "^8.3.0",
     "postcss": "^8.3.5",
     "prettier": "^2.3.2",
+    "sass": "^1.40.0",
     "webpack-bundle-analyzer": "^4.4.2"
   },
   "description": "A Nextjs page builder, component library and data source mapper all in one.",
