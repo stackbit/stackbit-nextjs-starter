@@ -1,6 +1,6 @@
 # Stackbit Nextjs V2
 
-The NextJs core starter for Stackbit. 
+The NextJs core starter for Stackbit.
 
 ## Quickstart
 
@@ -42,7 +42,7 @@ sections:
 ---
 ```
 
-Visit http://localhost:3000/new-page/ to see the new page. 
+Visit http://localhost:3000/new-page/ to see the new page.
 
 > **Note:** The pages url will match the file path - `content/pages/new-page.md` will resolve to _/new-page_. A nested folder like `content/pages/blog/index.md` will resolve to _/blog/_
 
@@ -174,7 +174,7 @@ fields:
           name: image
 ```
 
-Extend the [🧩 AdvancedLayout](https://components.stackbit.com/?path=/docs/layouts-advancedlayout--primary) model. Create a new model file at `.stackbit/models/AdvancedLayout.yml`
+Extend the [🧩 AdvancedLayout](https://components.stackbit.com/?path=/docs/layouts-advancedlayout--primary) model. Open the model file at `.stackbit/models/AdvancedLayout.yml`
 
 ```yml
 type: page
@@ -222,7 +222,7 @@ Download the images and place them in the `/public/images/` folder.
 
 ### Extending a Stackbit component
 
-In this example we will extend an existing Stackbit component. 
+In this example we will extend an existing Stackbit component.
 
 ### Understanding Layouts
 
@@ -236,7 +236,7 @@ Explain how layouts work.
 
 You can edit the tailwind config in `tailwind.config.js`
 
-The Stackbit component library includes a number of Tailwind preset configurations which will dramatically change the themes look and feel. 
+The Stackbit component library includes a number of Tailwind preset configurations which will dramatically change the themes look and feel.
 
 * [@stackbit/components/themes/tailwind.bold.config.js](https://github.com/stackbit/stackbit-components/blob/main/themes/tailwind.bold.config.js)
 * [@stackbit/components/themes/tailwind.eco.config.js](https://github.com/stackbit/stackbit-components/blob/main/themes/tailwind.eco.config.js)
@@ -275,7 +275,7 @@ module.exports = {
 };
 ```
 
-#### Changing a color palette 
+#### Changing a color palette
 
 ```js
 module.exports = {
