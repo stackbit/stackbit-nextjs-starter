@@ -4,7 +4,7 @@
   "navBar": {
     "desktopNavVariant": "variant-a",
     "mobileNavVariant": "variant-a",
-    "primaryColors": "colors-a",
+    "primaryColors": "colors-f",
     "secondaryColors": "colors-a",
     "width": "wide",
     "title": "Eco Fish",
@@ -23,8 +23,14 @@
       },
       {
         "type": "Link",
-        "label": "Sample Page",
-        "url": "/sample-page",
+        "label": "Blog",
+        "url": "/blog",
+        "altText": ""
+      },
+      {
+        "type": "Link",
+        "label": "Example",
+        "url": "/example",
         "altText": ""
       }
     ],
@@ -46,7 +52,7 @@
     ]
   },
   "footer": {
-    "colors": "colors-d",
+    "colors": "colors-f",
     "width": "wide",
     "title": "Eco Fish",
     "isTitleVisible": true,
@@ -74,8 +80,8 @@
       },
       {
         "type": "Link",
-        "label": "Sample Page",
-        "url": "/sample-page",
+        "label": "Blog",
+        "url": "/blog",
         "altText": ""
       }
     ],

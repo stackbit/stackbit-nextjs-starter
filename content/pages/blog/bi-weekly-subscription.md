@@ -1,6 +1,6 @@
 ---
-layout: PostLayout
 title: Bi-weekly subscription
+layout: PostLayout
 date: '2021-06-28'
 excerpt: |-
   This feature is the thing you were missing in your workflow, thank god we have it for you to use.

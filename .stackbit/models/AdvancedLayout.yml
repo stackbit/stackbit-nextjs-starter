@@ -1,0 +1,24 @@
+type: page
+name: AdvancedLayout
+label: Advanced page
+layout: AdvancedLayout
+hideContent: true
+fields:
+  - type: string
+    name: title
+    label: Title
+  - type: list
+    name: sections
+    label: Sections
+    items:
+      type: model
+      models:
+        - ContactSection
+        - ContentSection
+        - CtaSection
+        - FeaturedPeopleSection
+        - FeaturedPostsSection
+        - HeroSection
+        - TestimonialsSection
+        - QuoteSection
+        - ExampleSection
