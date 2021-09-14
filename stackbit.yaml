@@ -7,7 +7,7 @@ assets:
   staticDir: public
   uploadDir: images
   publicPath: /
-dataDir: content/data
-pagesDir: content/pages
+dataDir: ../stackbit-subthemes/fish/ccontent/data
+pagesDir: ../stackbit-subthemes/fish/content/pages
 pageLayoutKey: layout
 objectTypeKey: type

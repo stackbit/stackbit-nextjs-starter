@@ -1,7 +1,7 @@
 {
-  "plugins": [],
-  "extends": ["next", "prettier"],
-  "rules": {
-    "react/display-name": "off"
-  }
+    "plugins": [],
+    "extends": ["next", "prettier"],
+    "rules": {
+        "react/display-name": "off"
+    }
 }
