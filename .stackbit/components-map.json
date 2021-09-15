@@ -2,7 +2,7 @@
   "README": "Components set to 'null' will be loaded from @stackbit/components library. To override a component, set it to relative paths of your component",
   "components": {
     "Action": null,
-    "Badge": null,
+    "Badge": "../src/components/NewBadge",
     "CheckboxFormControl": null,
     "ContactSection": null,
     "ContentSection": null,
@@ -24,14 +24,13 @@
     "VideoBlock": null,
     "FeatureSection": null,
     "AdvancedLayout": null,
-    "PostLayout": null,
-    "ExampleSection": "../src/components/ExampleSection.js"
+    "PostLayout": null
   },
   "dynamic": {
     "CheckboxFormControl": "@stackbit/components/components/CheckboxFormControl",
     "ContactSection": "@stackbit/components/components/ContactSection",
     "ContentSection": "@stackbit/components/components/ContentSection",
-    "CtaSection": "@stackbit/components/components/CtaSection",
+    "CtaSection": "../src/components/CtaSection",
     "EmailFormControl": "@stackbit/components/components/EmailFormControl",
     "FeaturedPeopleSection": "@stackbit/components/components/FeaturedPeopleSection",
     "FeaturedPostsSection": "@stackbit/components/components/FeaturedPostsSection",
@@ -47,6 +46,6 @@
     "FeatureSection": "@stackbit/components/components/FeatureSection",
     "AdvancedLayout": "@stackbit/components/layouts/AdvancedLayout",
     "PostLayout": "@stackbit/components/layouts/PostLayout",
-    "ExampleSection": "../src/components/ExampleSection.js"
+    "ExampleSection": "../src/components/ExampleSection"
   }
 }

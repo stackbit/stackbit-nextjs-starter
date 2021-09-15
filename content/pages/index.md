@@ -2,6 +2,15 @@
 title: Home
 layout: AdvancedLayout
 sections:
+  - type: ExampleSection
+    title: "Our Partners"
+    logos:
+      - name: 'Stackbit'
+        image: '/images/stackbit.svg'
+      - name: 'NextJs'
+        image: '/images/nextdotjs.svg'
+      - name: 'Tailwind'
+        image: '/images/tailwindcss.svg'
   - type: HeroSection
     variant: variant-a
     colors: colors-e
@@ -113,13 +122,4 @@ sections:
           label: Sign me up to receive updates
           width: full
       submitLabel: Send Message
-  - type: ExampleSection
-    title: "Our Partners"
-    logos:
-      - name: 'Stackbit'
-        image: '/images/stackbit.svg'
-      - name: 'NextJs'
-        image: '/images/nextdotjs.svg'
-      - name: 'Tailwind'
-        image: '/images/tailwindcss.svg'
 ---
