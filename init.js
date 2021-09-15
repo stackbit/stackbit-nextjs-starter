@@ -6,8 +6,8 @@ const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
 const argv = yargs(hideBin(process.argv)).argv;
 const subThemesFolder = path.join(__dirname, '../stackbit-subthemes');
-const themesManifestFile = path.join(__dirname, '../stackbit-subthemes/manifest.json');
-const themesManifestData = fs.existsSync(themesManifestFile) ? JSON.parse(fs.readFileSync(themesManifestFile)) : {};
+// const themesManifestFile = path.join(__dirname, '../stackbit-subthemes/manifest.json');
+// const themesManifestData = fs.existsSync(themesManifestFile) ? JSON.parse(fs.readFileSync(themesManifestFile)) : {};
 
 const options = {
     content: argv.content || 'default',
@@ -61,7 +61,6 @@ const build = async (options) => {
     const css = `@import '@stackbit/components/themes/${options.theme}/theme.css'`;
     fs.writeFileSync(path.join(__dirname, 'src/css/', 'theme.css'), css, 'utf8');
 
-    console.log(themesManifestData);
     const contentName = options.content;
     const contentPath = path.join(subThemesFolder, contentName);
     fs.copySync(contentPath, '.');
