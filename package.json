@@ -37,6 +37,7 @@
         "prettier": "^2.3.2",
         "sass": "^1.40.0",
         "webpack-bundle-analyzer": "^4.4.2",
+        "postcss-nested": "^5.0.6",
         "yargs": "^17.1.1"
     },
     "description": "A Nextjs page builder, component library and data source mapper all in one.",
