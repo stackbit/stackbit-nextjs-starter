@@ -1,11 +1,8 @@
-const config = require('./config.json');
 const plugin = require('tailwindcss/plugin');
 const defaultTheme = require('tailwindcss/defaultTheme');
-const stackbitThemes = require('@stackbit/components/themes');
-const stackbitTheme = stackbitThemes[config.theme] || stackbitThemes.default;
 
 module.exports = {
-    presets: [stackbitTheme],
+    presets: [require('@stackbit/components/styles/default/tailwind.default.config.js')],
     mode: 'jit',
     purge: {
         enabled: true,

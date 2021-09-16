@@ -2,12 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-@import 'theme.css';
+@import '@stackbit/components/styles/default/style.css';
 
 @layer base {
     body {
         margin: 0;
         padding: 0;
+    }
+}
+
+@layer components {
+    .sb-badge {
+        @apply bg-blue-500;
     }
 }
 
@@ -25,11 +31,5 @@
             text-transform: uppercase;
             border-radius: 3px;
         }
-    }
-}
-
-@layer components {
-    .sb-badge {
-        @apply bg-blue-500;
     }
 }

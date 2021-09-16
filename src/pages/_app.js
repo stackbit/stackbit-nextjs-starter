@@ -1,5 +1,4 @@
-// import '@stackbit/components/themes/default/theme.css';
-import '../css/style.css';
+import '../css/main.css';
 
 // This default export is required in a new `pages/_app.js` file.
 export default function MyApp({ Component, pageProps }) {
