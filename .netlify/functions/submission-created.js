@@ -6,22 +6,15 @@ const axios = require('axios');
 exports.handler = async function (event, context, callback) {
     try {
         const url = process.env.STACKBIT_API_URL;
-        const projectId = process.env.STACKBIT_PROJECT_ID;
 
         if (!url) {
             throw new Error('No Stackbit URL specified');
-        }
-        if (!url) {
-            throw new Error('No Stackbit project id specified');
         }
 
         const response = await axios({
             method: 'post',
             url,
-            data: {
-                projectId,
-                ...JSON.parse(event.body)
-            }
+            data: JSON.parse(event.body)
         });
 
         callback(null, {
