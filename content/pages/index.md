@@ -93,6 +93,8 @@ sections:
     form:
       type: FormBlock
       idAttr: contact-form
+      destination: noreply@stackbit.com
+      action: /.netlify/functions/submission-created
       fields:
         - type: TextFormControl
           name: name
