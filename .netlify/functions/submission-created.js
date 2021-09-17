@@ -5,7 +5,7 @@ const axios = require('axios');
 // Handle the lambda invocation
 exports.handler = async function (event, context, callback) {
     try {
-        const url = process.env.STACKBIT_API_URL;
+        const url = process.env.STACKBIT_CONTACT_FORM_SUBMISSION_URL;
 
         if (!url) {
             throw new Error('No Stackbit URL specified');
