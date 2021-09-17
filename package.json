@@ -14,7 +14,7 @@
     "dependencies": {
         "axios": "^0.18.0",
         "@stackbit/cli": "^0.1.14",
-        "@stackbit/components": "0.1.16",
+        "@stackbit/components": "0.1.17",
         "change-case": "^4.1.2",
         "classnames": "^2.3.1",
         "jose": "^3.14.3",
@@ -30,13 +30,17 @@
     "devDependencies": {
         "@next/bundle-analyzer": "^11.0.1",
         "autoprefixer": "^10.2.6",
+        "chokidar": "^3.5.2",
         "eslint": "^7.29.0",
         "eslint-config-next": "^11.0.1",
         "eslint-config-prettier": "^8.3.0",
+        "fs-extra": "^10.0.0",
         "postcss": "^8.3.5",
+        "postcss-nested": "^5.0.6",
         "prettier": "^2.3.2",
         "sass": "^1.40.0",
-        "webpack-bundle-analyzer": "^4.4.2"
+        "webpack-bundle-analyzer": "^4.4.2",
+        "yargs": "^17.1.1"
     },
     "description": "A Nextjs page builder, component library and data source mapper all in one.",
     "main": "next.config.js",

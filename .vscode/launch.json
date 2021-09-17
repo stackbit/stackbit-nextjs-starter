@@ -5,21 +5,19 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "chrome",
+            "name": "Launch Next.js app",
             "request": "launch",
-            "name": "Next: Chrome",
-            "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}"
+            "runtimeArgs": ["run", "dev"],
+            "runtimeExecutable": "npm",
+            "skipFiles": ["<node_internals>/**"],
+            "type": "node"
         },
         {
             "type": "node",
-            "request": "launch",
-            "name": "Next: Node",
-            "program": "${workspaceFolder}/node_modules/.bin/next",
-            "args": ["dev"],
-            "autoAttachChildProcesses": true,
+            "request": "attach",
+            "name": "Attach to application",
             "skipFiles": ["<node_internals>/**"],
-            "console": "integratedTerminal"
+            "port": 9229
         }
     ]
 }

@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '@stackbit/components/styles/default/style.css';
+
+@layer base {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@layer components {
+    .sb-badge {
+        @apply uppercase;
+    }
+}
+
+.page-example {
+    /* Override component classes using tailwind apply */
+    .component-featured-people-section {
+        .component-badge {
+            @apply rounded;
+        }
+    }
+    /* Or the good old fashioned way */
+    .component-content-section {
+        .component-badge {
+            padding: 10px 20px;
+            text-transform: uppercase;
+            border-radius: 3px;
+        }
+    }
+}
