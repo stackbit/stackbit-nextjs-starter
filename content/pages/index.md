@@ -5,10 +5,13 @@ sections:
   - type: HeroSection
     variant: variant-a
     colors: colors-e
+    elementId: "homepage-hero-1"
     width: "wide"
     height: "auto"
     alignHoriz: "left"
-    badge: "New Website"
+    badge: 
+        label: "New Website"
+        elementId: "hero-badge-1"
     title: "The quick, brown fox jumps over a lazy dog"
     text: |-
       A group of local fisherman, working to deliver sustainable fish to your table. Each fish you buy, helps support fishing regulations and laws, to help sustain a better future for our waters, our food, and our globe.
@@ -17,6 +20,7 @@ sections:
         label: Get Started
         url: https://www.stackbit.com/
         style: "primary"
+        elementId: "hero-main-button"
       - type: Button
         label: Learn More
         url: https://www.stackbit.com/
