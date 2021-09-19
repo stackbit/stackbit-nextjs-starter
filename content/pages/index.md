@@ -7,9 +7,9 @@ sections:
     colors: colors-e
     elementId: "homepage-hero-1"
     width: "wide"
-    height: "auto"
+    height: "tall"
     alignHoriz: "left"
-    badge: 
+    badge:
         label: "New Website"
         elementId: "hero-badge-1"
     title: "The quick, brown fox jumps over a lazy dog"
@@ -30,11 +30,19 @@ sections:
       url: "https://source.unsplash.com/wPJygs79jMA/640x360"
       altText: Image alt text
       caption: Image caption
+  - type: FeaturedPostsSection
+    variant: variant-a
+    colors: colors-e
+    width: wide
+    posts:
+      - content/pages/blog/as-fresh-as-it-gets.md
+      - content/pages/blog/bi-weekly-subscription.md
+      - content/pages/blog/sustainability-at-its-purest.md
   - type: TestimonialsSection
     variant: variant-a
     colors: colors-c
     width: "wide"
-    height: "auto"
+    height: "tall"
     alignHoriz: "left"
     testimonials:
       - quote: |-
@@ -45,19 +53,11 @@ sections:
           type: ImageBlock
           url: /images/isabelle-parks.jpg
           altText: Isabelle Parks
-  - type: FeaturedPostsSection
-    variant: variant-a
-    colors: colors-e
-    width: wide
-    posts:
-      - content/pages/blog/as-fresh-as-it-gets.md
-      - content/pages/blog/bi-weekly-subscription.md
-      - content/pages/blog/sustainability-at-its-purest.md
   - type: CtaSection
     variant: variant-a
     colors: colors-e
     width: wide
-    height: auto
+    height: short
     alignHoriz: center
     title: Let's do this
     text: |-
@@ -70,7 +70,7 @@ sections:
   - type: ContentSection
     colors: colors-e
     width: wide
-    height: auto
+    height: tall
     alignHoriz: center
     badge: Small text
     title: The Section Title
@@ -81,12 +81,12 @@ sections:
     variant: variant-b
     colors: colors-e
     width: wide
-    height: auto
+    height: tall
     alignHoriz: left
     title: Join our club
     text: |-
       We will notify you every time a shipment is heading to your neighborhood, and you could immediatly let us know if you want in or not.
-    image:
+    feature:
       type: ImageBlock
       url: "/images/lobster.jpg"
       altText: Fisherman holding lobster
@@ -119,13 +119,4 @@ sections:
           label: Sign me up to receive updates
           width: full
       submitLabel: Send Message
-  - type: ExampleSection
-    title: "Our Partners"
-    logos:
-      - name: 'Stackbit'
-        image: '/images/stackbit.svg'
-      - name: 'NextJs'
-        image: '/images/nextdotjs.svg'
-      - name: 'Tailwind'
-        image: '/images/tailwindcss.svg'
 ---

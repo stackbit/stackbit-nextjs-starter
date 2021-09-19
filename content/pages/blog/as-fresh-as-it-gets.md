@@ -13,7 +13,7 @@ bottomSections:
     variant: variant-b
     colors: colors-e
     width: wide
-    height: auto
+    height: short
     alignHoriz: left
     title: Let's do this
     text: |-
