@@ -6,7 +6,7 @@
     "mobileNavVariant": "variant-a",
     "primaryColors": "colors-f",
     "secondaryColors": "colors-a",
-    "width": "wide",
+    "width": "full",
     "title": "Eco Fish",
     "isTitleVisible": false,
     "logo": {
@@ -87,21 +87,24 @@
     ],
     "socialLinks": [
       {
-        "type": "Link",
-        "label": "Twitter",
+        "type": "Social",
+        "altText": "Twitter",
         "url": "/",
+        "showIcon": true,
         "icon": "twitter"
       },
       {
-        "type": "Link",
-        "label": "Instagram",
+        "type": "Social",
+        "altText": "Instagram",
         "url": "/",
+        "showIcon": true,
         "icon": "instagram"
       },
       {
-        "type": "Link",
-        "label": "Facebook",
+        "type": "Social",
+        "altText": "Facebook",
         "url": "/",
+        "showIcon": true,
         "icon": "facebook"
       }
     ],

@@ -14,7 +14,7 @@ bottomSections:
     colors: colors-e
     width: wide
     height: short
-    alignHoriz: left
+    textAlign: left
     title: Let's do this
     text: |-
       The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen.

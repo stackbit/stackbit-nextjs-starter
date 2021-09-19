@@ -3,15 +3,17 @@ title: Home
 layout: AdvancedLayout
 sections:
   - type: HeroSection
+    elementId: homepage-hero-1
     variant: variant-a
     colors: colors-e
-    elementId: "homepage-hero-1"
-    width: "wide"
-    height: "tall"
-    alignHoriz: "left"
+    width: wide
+    height: tall
+    contentWidth: large
+    contentAlignHoriz: center
+    contentAlignVert: middle
+    textAlign: left
     badge:
-        label: "New Website"
-        elementId: "hero-badge-1"
+      label: New Website
     title: "The quick, brown fox jumps over a lazy dog"
     text: |-
       A group of local fisherman, working to deliver sustainable fish to your table. Each fish you buy, helps support fishing regulations and laws, to help sustain a better future for our waters, our food, and our globe.
@@ -19,12 +21,12 @@ sections:
       - type: Button
         label: Get Started
         url: https://www.stackbit.com/
-        style: "primary"
-        elementId: "hero-main-button"
+        style: primary
+        elementId: hero-main-button
       - type: Button
         label: Learn More
         url: https://www.stackbit.com/
-        style: "secondary"
+        style: secondary
     feature:
       type: ImageBlock
       url: "https://source.unsplash.com/wPJygs79jMA/640x360"
@@ -34,6 +36,10 @@ sections:
     variant: variant-a
     colors: colors-e
     width: wide
+    height: short
+    contentWidth: medium
+    contentAlignHoriz: center
+    contentAlignVert: middle
     posts:
       - content/pages/blog/as-fresh-as-it-gets.md
       - content/pages/blog/bi-weekly-subscription.md
@@ -41,9 +47,9 @@ sections:
   - type: TestimonialsSection
     variant: variant-a
     colors: colors-c
-    width: "wide"
-    height: "tall"
-    alignHoriz: "left"
+    width: wide
+    height: tall
+    textAlign: left
     testimonials:
       - quote: |-
           “It’s great to see someone taking action while still maintaining a sustainable fish supply to home cooks.”
@@ -58,7 +64,7 @@ sections:
     colors: colors-e
     width: wide
     height: short
-    alignHoriz: center
+    textAlign: center
     title: Let's do this
     text: |-
       The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen.
@@ -67,12 +73,16 @@ sections:
         label: Get Started
         url: "https://www.stackbit.com/"
         style: primary
-  - type: ContentSection
+  - type: TextSection
     colors: colors-e
     width: wide
     height: tall
-    alignHoriz: center
-    badge: Small text
+    contentWidth: small
+    contentAlignHoriz: center
+    contentAlignVert: middle
+    textAlign: center
+    badge:
+      label: Small text
     title: The Section Title
     subtitle: The section subtitle
     text: |-
@@ -82,7 +92,7 @@ sections:
     colors: colors-e
     width: wide
     height: tall
-    alignHoriz: left
+    textAlign: left
     title: Join our club
     text: |-
       We will notify you every time a shipment is heading to your neighborhood, and you could immediatly let us know if you want in or not.

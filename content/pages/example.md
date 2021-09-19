@@ -9,7 +9,7 @@ sections:
     height: short
     topGap: none
     bottomGap: none
-    alignHoriz: left
+    textAlign: left
     title: Join our club
     text: >-
       We will notify you every time a shipment is heading to your neighborhood,
@@ -45,12 +45,13 @@ sections:
           label: Sign me up to receive updates
           width: full
       submitLabel: Send Message
-  - type: ContentSection
+  - type: TextSection
     colors: colors-a
     width: wide
     height: short
-    alignHoriz: left
-    badge: Small text
+    textAlign: left
+    badge:
+      label: Small text
     title: The Section Title
     subtitle: The section subtitle
     text: >-
@@ -67,7 +68,7 @@ sections:
     height: short
     topGap: none
     bottomGap: none
-    alignHoriz: center
+    textAlign: center
     title: Let's do this
     text: >-
       The Stackbit theme is flexible and scalable to every need. It can manage
@@ -81,7 +82,7 @@ sections:
     variant: variant-c
     colors: colors-a
     width: full
-    alignHoriz: center
+    textAlign: center
     title: Our Team
     topGap: small
     bottomGap: large
@@ -105,11 +106,10 @@ sections:
     height: short
     topGap: none
     bottomGap: small
-    alignHoriz: left
-    alignVert: bottom
+    contentAlignVert: bottom
+    textAlign: left
     badge:
-        label: "New Website"
-        elementId: "hero-badge-1"
+      label: New Website
     title: The quick, brown fox jumps over **a lazy dog**
     text: >-
       Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
@@ -151,7 +151,7 @@ sections:
     colors: colors-c
     width: wide
     height: short
-    alignHoriz: left
+    textAlign: left
     quote: >-
       Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
       doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo

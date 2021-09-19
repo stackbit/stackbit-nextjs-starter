@@ -103,7 +103,7 @@ sections: # sections array
  **Component Examples**
 
   - [🧩 CtaSection](https://components.stackbit.com/?path=/docs/components-contactsection--primary)
-  - [🧩 ContactSection](https://components.stackbit.com/?path=/docs/components-contentsection--primary)
+  - [🧩 ContactSection](https://components.stackbit.com/?path=/docs/components-contactsection--primary)
   - [🧩 FeaturedPeopleSection](https://components.stackbit.com/?path=/docs/components-featuredpeoplesection--primary)
   - [🧩 FeaturedPostsSection](https://components.stackbit.com/?path=/docs/components-featuredpostssection--primary)
 
