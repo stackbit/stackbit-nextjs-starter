@@ -2,5 +2,17 @@
     "printWidth": 160,
     "singleQuote": true,
     "trailingComma": "none",
-    "tabWidth": 4
+    "tabWidth": 4,
+    "semi": false,
+    "overrides": [
+        {
+            "files": [
+                "*.md",
+                "*.yaml"
+            ],
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ]
 }
