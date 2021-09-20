@@ -24,8 +24,7 @@
         "VideoBlock": null,
         "FeatureSection": null,
         "AdvancedLayout": null,
-        "PostLayout": null,
-        "ExampleSection": "../src/components/ExampleSection.js"
+        "PostLayout": null
     },
     "dynamic": {
         "CheckboxFormControl": "@stackbit/components/components/CheckboxFormControl",
