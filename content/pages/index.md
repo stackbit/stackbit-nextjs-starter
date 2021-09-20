@@ -94,7 +94,7 @@ sections:
       type: FormBlock
       idAttr: contact-form
       destination: noreply@stackbit.com
-      action: /.netlify/functions/submission-created
+      action: /.netlify/functions/submission_created
       fields:
         - type: TextFormControl
           name: name
