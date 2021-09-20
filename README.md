@@ -18,27 +18,41 @@ Create a new markdown file `content/pages/new-page.md` with the following frontm
 
 ```yaml
 ---
-title: "New Example Page"
-layout: "AdvancedLayout"
+title: 'New Example Page'
+layout: 'AdvancedLayout'
 sections:
-  - type: "HeroSection"
-    variant: "variant-a"
-    width: "wide"
-    height: "auto"
-    alignHoriz: "left"
-    badge: "Brand New"
-    title: "My Heading"
-    text: "a long description"
+  - type: HeroSection
+    variant: variant-a
+    colors: colors-a
+    elementId: ''
+    width: wide
+    height: short
+    topGap: small
+    bottomGap: small
+    alignHoriz: left
+    alignVert: middle
+    badge:
+      label: New Collaboration
+      elementId: ''
+    title: The quick, brown fox jumps over **a lazy dog**
+    text: >-
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+      doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.
     actions:
-      - type: "Button"
-        url: "/"
-        label: "Home"
-        style: "primary"
+      - type: Button
+        url: '#'
+        label: Apply Now
+        style: primary
+        elementId: ''
+      - type: Button
+        url: '#'
+        label: Learn more
+        style: secondary
     feature:
-      type: "ImageBlock"
-      imageUrl: "/images/hero.png"
-      imageAltText: "Image alt text"
-      imageCaption: "Image caption"
+      type: ImageBlock
+      url: /images/fishing.jpg
+      altText: Image alt text
+      caption: Image caption
 ---
 ```
 
@@ -76,36 +90,34 @@ Add a [🧩 CtaSection](https://components.stackbit.com/?path=/docs/components-c
 ```yaml
 # content/pages/new-page.md
 ---
-title: "New Example Page"
-layout: "AdvancedLayout"
+title: 'New Example Page'
+layout: 'AdvancedLayout'
 sections: # sections array
-  - type: "HeroSection"
+  - type: 'HeroSection'
     # ...
-  - type: "CtaSection"
-    variant: "variant-a"
-    width: "wide"
-    height: "auto"
-    alignHoriz: "center"
+  - type: 'CtaSection'
+    variant: 'variant-a'
+    width: 'wide'
+    height: 'auto'
+    alignHoriz: 'center'
     title: "Let's do this"
-    text: "The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen."
+    text: 'The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen.'
     actions:
-      - type: "Button"
-        url: "/contact"
-        label: "Get Started"
-        style: "primary"
+      - type: 'Button'
+        url: '/contact'
+        label: 'Get Started'
+        style: 'primary'
 ---
 ```
 
-
 **Component Library:** The [Stackbit Component Library](https://develop--stackbit-components.netlify.app/?path=/story/layouts-advancedlayout--primary) has full documentation on each component including the available props and frontmatter.
 
+**Component Examples**
 
- **Component Examples**
-
-  - [🧩 CtaSection](https://components.stackbit.com/?path=/docs/components-contactsection--primary)
-  - [🧩 ContactSection](https://components.stackbit.com/?path=/docs/components-contentsection--primary)
-  - [🧩 FeaturedPeopleSection](https://components.stackbit.com/?path=/docs/components-featuredpeoplesection--primary)
-  - [🧩 FeaturedPostsSection](https://components.stackbit.com/?path=/docs/components-featuredpostssection--primary)
+- [🧩 CtaSection](https://components.stackbit.com/?path=/docs/components-contactsection--primary)
+- [🧩 ContactSection](https://components.stackbit.com/?path=/docs/components-contentsection--primary)
+- [🧩 FeaturedPeopleSection](https://components.stackbit.com/?path=/docs/components-featuredpeoplesection--primary)
+- [🧩 FeaturedPostsSection](https://components.stackbit.com/?path=/docs/components-featuredpostssection--primary)
 
 ### Adding your own components
 
@@ -114,10 +126,10 @@ In this example we will create a new component that displays a grid of logos.
 Create a new react component in `src/components/LogoSection.js`
 
 ```js
-import React from 'react';
+import React from 'react'
 
 const LogoSection = (props) => {
-  const { logos, title } = props;
+  const { logos, title } = props
   return (
     <div className="max-w-screen-xl mx-auto px-4 sm:px-6 py-14 lg:py-20 mt-10 mb-10 text-center">
       <h1 className="text-3xl tracking-tight sm:text-4xl mb-2">{title}</h1>
@@ -130,10 +142,10 @@ const LogoSection = (props) => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LogoSection;
+export default LogoSection
 ```
 
 Register the component in `.stackbit/components-map.json`
@@ -217,8 +229,9 @@ sections:
 ```
 
 Download the images and place them in the `/public/images/` folder.
-* https://simpleicons.org/icons/stackbit.svg
-* https://simpleicons.org/icons/nextdotjs.svg
+
+- https://simpleicons.org/icons/stackbit.svg
+- https://simpleicons.org/icons/nextdotjs.svg
 
 ### Extending a Stackbit component
 
@@ -228,9 +241,9 @@ In this example we will extend an existing Stackbit component.
 
 Explain how layouts work.
 
-* How does the `layout` field work?
-* How does the `layout` field effect which frontmatter fields can be used?
-* The layout is both a component and a model. Explain this concept.
+- How does the `layout` field work?
+- How does the `layout` field effect which frontmatter fields can be used?
+- The layout is both a component and a model. Explain this concept.
 
 ### Editing the CSS
 
@@ -238,17 +251,17 @@ You can edit the tailwind config in `tailwind.config.js`
 
 The Stackbit component library includes a number of Tailwind preset configurations which will dramatically change the themes look and feel.
 
-* [@stackbit/components/themes/tailwind.bold.config.js](https://github.com/stackbit/stackbit-components/blob/main/themes/tailwind.bold.config.js)
-* [@stackbit/components/themes/tailwind.eco.config.js](https://github.com/stackbit/stackbit-components/blob/main/themes/tailwind.eco.config.js)
-* [@stackbit/components/themes/tailwind.modern.config.js](https://github.com/stackbit/stackbit-components/blob/main/themes/tailwind.modern.config.js)
-* [@stackbit/components/themes/tailwind.retro.config.js](https://github.com/stackbit/stackbit-components/blob/main/themes/tailwind.retro.config.js)
+- [@stackbit/components/themes/tailwind.bold.config.js](https://github.com/stackbit/stackbit-components/blob/main/themes/tailwind.bold.config.js)
+- [@stackbit/components/themes/tailwind.eco.config.js](https://github.com/stackbit/stackbit-components/blob/main/themes/tailwind.eco.config.js)
+- [@stackbit/components/themes/tailwind.modern.config.js](https://github.com/stackbit/stackbit-components/blob/main/themes/tailwind.modern.config.js)
+- [@stackbit/components/themes/tailwind.retro.config.js](https://github.com/stackbit/stackbit-components/blob/main/themes/tailwind.retro.config.js)
 
 Use the `presets` option to change the configuration.
 
 ```js
 // tailwind.config.js
 module.exports = {
-  presets: [require('@stackbit/components/themes/tailwind.bold.config')],
+  presets: [require('@stackbit/components/themes/tailwind.bold.config')]
   // ...
 }
 ```
@@ -306,4 +319,3 @@ module.exports = {
   ]
 };
 ```
-
