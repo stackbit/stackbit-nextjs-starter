@@ -1,12 +1,13 @@
 const path = require('path');
 const sourcebit = require('sourcebit');
 const sourcebitConfig = require('./sourcebit.js');
-const withStackbitComponents = require('@stackbit/components/with-stackbit-components');
+const withStackbitComponents = require('@stackbit/components/next-stackbit-components')({
+    componentsMapPath: '.stackbit/components-map.json'
+});
 
 sourcebit.fetch(sourcebitConfig);
 
 module.exports = withStackbitComponents({
-    componentsMapPath: '.stackbit/components-map.json',
     trailingSlash: true,
     devIndicators: {
         autoPrerender: false
