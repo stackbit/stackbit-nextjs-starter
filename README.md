@@ -247,40 +247,32 @@ Explain how layouts work.
 
 ### Editing the CSS
 
-You can edit the tailwind config in `tailwind.config.js`
+This theme uses Tailwind CSS and PostCSS. The `tailwind.config.js` includes our default style as a **preset**.
 
-The Stackbit component library includes a number of Tailwind preset configurations which will dramatically change the themes look and feel.
+#### Changing the preset
 
-- [@stackbit/components/themes/tailwind.bold.config.js](https://github.com/stackbit/stackbit-components/blob/main/themes/tailwind.bold.config.js)
-- [@stackbit/components/themes/tailwind.eco.config.js](https://github.com/stackbit/stackbit-components/blob/main/themes/tailwind.eco.config.js)
-- [@stackbit/components/themes/tailwind.modern.config.js](https://github.com/stackbit/stackbit-components/blob/main/themes/tailwind.modern.config.js)
-- [@stackbit/components/themes/tailwind.retro.config.js](https://github.com/stackbit/stackbit-components/blob/main/themes/tailwind.retro.config.js)
-
-Use the `presets` option to change the configuration.
+You can use any preset from 🎨 [Stackbit Styles](https://github.com/stackbit/stackbit-components/tree/main/styles)
 
 ```js
 // tailwind.config.js
 module.exports = {
-  presets: [require('@stackbit/components/themes/tailwind.bold.config')]
+  presets: [require('@stackbit/components/styles/retro/tailwind.retro.config')]
   // ...
 }
 ```
 
-#### Changing the primary color
+#### Editing the Tailwind config
+
+You can override any of the preset values in the `extend` object. In this example we change the themes primary color.
 
 ```js
+// tailwind.config.js
 module.exports = {
   ...
-  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
-        primary: '#207bea',
-        secondary: '#FFF7E3',
-        base: '#262626',
-        'complimentary-1': '#e8f3ee',
-        'complimentary-2': '#e2e4ff',
-        info: '#EA5234'
+          primary: '#207bea'
       }
     }
   },
@@ -288,34 +280,33 @@ module.exports = {
 };
 ```
 
-#### Changing a color palette
+#### Changing CSS Styles
 
-```js
-module.exports = {
-  ...
-  plugins: [
-    plugin(function ({ addBase, addComponents, theme }) {
-      addComponents({
-        '.colors-e': {
-          '@apply bg-red-500 text-base': {},
-          '.sb-input,.sb-select,.sb-textarea': {
-            '@apply border-base placeholder-base': {}
-          },
-          '.sb-btn-primary': {
-            '@apply bg-base border-base text-white hover:bg-opacity-70 hover:border-opacity-70': {}
-          },
-          '.sb-btn-secondary': {
-            '@apply border-base text-base hover:border-opacity-60 hover:text-base': {}
-          },
-          '.sb-divider': {
-            '@apply before:bg-base': {}
-          },
-          '.sb-card': {
-            '@apply bg-secondary': {}
-          }
-        }
-      });
-    })
-  ]
-};
+The CSS is located in `src/css/main.css`. The default style is imported from the Stackbit components library - `@import '@stackbit/components/styles/default/style.css';`
+
+You can add your own custom css or override existing styles.
+
+```scss
+// src/css/main.css
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '@stackbit/components/styles/default/style.css';
+
+@layer components {
+  .sb-badge {
+    @apply uppercase;
+  }
+  .page-example {
+    .component-content-section {
+      .component-badge {
+        padding: 10px 20px;
+        text-transform: uppercase;
+        border-radius: 3px;
+      }
+    }
+  }
+}
 ```
