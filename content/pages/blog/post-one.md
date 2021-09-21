@@ -1,13 +1,13 @@
 ---
-title: Sustainability at it’s purest
+title: Post Title One
 layout: PostLayout
-date: '2021-07-01'
+date: '2021-06-28'
 excerpt: |-
-  We’re local, seasonal fisherman, supporting fishing restrictions. We fish what the sea has to offer, nothing more, and no cheating.
+  Praesent dapibus justo non efficitur efficitur. Nullam viverra justo arcu, eget egestas tortor pretium id. Sed imperdiet mattis eleifend.
 thumbImage:
   type: ImageBlock
-  url: https://source.unsplash.com/VWcPlbHglYc/640x480
-  altText: Fisherman
+  url: "/images/post-1.jpeg"
+  altText: "Post Image"
 bottomSections:
   - type: CtaSection
     variant: variant-b

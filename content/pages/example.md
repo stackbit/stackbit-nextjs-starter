@@ -7,7 +7,7 @@ sections:
     colors: colors-e
     width: wide
     height: short
-    topGap: none
+    topGap: large
     bottomGap: none
     textAlign: left
     title: Join our club
@@ -16,7 +16,7 @@ sections:
       and you could immediatly let us know if you want in or not.
     feature:
       type: ImageBlock
-      url: /images/lobster.jpg
+      url: /images/contact.png
       altText: Fisherman holding lobster
     form:
       type: FormBlock
@@ -88,17 +88,17 @@ sections:
     bottomGap: large
     people:
       - content/data/team/dianne-ameter.json
-      - content/data/team/theodore-handle.json
-      - content/data/team/gustav-purpleson.json
+      - content/data/team/desmond-eagle.json
+      - content/data/team/hilary-ouse.json
       - content/data/team/hugh-saturation.json
   - type: FeaturedPostsSection
     variant: variant-a
     colors: colors-e
     width: wide
     posts:
-      - content/pages/blog/as-fresh-as-it-gets.md
-      - content/pages/blog/bi-weekly-subscription.md
-      - content/pages/blog/sustainability-at-its-purest.md
+      - content/pages/blog/post-three.md
+      - content/pages/blog/post-two.md
+      - content/pages/blog/post-one.md
   - type: HeroSection
     variant: variant-a
     colors: colors-a
@@ -125,7 +125,7 @@ sections:
         style: secondary
     feature:
       type: ImageBlock
-      url: /images/fishing.jpg
+      url: /images/hero.png
       altText: Image alt text
       caption: Image caption
   - type: TestimonialsSection
@@ -145,8 +145,8 @@ sections:
           altText: Photo of Isabelle Parks
         logo:
           type: ImageBlock
-          url: /images/the-cook-logo.svg
-          altText: The Cook logo
+          url: /images/the-logo.svg
+          altText: The logo
   - type: QuoteSection
     colors: colors-c
     width: wide

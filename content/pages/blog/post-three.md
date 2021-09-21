@@ -1,13 +1,13 @@
 ---
-title: As fresh as it gets
+title: Post Title Three
 layout: PostLayout
 date: '2021-07-01'
 excerpt: |-
-  Same day delivery, cleaned, on ice, ready to be eaten.
+  Facilisis dui. Nulla molestie risus in mi dapibus, eget porta lorem semper. Donec sed facilisis nibh.
 thumbImage:
   type: ImageBlock
-  url: https://source.unsplash.com/ExM4EPGT_s4/640x480
-  altText: Mackerels
+  url: "/images/post-2.jpeg"
+  altText: "Post Image"
 bottomSections:
   - type: CtaSection
     variant: variant-b

@@ -1,13 +1,13 @@
 ---
-title: Bi-weekly subscription
+title: Post Title Two
 layout: PostLayout
-date: '2021-06-28'
+date: '2021-07-01'
 excerpt: |-
-  This feature is the thing you were missing in your workflow, thank god we have it for you to use.
+  Sed in facilisis dui. Nulla molestie risus in mi dapibus, eget porta lorem semper. Donec sed facilisis nibh.
 thumbImage:
   type: ImageBlock
-  url: https://source.unsplash.com/pRQCTeQTDwE/640x480
-  altText: Raw fish, spices, lemon
+  url: "/images/post-3.jpeg"
+  altText: "Post Image"
 bottomSections:
   - type: CtaSection
     variant: variant-b
