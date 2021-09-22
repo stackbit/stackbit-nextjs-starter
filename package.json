@@ -12,9 +12,9 @@
         "analyze:browser": "BUNDLE_ANALYZE=browser next build"
     },
     "dependencies": {
-        "axios": "^0.18.0",
         "@stackbit/cli": "^0.1.14",
-        "@stackbit/components": "0.1.19",
+        "@stackbit/components": "^0.1.20",
+        "axios": "^0.18.0",
         "change-case": "^4.1.2",
         "classnames": "^2.3.1",
         "jose": "^3.14.3",
