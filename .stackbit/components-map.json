@@ -23,7 +23,6 @@
         "TextFormControl": null,
         "TextSection": null,
         "VideoBlock": null,
-        "FeatureSection": null,
         "AdvancedLayout": null,
         "PostLayout": null
     },
@@ -44,7 +43,6 @@
         "TextFormControl": "@stackbit/components/components/TextFormControl",
         "TextSection": "@stackbit/components/components/TextSection",
         "VideoBlock": "@stackbit/components/components/VideoBlock",
-        "FeatureSection": "@stackbit/components/components/FeatureSection",
         "AdvancedLayout": "@stackbit/components/layouts/AdvancedLayout",
         "PostLayout": "@stackbit/components/layouts/PostLayout",
         "ExampleSection": "../src/components/ExampleSection.js"
