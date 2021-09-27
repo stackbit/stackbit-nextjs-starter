@@ -1,6 +1,6 @@
 ---
 title: Blog
-layout: AdvancedLayout
+layout: PageLayout
 sections:
   - type: FeaturedPostsSection
     variant: variant-a

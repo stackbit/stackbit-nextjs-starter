@@ -23,7 +23,7 @@
         "TextFormControl": null,
         "TextSection": null,
         "VideoBlock": null,
-        "AdvancedLayout": null,
+        "PageLayout": null,
         "PostLayout": null
     },
     "dynamic": {
@@ -43,7 +43,7 @@
         "TextFormControl": "@stackbit/components/components/TextFormControl",
         "TextSection": "@stackbit/components/components/TextSection",
         "VideoBlock": "@stackbit/components/components/VideoBlock",
-        "AdvancedLayout": "@stackbit/components/layouts/AdvancedLayout",
+        "PageLayout": "@stackbit/components/layouts/PageLayout",
         "PostLayout": "@stackbit/components/layouts/PostLayout",
         "ExampleSection": "../src/components/ExampleSection.js"
     }

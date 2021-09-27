@@ -1,6 +1,6 @@
 ---
 title: Example Page
-layout: AdvancedLayout
+layout: PageLayout
 sections:
   - type: ContactSection
     variant: variant-b
