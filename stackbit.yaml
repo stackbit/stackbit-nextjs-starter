@@ -11,3 +11,14 @@ dataDir: content/data
 pagesDir: content/pages
 pageLayoutKey: layout
 objectTypeKey: type
+contentModels:
+  PageLayout:
+    isPage: true
+    urlPath: '/{slug}'
+    newFilePath: '{slug}.md'
+  PostLayout:
+    isPage: true
+    urlPath: '/blog/{slug}'
+    newFilePath: 'blog/{slug}.md'
+  Person:
+    newFilePath: 'team/{slug}.json'
