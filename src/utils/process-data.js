@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const { SignJWT } = require('jose/jwt/sign');
 const crypto = require('crypto');
 
@@ -20,6 +19,24 @@ function flattenMarkdownData() {
             objects
         };
     };
+}
+
+/**
+ *
+ * @param {Object} value
+ * @param {Array} path
+ * @param {*} [defaultValue]
+ * @return {*}
+ */
+const getDataFromPath = (value, path, defaultValue) => {
+    return path.reduce((acc, v) => {
+        try {
+            acc = acc[v]
+        } catch (e) {
+            return defaultValue
+        }
+        return acc;
+    }, value)
 }
 
 /**
@@ -119,7 +136,7 @@ function postProcessContactFormEmails() {
         });
         await Promise.all(
             paths.map(async (path) => {
-                const form = _.get(data, path);
+                const form = getDataFromPath(data, path);
                 form.destination = await postProcessContactFormEmail(form.destination);
             })
         );
