@@ -23,20 +23,23 @@ function flattenMarkdownData() {
 
 /**
  *
- * @param {Object} value
- * @param {Array} path
+ * @param {Object} object
+ * @param {Array | String} path
  * @param {*} [defaultValue]
  * @return {*}
  */
-const getDataFromPath = (value, path, defaultValue) => {
-    return path.reduce((acc, v) => {
-        try {
-            acc = acc[v];
-        } catch (e) {
+const getDataFromPath = (object, path = [], defaultValue) => {
+    if (typeof path === 'string') {
+        path = path.split('.');
+    }
+    for (const pathItem of path) {
+        if (pathItem in object) {
+            object = object[pathItem];
+        } else {
             return defaultValue;
         }
-        return acc;
-    }, value);
+    }
+    return object;
 };
 
 /**
