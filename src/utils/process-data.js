@@ -1,5 +1,5 @@
-const { SignJWT } = require('jose/jwt/sign');
-const crypto = require('crypto');
+const { SignJWT } = require('jose/jwt/sign')
+const crypto = require('crypto')
 
 function flattenMarkdownData() {
     return ({ data }) => {
@@ -9,16 +9,16 @@ function flattenMarkdownData() {
                     __metadata: object.__metadata,
                     ...object.frontmatter,
                     markdown_content: object.markdown || null
-                };
+                }
             }
-            return object;
-        });
+            return object
+        })
 
         return {
             ...data,
             objects
-        };
-    };
+        }
+    }
 }
 
 /**
@@ -35,7 +35,7 @@ const getDataFromPath = (value, path, defaultValue) => {
         } catch (e) {
             return defaultValue
         }
-        return acc;
+        return acc
     }, value)
 }
 
@@ -59,93 +59,93 @@ const getDataFromPath = (value, path, defaultValue) => {
 function resolveReferenceFields({ fieldNames = [], maxDepth = 2 } = {}) {
     return ({ data }) => {
         const objectsByFilePath = data.objects.reduce((map, object) => {
-            map[object.__metadata.id] = object;
-            return map;
-        }, {});
+            map[object.__metadata.id] = object
+            return map
+        }, {})
 
         const objects = data.objects.map((object) => {
-            let refKeyPathStack = [];
+            let refKeyPathStack = []
             return mapDeep(object, (value, keyPath) => {
                 if (keyPath.includes('__metadata')) {
-                    return value;
+                    return value
                 }
                 if (fieldNames.length !== 0 && !fieldNames.includes(keyPath[keyPath.length - 1])) {
-                    return value;
+                    return value
                 }
                 if (typeof value !== 'string') {
-                    return value;
+                    return value
                 }
                 if (!/\.(?:md|mdx|json|yml|yaml|toml)$/.test(value)) {
-                    return value;
+                    return value
                 }
-                const keyPathStr = keyPath.join('.');
+                const keyPathStr = keyPath.join('.')
                 while (refKeyPathStack.length && !keyPathStr.startsWith(refKeyPathStack[refKeyPathStack.length - 1])) {
-                    refKeyPathStack.pop();
+                    refKeyPathStack.pop()
                 }
                 if (refKeyPathStack.length > maxDepth) {
-                    return value;
+                    return value
                 }
                 if (value in objectsByFilePath) {
-                    refKeyPathStack.push(keyPath.join('.'));
-                    return objectsByFilePath[value];
+                    refKeyPathStack.push(keyPath.join('.'))
+                    return objectsByFilePath[value]
                 }
-                return value;
-            });
-        });
+                return value
+            })
+        })
 
         return {
             ...data,
             objects
-        };
-    };
+        }
+    }
 }
 
 function mapDeep(value, iteratee, _keyPath = [], _objectStack = []) {
-    value = iteratee(value, _keyPath, _objectStack);
+    value = iteratee(value, _keyPath, _objectStack)
     if (value && typeof value == 'object' && value.constructor === Object) {
         value = Object.entries(value).reduce((res, [key, val]) => {
-            res[key] = mapDeep(val, iteratee, _keyPath.concat(key), _objectStack.concat(value));
-            return res;
-        }, {});
+            res[key] = mapDeep(val, iteratee, _keyPath.concat(key), _objectStack.concat(value))
+            return res
+        }, {})
     } else if (Array.isArray(value)) {
-        value = value.map((val, key) => mapDeep(val, iteratee, _keyPath.concat(key), _objectStack.concat(value)));
+        value = value.map((val, key) => mapDeep(val, iteratee, _keyPath.concat(key), _objectStack.concat(value)))
     }
-    return value;
+    return value
 }
 
 async function postProcessContactFormEmail(contactEmail) {
     if (!process.env.STACKBIT_CONTACT_FORM_SECRET) {
-        console.error(`No STACKBIT_CONTACT_FORM_SECRET provided. It will not work properly for production build.`);
-        return contactEmail;
+        console.error(`No STACKBIT_CONTACT_FORM_SECRET provided. It will not work properly for production build.`)
+        return contactEmail
     }
-    const secretKey = crypto.createHash('sha256').update(process.env.STACKBIT_CONTACT_FORM_SECRET).digest();
+    const secretKey = crypto.createHash('sha256').update(process.env.STACKBIT_CONTACT_FORM_SECRET).digest()
 
-    return new SignJWT({ email: contactEmail }).setProtectedHeader({ alg: 'HS256' }).sign(secretKey);
+    return new SignJWT({ email: contactEmail }).setProtectedHeader({ alg: 'HS256' }).sign(secretKey)
 }
 
 function postProcessContactFormEmails() {
     return async ({ data }) => {
-        const paths = [];
+        const paths = []
 
         mapDeep(data, (val, keyPath) => {
             // form.destination
             if (val && val.type === 'FormBlock' && val.destination) {
-                paths.push([...keyPath]);
+                paths.push([...keyPath])
             }
-            return val;
-        });
+            return val
+        })
         await Promise.all(
             paths.map(async (path) => {
-                const form = getDataFromPath(data, path);
-                form.destination = await postProcessContactFormEmail(form.destination);
+                const form = getDataFromPath(data, path)
+                form.destination = await postProcessContactFormEmail(form.destination)
             })
-        );
-        return data;
-    };
+        )
+        return data
+    }
 }
 
 module.exports = {
     resolveReferenceFields,
     flattenMarkdownData,
     postProcessContactFormEmails
-};
+}
