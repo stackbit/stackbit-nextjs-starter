@@ -120,7 +120,7 @@ sections:
     form:
       type: FormBlock
       idAttr: contact-form
-      destination: 'test'
+      destination: ''
       action: /.netlify/functions/submission_created
       fields:
         - type: TextFormControl
