@@ -97,14 +97,18 @@ function mapDeep(value, iteratee, _keyPath = [], _objectStack = []) {
 }
 
 function resolvePageProps({ page, data, pagePropsResolvers = [] }) {
-    return reduceDeep(page, (accum, value, keyPath, objectStack) => {
-        return pagePropsResolvers.reduce((accum, resolver) => {
-            if (resolver.match(value, keyPath, objectStack)) {
-                Object.assign(accum, resolver.resolveProps(data));
-            }
-            return accum;
-        }, accum);
-    }, {});
+    return reduceDeep(
+        page,
+        (accum, value, keyPath, objectStack) => {
+            return pagePropsResolvers.reduce((accum, resolver) => {
+                if (resolver.match(value, keyPath, objectStack)) {
+                    Object.assign(accum, resolver.resolveProps(data));
+                }
+                return accum;
+            }, accum);
+        },
+        {}
+    );
 }
 
 function reduceDeep(value, iteratee, accum) {
