@@ -1,4 +1,3 @@
-const _ = require('lodash');
 const { SignJWT } = require('jose/jwt/sign');
 const crypto = require('crypto');
 
@@ -21,6 +20,27 @@ function flattenMarkdownData() {
         };
     };
 }
+
+/**
+ *
+ * @param {Object} object
+ * @param {Array | String} path
+ * @param {*} [defaultValue]
+ * @return {*}
+ */
+const getDataFromPath = (object, path = [], defaultValue) => {
+    if (typeof path === 'string') {
+        path = path.split('.');
+    }
+    for (const pathItem of path) {
+        if (pathItem in object) {
+            object = object[pathItem];
+        } else {
+            return defaultValue;
+        }
+    }
+    return object;
+};
 
 /**
  * Resolves reference fields to their data.
@@ -151,7 +171,7 @@ function postProcessContactFormEmails() {
         });
         await Promise.all(
             paths.map(async (path) => {
-                const form = _.get(data, path);
+                const form = getDataFromPath(data, path);
                 form.destination = await postProcessContactFormEmail(form.destination);
             })
         );
