@@ -13,7 +13,6 @@
         "FormBlock": null,
         "HeroSection": null,
         "ImageBlock": null,
-        "InlineMarkdown": null,
         "NavBar": null,
         "QuoteSection": null,
         "SelectFormControl": null,
@@ -24,7 +23,8 @@
         "TextSection": null,
         "VideoBlock": null,
         "PageLayout": null,
-        "PostLayout": null
+        "PostLayout": null,
+        "InlineMarkdown": null
     },
     "dynamic": {
         "CheckboxFormControl": "@stackbit/components/components/CheckboxFormControl",
