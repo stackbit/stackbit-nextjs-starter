@@ -1,37 +1,34 @@
 {
     "model": "HeroSection",
     "presets": [{
-            "label": "My Hero Section 1",
-            "thumbnail": "images/placeholder.png",
+            "label": "Image right",
+            "thumbnail": "images/hero-right.jpg",
             "data": {
-                "variant": "variant-a",
-                "title": "My Title!!!"
+                "variant": "variant-a"
             }
         },
         {
-            "label": "My Hero Section 2",
-            "thumbnail": "images/placeholder.png",
+            "label": "Image left",
+            "thumbnail": "images/hero-left.jpg",
             "data": {
-                "variant": "variant-a",
-                "title": "Another Title...",
-                "text": "Hello",
-                "actions": [{
-                    "label": "Stackbit",
-                    "url": "https://www.stackbit.com"
-                }]
+                "variant": "variant-b",
+                "badge": ""
             }
         },
         {
-            "label": "My Hero Section 3..",
-            "thumbnail": "images/placeholder.png",
+            "label": "Image top",
+            "thumbnail": "images/hero-top.jpg",
             "data": {
-                "variant": "variant-a",
-                "title": "Another Title!",
-                "text": "Hello",
-                "actions": [{
-                    "label": "hey",
-                    "url": "https://www.stackbit.com"
-                }]
+                "variant": "variant-c",
+                "badge": ""
+            }
+        },
+        {
+            "label": "Image bottom",
+            "thumbnail": "images/hero-bottom.jpg",
+            "data": {
+                "variant": "variant-d",
+                "badge": ""
             }
         }
     ]
