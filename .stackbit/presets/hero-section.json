@@ -2,14 +2,14 @@
     "model": "HeroSection",
     "presets": [{
             "label": "Image right",
-            "thumbnail": "images/hero-right.jpg",
+            "thumbnail": "images/hero-right.png",
             "data": {
                 "variant": "variant-a"
             }
         },
         {
             "label": "Image left",
-            "thumbnail": "images/hero-left.jpg",
+            "thumbnail": "images/hero-left.png",
             "data": {
                 "variant": "variant-b",
                 "badge": ""
@@ -17,7 +17,7 @@
         },
         {
             "label": "Image top",
-            "thumbnail": "images/hero-top.jpg",
+            "thumbnail": "images/hero-top.png",
             "data": {
                 "variant": "variant-c",
                 "badge": ""
@@ -25,7 +25,7 @@
         },
         {
             "label": "Image bottom",
-            "thumbnail": "images/hero-bottom.jpg",
+            "thumbnail": "images/hero-bottom.png",
             "data": {
                 "variant": "variant-d",
                 "badge": ""

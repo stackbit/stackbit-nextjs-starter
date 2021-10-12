@@ -2,7 +2,7 @@
     "model": "TestimonialsSection",
     "presets": [{
             "label": "Light image bottom, with title",
-            "thumbnail": "images/testimonials-light1.jpg",
+            "thumbnail": "images/testimonials-light1.png",
             "data": {
                 "variant": "variant-a",
                 "colors": "colors-a",
@@ -13,7 +13,7 @@
         },
         {
             "label": "Light image left, with title",
-            "thumbnail": "images/testimonials-light2.jpg",
+            "thumbnail": "images/testimonials-light2.png",
             "data": {
                 "variant": "variant-b",
                 "colors": "colors-a",
@@ -24,7 +24,7 @@
         },
         {
             "label": "Dark image bottom, without title",
-            "thumbnail": "images/testimonials-dark1.jpg",
+            "thumbnail": "images/testimonials-dark1.png",
             "data": {
                 "variant": "variant-a",
                 "colors": "colors-c",
@@ -35,7 +35,7 @@
         },
         {
             "label": "Dark image left, without title",
-            "thumbnail": "images/testimonials-dark2.jpg",
+            "thumbnail": "images/testimonials-dark2.png",
             "data": {
                 "variant": "variant-b",
                 "colors": "colors-c",

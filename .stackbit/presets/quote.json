@@ -2,7 +2,7 @@
     "model": "QuoteSection",
     "presets": [{
             "label": "With bg image, text left",
-            "thumbnail": "images/quote-image-bottom.jpg",
+            "thumbnail": "images/quote-image-bottom.png",
             "data": {
                 "colors": "colors-c",
                 "contentAlignHoriz": "left",
@@ -16,7 +16,7 @@
         },
         {
             "label": "With bg image, text rigth",
-            "thumbnail": "images/quote-image-top.jpg",
+            "thumbnail": "images/quote-image-top.png",
             "data": {
                 "colors": "colors-c",
                 "contentAlignHoriz": "right",
@@ -30,7 +30,7 @@
         },
         {
             "label": "Without bg imagem text left",
-            "thumbnail": "images/quote-dark-bottom.jpg",
+            "thumbnail": "images/quote-dark-bottom.png",
             "data": {
                 "colors": "colors-c",
                 "contentAlignHoriz": "left",
@@ -41,7 +41,7 @@
         },
         {
             "label": "Without bg imagem text right",
-            "thumbnail": "images/quote-dark-top.jpg",
+            "thumbnail": "images/quote-dark-top.png",
             "data": {
                 "colors": "colors-c",
                 "contentAlignHoriz": "right",

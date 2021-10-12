@@ -2,7 +2,7 @@
     "model": "CtaSection",
     "presets": [{
             "label": "Button bottom",
-            "thumbnail": "images/cta-bottom.jpg",
+            "thumbnail": "images/cta-bottom.png",
             "data": {
                 "variant": "variant-a",
                 "colors": "colors-c",
@@ -11,7 +11,7 @@
         },
         {
             "label": "Button right",
-            "thumbnail": "images/cta-right.jpg",
+            "thumbnail": "images/cta-right.png",
             "data": {
                 "variant": "variant-b",
                 "colors": "colors-c",
