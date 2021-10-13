@@ -1,6 +1,9 @@
 {
     "model": "PageLayout",
     "presets": [{
+            "label": "Landing",
+            "thumbnail": "images/placeholder.png"
+        }, {
             "label": "Contact",
             "thumbnail": "images/placeholder.png",
             "data": {
