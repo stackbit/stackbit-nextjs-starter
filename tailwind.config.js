@@ -14,24 +14,21 @@ module.exports = {
     theme: {
         extend: {
             colors: {
+                body: themeStyle.body,
+                headline: themeStyle.headline,
                 primary: themeStyle.primary,
                 secondary: themeStyle.secondary,
-                base: themeStyle.base,
-                'complementary-1': themeStyle['complementary-1'],
-                'complementary-2': themeStyle['complementary-2'],
-                info: themeStyle.info
+                neutral: themeStyle.neutral,
+                complementary: themeStyle.complementary,
+                'complementary-alt': themeStyle['complementary-alt'],
+                info: themeStyle.info,
+                success: themeStyle.success,
+                warning: themeStyle.warning
             }
         }
     },
     variants: {
         extend: {}
     },
-    plugins: [
-        plugin(function ({ addBase, theme }) {
-            addBase({
-                'h1': { fontSize: themeStyle.h1.size + 'px', lineHeight: themeStyle.h1.lineHeight + 'px', textDecoration: themeStyle.h1.decoration, fontWeight: themeStyle.h1.style },
-                'h2': { fontSize: themeStyle.h2.size + 'px', lineHeight: themeStyle.h2.lineHeight + 'px', textDecoration: themeStyle.h2.decoration, fontWeight: themeStyle.h2.style },
-            })
-        })
-    ]
+    plugins: []
 };

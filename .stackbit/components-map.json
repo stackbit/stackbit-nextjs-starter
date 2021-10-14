@@ -2,7 +2,6 @@
     "README": "Components set to 'null' will be loaded from @stackbit/components library. To override a component, set it to relative paths of your component",
     "components": {
         "Action": null,
-        "Badge": null,
         "CheckboxFormControl": null,
         "ContactSection": null,
         "CtaSection": null,
