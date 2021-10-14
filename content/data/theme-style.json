@@ -1,0 +1,22 @@
+{
+    "type": "ThemeStyle",
+    "h1": {
+        "style": "bold",
+        "size": 60,
+        "lineHeight": 60,
+        "decoration": "none"
+    },
+    "h2": {
+        "style": "bold",
+        "size": 48,
+        "lineHeight": 48,
+        "decoration": "none"
+    },
+    "primary": "#28aaff",
+    "secondary": "#dfe3e7",
+    "base": "#282f36",
+    "complimentary-1": "#e9f6ff",
+    "complimentary-2": "#fffde2",
+    "info": "#ffa928"
+
+}

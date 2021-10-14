@@ -11,6 +11,7 @@ dataDir: content/data
 pagesDir: content/pages
 pageLayoutKey: layout
 objectTypeKey: type
+styleObjectModelName: ThemeStyle
 contentModels:
   PageLayout:
     isPage: true
@@ -22,3 +23,107 @@ contentModels:
     newFilePath: 'blog/{slug}.md'
   Person:
     newFilePath: 'team/{slug}.json'
+models:
+  ThemeStyle:
+    type: data
+    name: ThemeStyle
+    label: Theme Style
+    file: theme-style.json
+    fieldGroups:
+      - name: text-styles
+        label: Text styles
+      - name: color-palettes
+        label: Color Palettes
+    fields:
+      - type: object
+        name: h1
+        label: H1
+        group: text-styles
+        fields:
+          - type: enum
+            name: style
+            label: Style
+            options:
+              - label: Bold
+                value: bold
+              - label: Normal
+                value: normal
+          - type: number
+            name: size
+            label: Font Size
+          - type: number
+            name: lineHeight
+            controlType: 'slider'
+            min: 0
+            max: 100
+            step: 2
+            unit: 'px'
+          - type: enum
+            name: decoration
+            label: Decoration
+            controlType: button-group
+            options:
+              - label: None
+                value: none
+              - label: Underline
+                value: underline
+              - label: Line-through
+                value: line-through
+      - type: object
+        name: h2
+        label: H2
+        group: text-styles
+        fields:
+          - type: enum
+            name: style
+            label: Style
+            options:
+              - label: Bold
+                value: bold
+              - label: Normal
+                value: normal
+          - type: number
+            name: size
+            label: Font Size
+          - type: number
+            name: lineHeight
+            controlType: 'slider'
+            min: 0
+            max: 100
+            step: 2
+            unit: 'px'
+          - type: enum
+            name: decoration
+            label: Decoration
+            controlType: button-group
+            options:
+              - label: None
+                value: none
+              - label: Underline
+                value: underline
+              - label: Line-through
+                value: line-through
+      - type: color
+        name: primary
+        label: Primary
+        group: color-palettes
+      - type: color
+        name: secondary
+        label: Secondary
+        group: color-palettes
+      - type: color
+        name: base
+        label: Base
+        group: color-palettes
+      - type: color
+        name: complimentary-1
+        label: Complimentary 1
+        group: color-palettes
+      - type: color
+        name: complimentary-2
+        label: Complimentary 2
+        group: color-palettes
+      - type: color
+        name: info
+        label: Info
+        group: color-palettes
