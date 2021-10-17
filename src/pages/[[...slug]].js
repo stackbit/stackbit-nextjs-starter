@@ -1,7 +1,7 @@
 import React from 'react';
 import { sourcebitDataClient } from 'sourcebit-target-next';
 import { withRemoteDataUpdates } from 'sourcebit-target-next/with-remote-data-updates';
-import { getDynamicComponent } from '@stackbit/components/components-registry';
+import { getComponent } from '@stackbit/components';
 
 function Page(props) {
     const { page, site } = props;
@@ -10,7 +10,7 @@ function Page(props) {
     if (!layout) {
         throw new Error(`page has no layout, page '${props.path}'`);
     }
-    const PageLayout = getDynamicComponent(layout);
+    const PageLayout = getComponent(layout);
     if (!PageLayout) {
         throw new Error(`no page layout matching the layout: ${layout}`);
     }

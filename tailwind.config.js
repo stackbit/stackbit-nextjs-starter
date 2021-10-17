@@ -3,11 +3,11 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 const themeStyle = require('./content/data/theme-style.json');
 
 module.exports = {
-    presets: [require('@stackbit/components/styles/default/tailwind.default.config.js')],
+    presets: [require('@stackbit/components/styles/default/tailwind.default.config')],
     mode: 'jit',
     purge: {
         enabled: true,
-        content: ['./src/**/*.{js,ts,jsx,tsx}', './node_modules/@stackbit/components/{base,layouts,components}/**/*.{js,ts,jsx,tsx}', './content/**' /* for ThemeStyle object */],
+        content: ['./src/**/*.{js,ts,jsx,tsx}', './node_modules/@stackbit/components/src/{base,layouts,components}/**/*.{js,ts,jsx,tsx}', './content/**' /* for ThemeStyle object */],
         safelist: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i']
     },
     darkMode: false,
