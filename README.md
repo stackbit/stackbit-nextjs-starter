@@ -119,11 +119,11 @@ sections: # sections array
 - [🧩 FeaturedPeopleSection](https://components.stackbit.com/?path=/docs/components-featuredpeoplesection--primary)
 - [🧩 FeaturedPostsSection](https://components.stackbit.com/?path=/docs/components-featuredpostssection--primary)
 
-### Adding your own components
+## Adding your own components
 
 In this example we will create a new component that displays a grid of logos.
 
-Create a new react component in `src/components/LogoSection.js`
+Create a new react component in `src/components/LogoSection.js`:
 
 ```js
 import React from 'react'
@@ -134,7 +134,7 @@ const LogoSection = (props) => {
     <div className="max-w-screen-xl mx-auto px-4 sm:px-6 py-14 lg:py-20 mt-10 mb-10 text-center">
       <h1 className="text-3xl tracking-tight sm:text-4xl mb-2">{title}</h1>
       <div className="flex justify-center items-center">
-        {logos.map((logo, index) => (
+        {(logos || []).map((logo, index) => (
           <div className="p-6" key={index}>
             <img className="mb-2" height="60px" width="60px" src={logo.image} />
             <h2 className="text-sm text-gray-400">{logo.name}</h2>
@@ -148,30 +148,37 @@ const LogoSection = (props) => {
 export default LogoSection
 ```
 
-Register the component in `.stackbit/components-map.json`
+Register the component in `src/components/register-components.js`:
 
 ```js
-{
-    "README": "Components set to 'null' will be loaded from @stackbit/components library. To override a component, set it to relative paths of your component",
-    "components": {
-        "Action": null,
-        ...
-        "LogoSection": "../src/components/LogoSection.js"
-    },
-    "dynamic": {
-        "CheckboxFormControl": "@stackbit/components/components/CheckboxFormControl",
-        ...
-        "LogoSection": "../src/components/LogoSection.js"
-    }
-}
+import dynamic from 'next/dynamic';
+import { registerComponents } from '@stackbit/components';
+import { componentsMap } from '@stackbit/components/dist/components-map';
+
+registerComponents({
+  // Register all Stackbit components
+  ...componentsMap,
+
+  // Override any static or dynamic component,
+  // or register your own dynamic component.
+  LogoSection: dynamic(() => import('./LogoSection'))
+  
+});
 ```
 
-Add a new model for the `LogoSection` component. Create a new model file at `.stackbit/models/LogoSection.yml`
+☝️ When registering dynamic components (i.e.: `dynamic(() => import('...'))`) the key should be the model name.
+In our case, the model name matches the component name so the key is `LogoSection`. 
 
-```yml
+By registering the `LogoSection` component, page components will be able to access and render this component. 
+
+Create a new model file at `.stackbit/models/LogoSection.yaml` which describes the data consumed by the `LogoSection` component:
+
+```yaml
 type: object
 name: LogoSection
 label: Logo section
+groups:
+  - sectionComponent
 fields:
   - type: string
     name: title
@@ -186,32 +193,11 @@ fields:
           name: image
 ```
 
-Extend the [🧩 AdvancedLayout](https://components.stackbit.com/?path=/docs/layouts-advancedlayout--primary) model. Open the model file at `.stackbit/models/AdvancedLayout.yml`
+☝️ By adding the `sectionComponent` to the `group` property you declare that the `LogoSection` object can be added to any content field that allows embedding objects belonging to that group. One of such fields is the `sections` field of the `PageLayout` model. 
 
-```yml
-type: page
-name: AdvancedLayout
-label: Advanced page
-layout: AdvancedLayout
-hideContent: true
-fields:
-  - type: string
-    name: title
-    label: Title
-  - type: list
-    name: sections
-    label: Sections
-    items:
-      type: model
-      models:
-        - ContactSection
-        ...
-        - LogoSection
-```
+Now add the `LogoSection` object to the list of `sections` in the home page located at `content/pages/index.md`:
 
-Add the component to the homepage content. Edit `content/pages/index.md`
-
-```yml
+```yaml
 ---
 title: Home
 layout: AdvancedLayout
@@ -233,7 +219,7 @@ Download the images and place them in the `/public/images/` folder.
 - https://simpleicons.org/icons/stackbit.svg
 - https://simpleicons.org/icons/nextdotjs.svg
 
-### Extending a Stackbit component
+## Extending a Stackbit component
 
 In this example we will extend an existing Stackbit component.
 
