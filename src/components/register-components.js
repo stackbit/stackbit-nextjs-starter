@@ -22,9 +22,9 @@ registerComponents({
  *
  * There are two groups of components you can register - "static" and "dynamic".
  *
- * The mapping key of a static component is the component name, and the value is the component itself. Static components
- * will usually be small components that are frequently used on website pages. To override a static component, set its
- * name to your custom component:
+ * Static components will usually be small components that are frequently used on website pages. The mapping key of a
+ * static component is the component name, and the value is the component itself. To override a static component, set
+ * its name to your custom component:
  *
  *     import CustomAction from './CustomAction';
  *
@@ -36,10 +36,10 @@ registerComponents({
  * Note: you don't need to register a new static component unless you override an existing static component from
  * @stackbit/components.
  *
- * The mapping key of a dynamic component is a model name, and the value is the component imported via Next's dynamic
- * import. The dynamic import ensures that dynamic components are loaded by the browser only when these components are
- * needed. You should use dynamic components for large components or components with heavy external dependencies, which
- * are used sparingly in your website's pages. To learn more about Nextjs dynamic imports visit:
+ * Dynamic components are registered using dynamic imports and are loaded by the browser only when these components are
+ * needed. The mapping key of a dynamic component is a model name, and the value is the component imported via Next's
+ * dynamic import. You should use dynamic components for large components or components with heavy external dependencies,
+ * which are used sparingly in your website's pages. To learn more about Nextjs dynamic imports visit:
  * https://nextjs.org/docs/advanced-features/dynamic-import
  *
  * Dynamic components are mapped by model names that describe the prop types of these components. This fact allows
