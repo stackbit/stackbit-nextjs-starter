@@ -3,11 +3,11 @@ import { registerComponents } from '@stackbit/components';
 import { componentsMap } from '@stackbit/components/dist/components-map';
 
 registerComponents({
-  // Register all Stackbit components
-  ...componentsMap,
+    // Register all Stackbit components
+    ...componentsMap
 
-  // Override any static or dynamic component,
-  // or register your own dynamic component.
+    // Override any static or dynamic component,
+    // or register your own dynamic component.
 });
 
 /**

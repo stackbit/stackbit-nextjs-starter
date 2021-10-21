@@ -126,10 +126,10 @@ In this example we will create a new component that displays a grid of logos.
 Create a new react component in `src/components/LogoSection.js`:
 
 ```js
-import React from 'react'
+import React from 'react';
 
 const LogoSection = (props) => {
-  const { logos, title } = props
+  const { logos, title } = props;
   return (
     <div className="max-w-screen-xl mx-auto px-4 sm:px-6 py-14 lg:py-20 mt-10 mb-10 text-center">
       <h1 className="text-3xl tracking-tight sm:text-4xl mb-2">{title}</h1>
@@ -142,10 +142,10 @@ const LogoSection = (props) => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default LogoSection
+export default LogoSection;
 ```
 
 Register the component in `src/components/register-components.js`:
@@ -162,14 +162,13 @@ registerComponents({
   // Override any static or dynamic component,
   // or register your own dynamic component.
   LogoSection: dynamic(() => import('./LogoSection'))
-  
 });
 ```
 
 ☝️ When registering dynamic components (i.e.: `dynamic(() => import('...'))`) the key should be the model name.
-In our case, the model name matches the component name so the key is `LogoSection`. 
+In our case, the model name matches the component name so the key is `LogoSection`.
 
-By registering the `LogoSection` component, page components will be able to access and render this component. 
+By registering the `LogoSection` component, page components will be able to access and render this component.
 
 Create a new model file at `.stackbit/models/LogoSection.yaml` which describes the data consumed by the `LogoSection` component:
 
@@ -193,7 +192,7 @@ fields:
           name: image
 ```
 
-☝️ By adding the `sectionComponent` to the `group` property you declare that the `LogoSection` object can be added to any content field that allows embedding objects belonging to that group. One of such fields is the `sections` field of the `PageLayout` model. 
+☝️ By adding the `sectionComponent` to the `group` property you declare that the `LogoSection` object can be added to any content field that allows embedding objects belonging to that group. One of such fields is the `sections` field of the `PageLayout` model.
 
 Now add the `LogoSection` object to the list of `sections` in the home page located at `content/pages/index.md`:
 
@@ -244,7 +243,7 @@ You can use any preset from 🎨 [Stackbit Styles](https://github.com/stackbit/s
 module.exports = {
   presets: [require('@stackbit/components/styles/retro/tailwind.retro.config')]
   // ...
-}
+};
 ```
 
 #### Editing the Tailwind config
