@@ -1,6 +1,6 @@
 stackbitVersion: ~0.4.0
 ssgName: nextjs
-nodeVersion: "14"
+nodeVersion: '14'
 cmsName: git
 assets:
   referenceType: static
@@ -28,7 +28,7 @@ models:
     type: data
     name: ThemeStyle
     label: Theme Style
-    file: theme-style.json
+    file: style.json
     fieldGroups:
       - name: color-palettes
         label: Color Palettes
