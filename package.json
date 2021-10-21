@@ -1,7 +1,6 @@
 {
-    "name": "stackbit-nextjs-v2",
+    "name": "stackbit-nextjs-starter",
     "version": "0.1.0",
-    "private": true,
     "scripts": {
         "dev": "next dev",
         "build": "next build && next export",
@@ -13,7 +12,7 @@
     },
     "dependencies": {
         "@stackbit/cli": "^0.1.14",
-        "@stackbit/components": "0.1.31",
+        "@stackbit/components": "0.1.32",
         "axios": "^0.18.0",
         "classnames": "^2.3.1",
         "jose": "^3.14.3",

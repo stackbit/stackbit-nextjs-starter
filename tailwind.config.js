@@ -1,9 +1,9 @@
 const plugin = require('tailwindcss/plugin');
 const defaultTheme = require('tailwindcss/defaultTheme');
-// require style
+// const themeStyle = require('./content/data/style.json');
 
 module.exports = {
-    presets: [require('@stackbit/components/styles/default/tailwind.default.config.js')],
+    presets: [require('@stackbit/components/styles/tailwind.default.config.js')],
     mode: 'jit',
     purge: {
         enabled: true,
@@ -13,7 +13,7 @@ module.exports = {
     darkMode: false,
     theme: {
         extend: {
-            // ...style
+            // ...themeStyle
         }
     },
     variants: {
