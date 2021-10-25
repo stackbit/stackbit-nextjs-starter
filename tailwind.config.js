@@ -13,7 +13,15 @@ module.exports = {
     darkMode: false,
     theme: {
         extend: {
-            // ...themeStyle
+            colors: {
+                body: themeStyle.body,
+                headlines: themeStyle.headlines,
+                primary: themeStyle.primary,
+                secondary: themeStyle.secondary,
+                neutral: themeStyle.neutral,
+                complementary: themeStyle.complementary,
+                'complementary-alt': themeStyle.complementaryAlt
+            }
         }
     },
     variants: {
