@@ -67,23 +67,27 @@ module.exports = {
 };
 
 // Use pagePropsResolvers array to define what additional props a page should get based on one of its nested values.
-// Every item in the array should be an object with two methods - `match` and `resolveProps`.
-// match: (value: string, keyPath: string[]) => boolean
-// resolveProps: (data: any) => any
-// The `match` method is recursively called for every nested value of the page object, starting with the page itself.
-// When `match` returns true, the `resolveProps(data)` is called and its return value is merged with page props.
+// Every item in the array should be a function that receives an option object:
+// (value: string, keyPath: string[], objectStack: any[], data: any) => any
+// The function is recursively called for every nested value of the page object, starting with the page itself.
+// If the function returns an object, it will be merged with page props. The function can also mutate the page props
+// by updating props of the received value or the objectStack
 const pagePropsResolvers = [
-    {
-        match: (value, keyPath) => {
-            if (typeof value !== 'string' || keyPath.length === 0) {
-                return false;
-            }
-            const key = keyPath[keyPath.length - 1];
-            return key === 'type' && value === 'LatestPostsSection';
-        },
-        resolveProps: (data) => {
-            const posts = data.filter((page) => page.layout === 'PostLayout');
-            return { posts };
+    ({ value, keyPath, objectStack, data }) => {
+        if (typeof value !== 'string' || keyPath.length === 0) {
+            return;
+        }
+        const key = keyPath[keyPath.length - 1];
+        if (key !== 'type' || value !== 'PostFeedSection') {
+            return;
+        }
+        const section = objectStack[objectStack.length - 1];
+        const posts = data.filter((page) => page.layout === 'PostLayout').sort((x, y) => +new Date(y.date) - +new Date(x.date));
+        if (section.showRecent) {
+            const recentCount = section.recentCount || 6;
+            section.posts = posts.slice(0, recentCount);
+        } else {
+            section.posts = posts;
         }
     }
 ];
