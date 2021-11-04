@@ -73,17 +73,31 @@ module.exports = {
 // The `match` method is recursively called for every nested value of the page object, starting with the page itself.
 // When `match` returns true, the `resolveProps(data)` is called and its return value is merged with page props.
 const pagePropsResolvers = [
-    {
-        match: (value, keyPath) => {
-            if (typeof value !== 'string' || keyPath.length === 0) {
-                return false;
-            }
-            const key = keyPath[keyPath.length - 1];
-            return key === 'type' && value === 'LatestPostsSection';
-        },
-        resolveProps: (data) => {
-            const posts = data.filter((page) => page.layout === 'PostLayout');
-            return { posts };
+    ({ value, keyPath, objectStack, data }) => {
+        if (typeof value !== 'string' || keyPath.length === 0) {
+            return;
+        }
+        const key = keyPath[keyPath.length - 1];
+        if (key !== 'type' || value !== 'PostFeedSection') {
+            return;
+        }
+        const section = objectStack[objectStack.length - 1];
+        let posts = data.filter((page) => page.layout === 'PostLayout');
+        posts = posts.sort((x, y) => +new Date(y.date) - +new Date(x.date));
+        if (section.author?.id) {
+            posts = posts.filter((page) => page.author?.id === section.author?.id);
+        }
+        if (section.category?.id) {
+            posts = posts.filter((page) => (page.categories || []).find( ({ id }) => id === section.category?.id ));
+        }
+        if (section.tag?.id) {
+            posts = posts.filter((page) => (page.tags || []).find( ({ id }) => id === section.tag?.id ));
+        }
+        if (section.showRecent) {
+            const recentCount = section.recentCount || 6;
+            section.posts = posts.slice(0, recentCount);
+        } else {
+            section.posts = posts;
         }
     }
 ];
