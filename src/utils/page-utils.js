@@ -7,7 +7,6 @@ function urlPathFromFilePath(filePath) {
         parts.push(pathObject.name);
     }
     const urlPath = parts.join('/').toLowerCase();
-    urlPath.substr(-1) === '/' ? urlPath.slice(0, -1) : urlPath;
     return '/' + urlPath;
 }
 
@@ -26,7 +25,28 @@ function cssClassesFromFilePath(filePath) {
     return cssClasses;
 }
 
+function flattenMarkdownData() {
+    return ({ data }) => {
+        const objects = data.objects.map((object) => {
+            if ('frontmatter' in object) {
+                return {
+                    __metadata: object.__metadata,
+                    ...object.frontmatter,
+                    markdown_content: object.markdown || null
+                };
+            }
+            return object;
+        });
+
+        return {
+            ...data,
+            objects
+        };
+    };
+}
+
 module.exports = {
     urlPathFromFilePath,
-    cssClassesFromFilePath
+    cssClassesFromFilePath,
+    flattenMarkdownData
 };
