@@ -54,12 +54,10 @@ const StaticPropsResolvers = {
     PostFeedLayout: (props, data) => {
         const numOfPostsPerPage = props.numOfPostsPerPage || 10;
         const allPosts = getAllPostsSorted(data.objects);
-        const { pageIndex, numOfPages, numOfTotalItems, items: posts } = getPagedItemsForPage(props, allPosts, numOfPostsPerPage);
+        const { items: posts, ...rest } = getPagedItemsForPage(props, allPosts, numOfPostsPerPage);
         return {
             ...props,
-            pageIndex,
-            numOfPages,
-            numOfTotalItems,
+            ...rest,
             posts
         };
     },
@@ -67,12 +65,10 @@ const StaticPropsResolvers = {
         const categoryId = props.__metadata?.id;
         const numOfPostsPerPage = props.numOfPostsPerPage || 10;
         const allCategoryPosts = getAllCategoryPostsSorted(data.objects, categoryId);
-        const { pageIndex, numOfPages, numOfTotalItems, items: posts } = getPagedItemsForPage(props, allCategoryPosts, numOfPostsPerPage);
+        const { items: posts, ...rest } = getPagedItemsForPage(props, allCategoryPosts, numOfPostsPerPage);
         return {
             ...props,
-            pageIndex,
-            numOfPages,
-            numOfTotalItems,
+            ...rest,
             posts
         };
     },
@@ -80,12 +76,10 @@ const StaticPropsResolvers = {
         const tagId = props.__metadata?.id;
         const numOfPostsPerPage = props.numOfPostsPerPage || 10;
         const allTagPosts = getAllTagPostsSorted(data.objects, tagId);
-        const { pageIndex, numOfPages, numOfTotalItems, items: posts } = getPagedItemsForPage(props, allTagPosts, numOfPostsPerPage);
+        const { items: posts, ...rest } = getPagedItemsForPage(props, allTagPosts, numOfPostsPerPage);
         return {
             ...props,
-            pageIndex,
-            numOfPages,
-            numOfTotalItems,
+            ...rest,
             posts
         };
     },
