@@ -76,14 +76,18 @@ export function generatePagedPathsForPage(page, items, numOfItemsPerPage) {
 
 export function getPagedItemsForPage(page, items, numOfItemsPerPage) {
     const pageUrlPath = page.__metadata?.urlPath;
+    const baseUrlPath = getRootPagePath(pageUrlPath);
     const pageIndexMatch = pageUrlPath.match(/\/page\/(\d+)$/);
     const pageIndex = pageIndexMatch ? parseInt(pageIndexMatch[1]) - 1 : 0;
     const numOfPages = Math.ceil(items.length / numOfItemsPerPage) || 1;
+    const startIndex = pageIndex * numOfItemsPerPage;
+    const endIndex = startIndex + numOfItemsPerPage;
     return {
         pageIndex,
+        baseUrlPath,
         numOfPages: numOfPages,
         numOfTotalItems: items.length,
-        items: items.slice(pageIndex, pageIndex + numOfItemsPerPage)
+        items: items.slice(startIndex, endIndex)
     };
 }
 
