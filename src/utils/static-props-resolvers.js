@@ -3,12 +3,12 @@ import crypto from 'crypto';
 
 import {
     getRootPagePath,
-    findObjectById,
+    resolveReferenceField,
+    resolveReferenceArray,
     getAllPostsSorted,
     getAllCategoryPostsSorted,
     getAllTagPostsSorted,
     getPagedItemsForPage,
-    mapObjectsById,
     mapDeepAsync
 } from './data-utils';
 
@@ -27,29 +27,24 @@ export function resolveStaticProps(urlPath, data) {
         },
         ...data.props
     };
-    return mapDeepAsync(props, async (value, keyPath, stack) => {
-        const objectType = value?.type || value?.layout;
-        if (objectType && StaticPropsResolvers[objectType]) {
-            const resolver = StaticPropsResolvers[objectType];
-            return resolver(value, data, { keyPath, stack });
-        }
-        return value;
-    });
+    return mapDeepAsync(
+        props,
+        async (value, keyPath, stack) => {
+            const objectType = value?.type || value?.layout;
+            if (objectType && StaticPropsResolvers[objectType]) {
+                const resolver = StaticPropsResolvers[objectType];
+                return resolver(value, data, { keyPath, stack });
+            }
+            return value;
+        },
+        { postOrder: true }
+    );
 }
 
 const StaticPropsResolvers = {
     PostLayout: (props, data, debugContext) => {
-        if (!props.author) {
-            return props;
-        }
-        const author = findObjectById(props.author, data.objects, {
-            keyPath: debugContext.keyPath.concat('author'),
-            stack: debugContext.stack.concat(props)
-        });
-        return {
-            ...props,
-            author
-        };
+        props = resolveReferenceField(props, 'author', data.objects, debugContext);
+        return props;
     },
     PostFeedLayout: (props, data) => {
         const numOfPostsPerPage = props.numOfPostsPerPage || 10;
@@ -91,22 +86,12 @@ const StaticPropsResolvers = {
         };
     },
     FeaturedPostsSection: (props, data, debugContext) => {
-        return {
-            ...props,
-            posts: mapObjectsById(props.posts, data.objects, {
-                keyPath: debugContext.keyPath.concat('posts'),
-                stack: debugContext.stack.concat(props)
-            })
-        };
+        props = resolveReferenceArray(props, 'posts', data.objects, debugContext);
+        return props;
     },
     FeaturedPeopleSection: (props, data, debugContext) => {
-        return {
-            ...props,
-            people: mapObjectsById(props.people, data.objects, {
-                keyPath: debugContext.keyPath.concat('people'),
-                stack: debugContext.stack.concat(props)
-            })
-        };
+        props = resolveReferenceArray(props, 'people', data.objects, debugContext);
+        return props;
     },
     FormBlock: async (props) => {
         if (!props.destination) {

@@ -23,6 +23,34 @@ export function sortPosts(posts) {
     return posts.sort((postA, postB) => new Date(postB.date).getTime() - new Date(postA.date).getTime());
 }
 
+export function resolveReferenceField(props, fieldName, objects, debugContext) {
+    if (!(fieldName in props)) {
+        return props;
+    }
+    const result = findObjectById(props[fieldName], objects, {
+        keyPath: debugContext.keyPath.concat(fieldName),
+        stack: debugContext.stack.concat(props)
+    });
+    return {
+        ...props,
+        [fieldName]: result
+    };
+}
+
+export function resolveReferenceArray(props, fieldName, objects, debugContext) {
+    if (!(fieldName in props)) {
+        return props;
+    }
+    const result = mapObjectsById(props[fieldName], objects, {
+        keyPath: debugContext.keyPath.concat(fieldName),
+        stack: debugContext.stack.concat(props)
+    });
+    return {
+        ...props,
+        [fieldName]: result
+    };
+}
+
 export function mapObjectsById(objectIds, objects, debugContext) {
     return (objectIds ?? [])
         .map((objectId, index) =>
@@ -91,9 +119,12 @@ export function getPagedItemsForPage(page, items, numOfItemsPerPage) {
     };
 }
 
-export async function mapDeepAsync(value, iteratee) {
+export async function mapDeepAsync(value, iteratee, options = {}) {
+    const postOrder = options?.postOrder ?? false;
     async function _mapDeep(value, keyPath, stack) {
-        value = await iteratee(value, keyPath, stack);
+        if (!postOrder) {
+            value = await iteratee(value, keyPath, stack);
+        }
         const childrenIterator = (val, key) => {
             return _mapDeep(val, keyPath.concat(key), stack.concat([value]));
         };
@@ -105,6 +136,9 @@ export async function mapDeepAsync(value, iteratee) {
             value = res;
         } else if (Array.isArray(value)) {
             value = await Promise.all(value.map(childrenIterator));
+        }
+        if (postOrder) {
+            value = await iteratee(value, keyPath, stack);
         }
         return value;
     }

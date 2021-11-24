@@ -12,17 +12,14 @@ function urlPathFromFilePath(filePath) {
 
 function cssClassesFromFilePath(filePath) {
     const pathObject = path.parse(filePath);
-    const cssClasses = [];
     const parts = pathObject.dir.split(path.sep).filter(Boolean);
+    parts.push(pathObject.name);
 
     let css = 'page';
-    parts.forEach((part) => {
-        css += '-' + part;
-        cssClasses.push(css);
+    return parts.map((part) => {
+        css += `-${part}`;
+        return css;
     });
-    cssClasses.push(`${css}-${pathObject.name}`);
-
-    return cssClasses;
 }
 
 function flattenMarkdownData() {

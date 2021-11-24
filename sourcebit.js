@@ -47,8 +47,8 @@ module.exports = {
                     return { site };
                 },
                 pages: (objects) => {
-                    const pages = objects.filter((page) => page.__metadata.sourceName === 'pages');
-                    return pages.map((page) => {
+                    const pageObjects = objects.filter((page) => page.__metadata.sourceName === 'pages');
+                    return pageObjects.map((page) => {
                         const urlPath = urlPathFromFilePath(page.__metadata.relSourcePath);
                         const pageCssClasses = cssClassesFromFilePath(page.__metadata.relSourcePath);
                         const { __metadata, ...restProps } = page;
