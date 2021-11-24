@@ -28,7 +28,7 @@ contentModels:
     urlPath: '/blog'
     singleInstance: true
     newFilePath: 'blog/index.md'
-  PostCategoryLayout:
+  PostFeedCategoryLayout:
     isPage: true
     urlPath: '/blog/category/{slug}'
     newFilePath: 'blog/category/{slug}.md'

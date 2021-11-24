@@ -56,7 +56,7 @@ const StaticPropsResolvers = {
             posts
         };
     },
-    PostCategoryLayout: (props, data) => {
+    PostFeedCategoryLayout: (props, data) => {
         const categoryId = props.__metadata?.id;
         const numOfPostsPerPage = props.numOfPostsPerPage || 10;
         const allCategoryPosts = getAllCategoryPostsSorted(data.objects, categoryId);

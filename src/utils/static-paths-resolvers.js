@@ -18,7 +18,7 @@ const StaticPathsResolvers = {
         const numOfPostsPerPage = page.numOfPostsPerPage || 10;
         return generatePagedPathsForPage(page, posts, numOfPostsPerPage);
     },
-    PostCategoryLayout: (page, objects) => {
+    PostFeedCategoryLayout: (page, objects) => {
         const categoryId = page.__metadata?.id;
         const numOfPostsPerPage = page.numOfPostsPerPage || 10;
         const categoryPosts = getAllCategoryPostsSorted(objects, categoryId);
