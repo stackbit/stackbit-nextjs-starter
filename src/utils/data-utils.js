@@ -94,6 +94,9 @@ export function getRootPagePath(pagePath) {
 
 export function generatePagedPathsForPage(page, items, numOfItemsPerPage) {
     const pageUrlPath = page.__metadata?.urlPath;
+    if (numOfItemsPerPage === 0) {
+        return [pageUrlPath];
+    }
     const numOfPages = Math.ceil(items.length / numOfItemsPerPage) || 1;
     const paths = [];
     for (let i = 0; i < numOfPages; i++) {
@@ -105,6 +108,15 @@ export function generatePagedPathsForPage(page, items, numOfItemsPerPage) {
 export function getPagedItemsForPage(page, items, numOfItemsPerPage) {
     const pageUrlPath = page.__metadata?.urlPath;
     const baseUrlPath = getRootPagePath(pageUrlPath);
+    if (numOfItemsPerPage === 0) {
+        return {
+            pageIndex: 0,
+            baseUrlPath,
+            numOfPages: 1,
+            numOfTotalItems: items.length,
+            items: items
+        };
+    }
     const pageIndexMatch = pageUrlPath.match(/\/page\/(\d+)$/);
     const pageIndex = pageIndexMatch ? parseInt(pageIndexMatch[1]) - 1 : 0;
     const numOfPages = Math.ceil(items.length / numOfItemsPerPage) || 1;
