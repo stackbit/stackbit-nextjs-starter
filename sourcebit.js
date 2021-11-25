@@ -1,5 +1,5 @@
 const path = require('path');
-const { flattenMarkdownData, cssClassesFromFilePath, urlPathFromFilePath } = require('./src/utils/page-utils');
+const { flattenMarkdownData, cssClassesFromFilePath, cssClassesFromUrlPath, urlPathFromFilePath } = require('./src/utils/page-utils');
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -47,20 +47,35 @@ module.exports = {
                     return { site };
                 },
                 pages: (objects) => {
-                    const pageObjects = objects.filter((page) => page.__metadata.sourceName === 'pages');
-                    return pageObjects.map((page) => {
-                        const urlPath = urlPathFromFilePath(page.__metadata.relSourcePath);
-                        const pageCssClasses = cssClassesFromFilePath(page.__metadata.relSourcePath);
-                        const { __metadata, ...restProps } = page;
+                    const personObjects = objects.filter((object) => object.__metadata.relProjectPath?.startsWith('content/data/team/') && !!object.slug);
+                    const personPages = personObjects.map((person) => {
+                        const { __metadata, ...restProps } = person;
+                        const urlPath = `/blog/author/${person.slug}`;
                         return {
                             __metadata: {
                                 ...__metadata,
                                 urlPath,
-                                pageCssClasses
+                                pageCssClasses: cssClassesFromUrlPath(urlPath)
                             },
                             ...restProps
                         };
                     });
+
+                    const pageObjects = objects.filter((page) => page.__metadata.sourceName === 'pages');
+                    const pages = pageObjects.map((page) => {
+                        const { __metadata, ...restProps } = page;
+                        const urlPath = urlPathFromFilePath(page.__metadata.relSourcePath);
+                        return {
+                            __metadata: {
+                                ...__metadata,
+                                urlPath,
+                                pageCssClasses: cssClassesFromFilePath(page.__metadata.relSourcePath)
+                            },
+                            ...restProps
+                        };
+                    });
+
+                    return [...pages, ...personPages];
                 }
             }
         }

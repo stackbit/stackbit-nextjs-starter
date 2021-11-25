@@ -9,10 +9,10 @@ export function getAllCategoryPostsSorted(objects, categoryId) {
     return sortPosts(categoryPosts);
 }
 
-export function getAllTagPostsSorted(objects, tagId) {
+export function getAllAuthorPostsSorted(objects, authorId) {
     const allPosts = getAllPosts(objects);
-    const tagPosts = allPosts.filter((post) => post.tags.includes(tagId));
-    return sortPosts(tagPosts);
+    const authorPosts = allPosts.filter((post) => post.author === authorId);
+    return sortPosts(authorPosts);
 }
 
 export function getAllPosts(objects) {
@@ -23,30 +23,69 @@ export function sortPosts(posts) {
     return posts.sort((postA, postB) => new Date(postB.date).getTime() - new Date(postA.date).getTime());
 }
 
-export function resolveReferenceField(props, fieldName, objects, debugContext) {
-    if (!(fieldName in props)) {
-        return props;
+export function resolveReferences(object, fieldPaths, objects, debugContext = { keyPath: [], stack: [] }) {
+    const _resolveDeep = (value, fieldNames, debugContext) => {
+        if (typeof value === 'string') {
+            const result = findObjectById(value, objects, debugContext);
+            return _resolveDeep(result, fieldNames, debugContext);
+        } else if (Array.isArray(value)) {
+            return value
+                .map((item, index) =>
+                    _resolveDeep(item, fieldNames, {
+                        keyPath: debugContext.keyPath.concat(index),
+                        stack: debugContext.stack.concat([value])
+                    })
+                )
+                .filter(Boolean);
+        }
+
+        if (!value || fieldNames.length === 0) {
+            return value;
+        }
+        const [fieldName, ...tail] = fieldNames;
+        if (!(fieldName in value)) {
+            return value;
+        }
+        const result = _resolveDeep(value[fieldName], tail, {
+            keyPath: debugContext.keyPath.concat(fieldName),
+            stack: debugContext.stack.concat(value)
+        });
+        return {
+            ...value,
+            [fieldName]: result
+        };
+    };
+
+    return fieldPaths.reduce((object, fieldPath) => {
+        const fieldNames = fieldPath.split('.');
+        return _resolveDeep(object, fieldNames, debugContext);
+    }, object);
+}
+
+export function resolveReferenceField(object, fieldName, objects, debugContext = { keyPath: [], stack: [] }) {
+    if (!(fieldName in object)) {
+        return object;
     }
-    const result = findObjectById(props[fieldName], objects, {
+    const result = findObjectById(object[fieldName], objects, {
         keyPath: debugContext.keyPath.concat(fieldName),
-        stack: debugContext.stack.concat(props)
+        stack: debugContext.stack.concat(object)
     });
     return {
-        ...props,
+        ...object,
         [fieldName]: result
     };
 }
 
-export function resolveReferenceArray(props, fieldName, objects, debugContext) {
-    if (!(fieldName in props)) {
-        return props;
+export function resolveReferenceArray(object, fieldName, objects, debugContext) {
+    if (!(fieldName in object)) {
+        return object;
     }
-    const result = mapObjectsById(props[fieldName], objects, {
+    const result = mapObjectsById(object[fieldName], objects, {
         keyPath: debugContext.keyPath.concat(fieldName),
-        stack: debugContext.stack.concat(props)
+        stack: debugContext.stack.concat(object)
     });
     return {
-        ...props,
+        ...object,
         [fieldName]: result
     };
 }
