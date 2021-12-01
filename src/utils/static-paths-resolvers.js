@@ -1,4 +1,4 @@
-import { getAllPosts, getAllCategoryPostsSorted, getAllAuthorPostsSorted, generatePagedPathsForPage } from './data-utils';
+import { getAllPosts, getAllCategoryPostsSorted, getAllTagPostsSorted, getAllAuthorPostsSorted, generatePagedPathsForPage } from './data-utils';
 
 export function resolveStaticPaths({ pages, objects }) {
     return pages.reduce((paths, page) => {
@@ -23,6 +23,12 @@ const StaticPathsResolvers = {
         const numOfPostsPerPage = page.numOfPostsPerPage ?? 10;
         const categoryPosts = getAllCategoryPostsSorted(objects, categoryId);
         return generatePagedPathsForPage(page, categoryPosts, numOfPostsPerPage);
+    },
+    PostFeedTagLayout: (page, objects) => {
+        const tagId = page.__metadata?.id;
+        const numOfPostsPerPage = page.numOfPostsPerPage ?? 10;
+        const tagPosts = getAllTagPostsSorted(objects, tagId);
+        return generatePagedPathsForPage(page, tagPosts, numOfPostsPerPage);
     },
     Person: (page, objects) => {
         const categoryId = page.__metadata?.id;

@@ -34,3 +34,8 @@ contentModels:
     singleInstance: false
     urlPath: '/blog/category/{slug}'
     newFilePath: 'blog/category/{slug}.md'
+  PostFeedTagLayout:
+    isPage: true
+    singleInstance: false
+    urlPath: '/blog/tag/{slug}'
+    newFilePath: 'blog/tag/{slug}.md'

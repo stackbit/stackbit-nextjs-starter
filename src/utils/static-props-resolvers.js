@@ -6,6 +6,7 @@ import {
     resolveReferences,
     getAllPostsSorted,
     getAllCategoryPostsSorted,
+    getAllTagPostsSorted,
     getAllAuthorPostsSorted,
     getPagedItemsForPage,
     mapDeepAsync
@@ -42,13 +43,13 @@ export function resolveStaticProps(urlPath, data) {
 
 const StaticPropsResolvers = {
     PostLayout: (props, data, debugContext) => {
-        return resolveReferences(props, ['author', 'category'], data.objects, debugContext);
+        return resolveReferences(props, ['author', 'category', 'tags'], data.objects, debugContext);
     },
     PostFeedLayout: (props, data) => {
         const numOfPostsPerPage = props.numOfPostsPerPage ?? 10;
         const allPosts = getAllPostsSorted(data.objects);
         const paginationData = getPagedItemsForPage(props, allPosts, numOfPostsPerPage);
-        const items = resolveReferences(paginationData.items, ['author', 'category'], data.objects);
+        const items = resolveReferences(paginationData.items, ['author', 'category', 'tags'], data.objects);
         return {
             ...props,
             ...paginationData,
@@ -60,7 +61,19 @@ const StaticPropsResolvers = {
         const numOfPostsPerPage = props.numOfPostsPerPage ?? 10;
         const allCategoryPosts = getAllCategoryPostsSorted(data.objects, categoryId);
         const paginationData = getPagedItemsForPage(props, allCategoryPosts, numOfPostsPerPage);
-        const items = resolveReferences(paginationData.items, ['author', 'category'], data.objects);
+        const items = resolveReferences(paginationData.items, ['author', 'category', 'tags'], data.objects);
+        return {
+            ...props,
+            ...paginationData,
+            items
+        };
+    },
+    PostFeedTagLayout: (props, data) => {
+        const tagId = props.__metadata?.id;
+        const numOfPostsPerPage = props.numOfPostsPerPage ?? 10;
+        const allTagPosts = getAllTagPostsSorted(data.objects, tagId);
+        const paginationData = getPagedItemsForPage(props, allTagPosts, numOfPostsPerPage);
+        const items = resolveReferences(paginationData.items, ['author', 'category', 'tags'], data.objects);
         return {
             ...props,
             ...paginationData,
@@ -71,7 +84,7 @@ const StaticPropsResolvers = {
         const authorId = props.__metadata?.id;
         const allAuthorPosts = getAllAuthorPostsSorted(data.objects, authorId);
         const paginationData = getPagedItemsForPage(props, allAuthorPosts, 10);
-        const items = resolveReferences(paginationData.items, ['author', 'category'], data.objects);
+        const items = resolveReferences(paginationData.items, ['author', 'category', 'tags'], data.objects);
         return {
             ...props,
             ...paginationData,
@@ -86,14 +99,14 @@ const StaticPropsResolvers = {
     },
     RecentPostsSection: (props, data) => {
         const allPosts = getAllPostsSorted(data.objects).slice(0, props.recentCount || 6);
-        const recentPosts = resolveReferences(allPosts, ['author', 'category'], data.objects);
+        const recentPosts = resolveReferences(allPosts, ['author', 'category', 'tags'], data.objects);
         return {
             ...props,
             posts: recentPosts
         };
     },
     FeaturedPostsSection: (props, data, debugContext) => {
-        return resolveReferences(props, ['posts.author', 'posts.category'], data.objects, debugContext);
+        return resolveReferences(props, ['posts.author', 'posts.category', 'posts.tags'], data.objects, debugContext);
     },
     FeaturedPeopleSection: (props, data, debugContext) => {
         return resolveReferences(props, ['people'], data.objects, debugContext);
